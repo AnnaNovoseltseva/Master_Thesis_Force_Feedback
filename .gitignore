@@ -1,0 +1,14 @@
+dist/
+*.aux
+*.acn
+*.bbl
+*.blg
+*.log
+*.idx
+*.out
+*.xdy
+*.toc
+*.lot
+*.lof
+*.fls
+*.fdb_latexmk

@@ -1,0 +1,82 @@
+% This template was originally by R. Jacob Vogelstein
+% Updated on March 1, 2010 by Noah J. Cowan
+
+\documentclass[12pt,letterpaper, oneside,final]{template/thesisClass}
+\special{papersize=8.5in,11in}
+\pdfpagewidth 8.5in
+\pdfpageheight 11.0in
+\makeatletter
+\let\@currsize\normalsize
+\makeatother
+\usepackage{acronym}
+\usepackage{cite}
+\usepackage{amsmath,amsfonts}
+\usepackage{graphicx}
+\graphicspath{{./figs/}}
+\usepackage{fixltx2e}
+\usepackage{array}
+% wrapfig is fragile: use sparingly
+\usepackage{wrapfig}
+%\usepackage{times}  % Use this for ugly fonts
+\usepackage[dvipsnames]{xcolor}
+\usepackage{fancyhdr}    % Use nice looking headers along with the required footer page numbers
+\usepackage{ifthen}
+\usepackage{lettrine}
+\usepackage{multirow}
+\usepackage{hyperref}
+%\usepackage[document]{ragged2e}
+\usepackage{caption}
+\usepackage{epigraph}
+\usepackage{setspace}
+
+%\usepackage[hypertex]{hyperref}
+
+%Define the header/footer style
+\pagestyle{fancy}
+\fancyhf{}
+
+\setlength{\headheight}{15pt}
+%\lhead{\leftmark}
+\cfoot{\thepage}
+\renewcommand{\headrulewidth}{0pt}
+\fancypagestyle{plain}{% Redefine ``plain'' style for chapter boundaries
+\fancyhf{} % clear all header and footer fields
+
+\fancyfoot[C]{\thepage} % except the center
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}}
+%\renewcommand\chaptername{}
+%\renewcommand\chaptermark{1}
+\renewcommand{\chaptermark}[1]{\markboth{ }{}}
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}} % New command to make the lines in the title page
+\newcommand{\notes}[1]{\textcolor{black}{\textbf{#1}}}
+
+
+%\tolerance=10000
+
+%\makeglossary % enable the glossary
+
+\begin{document}
+
+\title{AIM LAB SAMPLE DISSERTATION TEMPLATE}
+\author{Weijian Shang}
+\degreemonth{June}
+\degreeyear{2014}
+\dissertation
+\doctorphilosophy
+\copyrightnotice
+
+% add your chapters, best way is to have separate TeX files for each chapter
+\input{./chapters/chapter0}
+\input{./chapters/chapter1}
+\input{./chapters/chapter2}
+\input{./chapters/chapter3}
+
+%% REFERENCES
+% if you use BIBTEX
+\begin{spacing}{1}
+\def\dsp{\def\baselinestretch{1.25}\large\normalsize}
+\bibliographystyle{template/IEEEtran}
+\bibliography{bibliography}
+\end{spacing}
+\end{document}
