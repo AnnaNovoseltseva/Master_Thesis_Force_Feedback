@@ -286,8 +286,10 @@
          \end{tabular}\par
  %       \vskip 1em
 %         \vskip 2em
-        {A dissertation submitted to The Worcester Polytechnic Institute in conformity with
-          the requirements for the degree of Doctor of Philosophy.\par}
+        {A Thesis submitted to the Faculty of the \par
+        WORCESTER POLYTECHNIC INSTITUTE \par
+        in partial fulfillment of the requirements for the \par
+        Degree of Master of Science in Biomedical Engineering\par}
         % {November 2012}\par
        % \end{center} \par
 
