@@ -1,0 +1,102 @@
+%%%%%%%%%%%%%%%%%%%%% chapter.tex %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% sample chapter
+%
+% Use this file as a template for your own input.
+%
+%%%%%%%%%%%%%%%%%%%%%%%% Springer-Verlag %%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\begin{savequote}[8cm]
+%  ``Veni, vidi, vici.''
+%  \qauthor{Julius Caesar}
+%\end{savequote}
+
+
+\chapter{Methods}
+\label{methods} % Always give a unique label
+% use \chaptermark{}
+% to alter or adjust the chapter heading in the running head
+
+This chapter introduces methods and methodology of this work.
+
+\section{COMSOL Simulation Models}
+\label{sec:SimMod}
+
+The shaft and cannula material are unknown, so we studied their elasticity modulus, .. experimentally.
+
+\subsection{Elasticity Modulus Measurements}
+\label{sec:ElasMod}
+Elasticity Modulus of the shaft and the cannula were found experimentally (Figure 1). One end of the observing sample (shaft or cannula) was fixed and the force was applied on the other end. We used weights: 250g for the shaft and 555g for the cannula. The deformation was detected with dial indicator XXX. Experiment was done 5 times, average displacement value was used.
+...
+
+\section{Installation of Strain Gauges}
+\label{sec:instSG}
+
+The shaft was assumed to be made of Tecamax, but for gauge installation purposes materials for plastic was chosen as it is comparable in preparation. \cite{StrGugeInst}.
+
+First the working surface (glass) and tweezers were cleaned with Neutralizer 5. After that shaft surface preparation was started, using solvent degreaser GC-6 Isopropyl Alcohol. A gauge layout was then applied with a 4H drafting pencil. The surface was then conditioned with Conditioner A and the extra liquid was wiped with gauze. Finally, the surface was then neutralized with M-Prep Neutralizer 5A. \cite{StrGugeInst}
+
+The strain gauges were first placed on the glass and then transported using mylar tape onto the instrument surface. A thin layer of catalyst was applied on the strain gauge and given one minute to dry. Then adhesive M-BOND 200 was applied on the shaft, pressure was applied on the tape for one minute, then two more minutes to let it dry before the tape was removed. Then leads soldering was done by application of pats, and soldering them with thin wires. \cite{youtube}
+
+The methodology of the strain gauge application more specifically described in \cite{StrGugeInst}.
+
+In compliance with the literature \cite{StrGugeInst} for application of the strain gauge on metals, the same materials and technique can be used. Therefore, the same method to apply strain gauges on the cannula was used.
+
+On the shaft
+On the cannula
+On the aluminum sleeve
+On the nylon sleeve
+
+
+\section{Fabrication of the Sleeves}
+\label{sec:p1}
+
+Do not use 3D printed sleeves - causes non-linearity issue
+Use 350 Ohm strain-gauges and full-bridge circuit.
+So far the best design is Sleeve 1 - it is simple with linear output.
+
+
+\section{ROS}
+\label{sec:p2}
+
+Filtering - ideally small time delay. Total teleoperation cycle delay - less than 100ms (visually noticeable delay). Kalman filter? Use same parameters for both signals to get identical time delay.
+good article about changing baud rate.
+
+\section{Circuit and PCB}
+\label{sec:p3}
+
+Using Altium Designer 15.1 PCB was developed and manufactured elsewhere. 
+
+Write about how to calibrate the PCB itself and how it works.
+
+\section{Calibration}
+\label{section:Calibration}
+First we used set of weights applied in two directions, but since the system was too sensitive for direction of force, we had to change our approach of determining the force direction. It was decided to use optical tracking system for that purpose.
+
+\subsection{Calibration Setup}
+\label{sec:CalSetup}
+Tell how calibration with optical tracking system is working
+
+\subsection{Calibration of the Load Cell}
+\label{sec:CalLoadCell}
+
+\section{Experiments}
+\label{sec:Experims}
+
+\subsection{Distance from the cannula to the tip dependence from readings}
+\label{sec:DisExp}
+Distance from the cannula to the tip - measure - 3 ¼ inch. Maximum distance is 9 inches.
+
+\subsection{Noise analysis of the output signal}
+\label{sec:NoiseExp}
+Noise analysis was performed ..
+
+\subsection{Dependence on temperature}
+\label{sec:TempExp}
+Try in 36.6 Celsius and room temperature
+
+\subsection{Hysteresis}
+\label{sec:HystExp}
+Hysteresis was checked .. 
+We written separate program to check hysteresis
+
