@@ -3,28 +3,162 @@
 
 In this section we talk about all background knowledge necessary to 
 
-\section{Da Vinci Surgical System}
+\section{Teleoperated Surgical Robots}
 \label{sec:daVinci}
+Recently robots started to be extensively used for surgical procedures. The use of robots allows doctors to perform surgical procedures with high accuracy, repeatability and reliability. Which in turn results in reducing operation time, errors and post-operation injuries. Minimally invasive surgeries are beneficial for accurate procedures with minimal access to operated organs, e.g. neurosurgery, eye surgery, cardiac surgery, intravascular surgeries and etc.  Use of robots in minimally invasive procedures improves precision and reliabilty of surgeries. \cite{tavakoli_haptics_2008}
 
-Da Vinci is the first FDA approved surgical robotic system. It can be used for various types of surgeries such as cardiac, colorectal, thoracic, urological and gynecologic. More than 3 million operation were performed worldwide using da Vinci system. \cite{_intuitive_2018}
+There are two types of surgical devices, supporting and augmenting. 
+Supporting devices perform secondary functions to support the surgeon.  Some of them used for positioning and stabilization purposes of cameras, endoscopic tools, ultrasound probes and etc. Others to increase device dexterity or autonomy (dexterous and autonomous endoscopes).
 
+Augmenting devices are used to extend surgeon's ability in performing an operation. They can be divided in four categories. Hand-held tools are augmenting instruments that used for hand tremors reduction, for dexterity and navigation capability increase. Another type of augmenting devices are cooperatively-controlled tools, where the surgeon and the robot cooperatively manipulate the surgical device (e.g. ROBODOC system, Steady- Hand robot, LARS, the Neurobot, and the ACROBOT system). Teleoperated robots are type of augmenting tools, where surgeon controls the movements of a surgical robot via a surgeon's console (e.g. the da Vinci and the Zeus systems). And autonomous tools, which can perform some tasks (suturing and knot tying) autonomously. \cite{tavakoli_haptics_2008}
+
+
+\cite{lanfranco_robotic_2004} Today, many robots and robot enhancements are being researched and developed. Schurr et al at Eberhard Karls University’s section for minimally invasive surgery have developed a master-slave manipulator system that they call ARTEMIS.13 This system consists of 2 robotic arms that are controlled by a surgeon at a control console. Dario et al at the MiTech laboratory of Scuola Superiore Sant’Anna in Italy have developed a prototype miniature robotic system for computer-enhanced colonoscopy.14 This system provides the same functions as conventional colonoscopy systems but it does so with an inchworm-like locomotion using vacuum suction. By allowing the endoscopist to teleoperate or directly supervise this endoscope and with the functional integration of endoscopic tools, they believe this system is not only feasible but may expand the applications of endoluminal diagnosis and surgery. Several other laboratories, including the authors’, are designing and developing systems and models for reality-based haptic feedback in minimally invasive surgery and also combining visual servoing with haptic feedback for robot-assisted surgery.15–19
+
+In addition to Prodoc, ROBODOC and the systems mentioned above several other robotic systems have been commercially developed and approved by the FDA for general surgical use. These include the AESOP system (Computer Motion Inc., Santa Barbara, CA), a voice-activated robotic endoscope, and the comprehensive master-slave surgical robotic systems, Da Vinci (Intuitive Surgical Inc., Mountain View, CA) and Zeus (Computer Motion Inc., Santa Barbara, CA).
+
+The da Vinci and Zeus systems are similar in their capabilities but different in their approaches to robotic surgery. Both systems are comprehensive master-slave surgical robots with multiple arms operated remotely from a console with video assisted visualization and computer enhancement. In the da Vinci system (Fig. 1), which evolved from the telepresence machines developed for NASA and the US Army, there are essentially 3 components: a vision cart that holds a dual light source and dual 3-chip cameras, a master console where the operating surgeon sits, and a moveable cart, where 2 instrument arms and the camera arm are mounted.1 The camera arm contains dual cameras and the image generated is 3-dimensional. The master console consists of an image processing computer that generates a true 3-dimensional image with depth of field; the view port where the surgeon views the image; foot pedals to control electrocautery, camera focus, instrument/camera arm clutches, and master control grips that drive the servant robotic arms at the patient’s side.6 The instruments are cable driven and provide 7 degrees of freedom. This system displays its 3-dimensional image above the hands of the surgeon so that it gives the surgeon the illusion that the tips of the instruments are an extension of the control grips, thus giving the impression of being at the surgical site.
+
+figure 3FF1
+FIGURE 1. Da Vinci system set up. (Courtesy of Intuitive Surgical Inc., Mountain View, CA)
+The Zeus system is composed of a surgeon control console and 3 table-mounted robotic arms (Fig. 2). The right and left robotic arms replicate the arms of the surgeon, and the third arm is an AESOP voice-controlled robotic endoscope for visualization. In the Zeus system, the surgeon is seated comfortably upright with the video monitor and instrument handles positioned ergonomically to maximize dexterity and allow complete visualization of the OR environment. The system uses both straight shafted endoscopic instruments similar to conventional endoscopic instruments and jointed instruments with articulating end-effectors and 7 degrees of freedom.
+
+figure 3FF2
+FIGURE 2. Zeus system set up. (Courtesy of Computer Motion Inc., Santa Barbara, CA)
+Go to:
+ADVANTAGES OF ROBOT-ASSISTED SURGERY
+The advantages of these systems are many because they overcome many of the obstacles of laparoscopic surgery (Table 1). They increase dexterity, restore proper hand-eye coordination and an ergonomic position, and improve visualization (Table 2). In addition, these systems make surgeries that were technically difficult or unfeasible previously, now possible.
+
+Table thumbnail
+TABLE 1. Advantages and Disadvantages of Conventional Laparoscopic Surgery Versus Robot-Assisted Surgery
+Table thumbnail
+TABLE 2. Advantages and Disadvantages of Robot-Assisted Surgery Versus Conventional Surgery
+These robotic systems enhance dexterity in several ways. Instruments with increased degrees of freedom greatly enhance the surgeon’s ability to manipulate instruments and thus the tissues. These systems are designed so that the surgeons’ tremor can be compensated on the end-effector motion through appropriate hardware and software filters. In addition, these systems can scale movements so that large movements of the control grips can be transformed into micromotions inside the patient.6
+
+Another important advantage is the restoration of proper hand-eye coordination and an ergonomic position. These robotic systems eliminate the fulcrum effect, making instrument manipulation more intuitive. With the surgeon sitting at a remote, ergonomically designed workstation, current systems also eliminate the need to twist and turn in awkward positions to move the instruments and visualize the monitor.
+
+By most accounts, the enhanced vision afforded by these systems is remarkable. The 3-dimensional view with depth perception is a marked improvement over the conventional laparoscopic camera views. Also to one’s advantage is the surgeon’s ability to directly control a stable visual field with increased magnification and maneuverability. All of this creates images with increased resolution that, combined with the increased degrees of freedom and enhanced dexterity, greatly enhances the surgeon’s ability to identify and dissect anatomic structures as well as to construct microanastomoses.
+
+Go to:
+DISADVANTAGES OF ROBOT-ASSISTED SURGERY
+There are several disadvantages to these systems. First of all, robotic surgery is a new technology and its uses and efficacy have not yet been well established. To date, mostly studies of feasibility have been conducted, and almost no long-term follow up studies have been performed. Many procedures will also have to be redesigned to optimize the use of robotic arms and increase efficiency. However, time will most likely remedy these disadvantages.
+
+Another disadvantage of these systems is their cost. With a price tag of a million dollars, their cost is nearly prohibitive. Whether the price of these systems will fall or rise is a matter of conjecture. Some believe that with improvements in technology and as more experience is gained with robotic systems, the price will fall.6 Others believe that improvements in technology, such as haptics, increased processor speeds, and more complex and capable software will increase the cost of these systems.9 Also at issue is the problem of upgrading systems; how much will hospitals and healthcare organizations have to spend on upgrades and how often? In any case, many believe that to justify the purchase of these systems they must gain widespread multidisciplinary use.9
+
+Another disadvantage is the size of these systems. Both systems have relatively large footprints and relatively cumbersome robotic arms. This is an important disadvantage in today’s already crowded-operating rooms.9 It may be difficult for both the surgical team and the robot to fit into the operating room. Some suggest that miniaturizing the robotic arms and instruments will address the problems associated with their current size. Others believe that larger operating suites with multiple booms and wall mountings will be needed to accommodate the extra space requirements of robotic surgical systems. The cost of making room for these robots and the cost of the robots themselves make them an especially expensive technology.
+
+One of the potential disadvantages identified is a lack of compatible instruments and equipment. Lack of certain instruments increases reliance on tableside assistants to perform part of the surgery.6 This, however, is a transient disadvantage because new technologies have and will develop to address these shortcomings.
+
+Most of the disadvantages identified will be remedied with time and improvements in technology. Only time will tell if the use of these systems justifies their cost. If the cost of these systems remains high and they do not reduce the cost of routine procedures, it is unlikely that there will be a robot in every operating room and thus unlikely that they will be used for routine surgeries
+
+Senhance robot with force feedback, which is FDA approved. Principle - put 
+6-DOF force sensor 
+
+Da Vinci is the first FDA approved surgical robotic system. It can be used for 
+various types of surgeries such as cardiac, colorectal, thoracic, urological 
+and gynecologic. More than 3 million operation were performed worldwide using da Vinci system. \cite{_intuitive_2018}
 Effectiveness of da Vinci system in comparison to opened surgery and other systems \cite{yu_safety_2014}
+
+
+\section{Importance of Haptic Feedback}
+\label{sec:hapticFeedbackImportance}
+Write about studies with and without haptic feedback.
+
+It has been shown that incorporating force feedback into teleoperated sys- tems can reduce the magnitude of contact forces and therefore the energy consumption, the task completion time and the number of errors. In sev- eral studies [122, 147, 15], addition of force feedback is reported to achieve some or all of the following: reduction of the RMS force by 30% to 60%, the peak force by a factor of 2 to 6, the task completion time by 30% and the error rate by 60%. 
+
+In [106], a scenario is proposed to incorporate force feedback into the Zeus surgical system by integrating a PHANToM haptic input device into the system. In [85], a dextrous slave combined with a modified PHAN- ToM haptic master which is capable of haptic feedback in four DOFs is presented. A slave system which uses a modified Impulse Engine as the haptic master device is described in [30]. In [107], a telesurgery master- slave system that is capable of reflecting forces in three degrees of freedom (DOFs) is discussed. A master-slave system composed of a 6-DOF parallel slave micromanipulator and a 6-DOF parallel haptic master manipulator is described in [150]. Other examples of haptic surgical teleoperation include [93] and [11]. The haptics technology can also be used for surgical training and simulation purposes. For example, a 7-DOF haptic device that can be applied to surgical training is developed in [56]. A 5-DOF haptic mecha- nism that is used as part of a training simulator for urological operations is discussed in [146]. 
+
 
 \section{Current Approaches}
 \label{sec:CurAppr}
 
+
 Placing force sensors on the surgical instrument \cite{hong_design_2012}
+
+They suggest to the measure of pulling and grasp forces at the tip of surgical 
+instrument. For the design of the compliant forceps, the required compliance 
+characteristics are first defined using a simple spring model with one linear 
+and one torsional springs. This model may be directly realized as the compliant 
+forceps. However, for the compact realization of the mechanism, we synthesize 
+the spring model with two torsional springs that has equivalent compliance 
+characteristics to the linear-torsional spring model. Then, each of the 
+synthesized torsional springs is realized physically by means of a flexure 
+hinge. From this design approach, direct measurement of the pulling and grasp 
+forces is possible at the forceps, and measuring sensitivity can be adjusted 
+in the synthesis process. The validity of the design is evaluated by finite 
+element analysis. Further, from the measured values of bending strains of two 
+flexure hinges, a method to compute the decoupled pulling and grasp forces is 
+presented via the theory of screws. Finally, force- sensing performance of the 
+proposed compliant forceps is verified from the experiments of the prototype 
+using some weights and load cells. 10.1109/TRO.2012.2194889 
 
 Making new surgical instrument design \cite{schwalb_forcesensing_2017}
 
+Method In this paper a force-feedback enabled surgical robotic system is 
+described in which the developed force-sensing surgical tool is discussed in 
+detail. The developed surgical tool makes use of a proximally located 
+force/torque sensor, which, in contrast to a distally located sensor, 
+requires no miniaturization or sterilizability. Results Experimental results 
+are presented, and indicate high force sensing accuracies with errors <0.09 N. 
+Conclusions It is shown that developing a force-sensing surgical tool utilizing 
+a proximally located force/torque sensor is feasible, where a tool outer diameter 
+of 12 mm can be achieved. For future work it is desired to decrease the current 
+tool outer diameter to 10 mm. 
+
+Sensorless estimation methods
+
 Vision based solution \cite{aviles_towards_2017}
 
-measuring the proximal guide wire force \cite{yoon_design_2015}
+They proposed to use vision based solution with supervised learning to estimate 
+the applied force and provide the surgeon with a suitable representation of it.
+ The proposed solution starts with extracting the geometry of motion of the 
+ heart's surface by minimizing an energy functional to recover its 3D deformable 
+ structure. A deep network, based on a LSTM-RNN architecture, is then used to 
+ learn the relationship between the extracted visual-geometric information and 
+ the applied force, and to find accurate mapping between the two. Our proposed 
+ force estimation solution avoids the drawbacks usually associated with force 
+ sensing devices, such as biocompatibility and integration issues. We evaluate 
+ our approach on phantom and realistic tissues in which we report an average 
+ root-mean square error of 0.02 N.
 
-Senhance robot with force feedback, which is FDA approved. Principle - put 6-DOF force sensor 
+SLiding pertrubation observer
+
+This paper suggests a bilateral controller applying sliding perturbation 
+observer based force estimation method. In the suggested bilateral controller, 
+the master control uses impedance control and the slave control uses a sliding 
+mode control (SMC). A torque and force sensorless teleoperation system can be 
+implemented using the suggested bilateral control structure through an 
+experimental evaluation. This paper presents a method of estimating the 
+reaction force of the surgical robot instrument without sensors and attempts 
+to use state observer of control algorithm. Sliding mode control with sliding 
+perturbation observer (SMCSPO) is used to drive the instrument, where the 
+sliding perturbation observer (SPO) computes the amount of perturbation 
+defined as the combination of the uncertainties and nonlinear terms where 
+the major uncertainties arise from the reaction force. Based on this idea, 
+this paper proposes a method to estimate the reaction force on the end-effector 
+tip of the surgical robot instruments using only SPO and encoder without 
+any additional sensors. To evaluate the validity of this paper, experiment 
+was performed and the results showed that the estimated force computed from 
+SPO is similar to the actual force.
+
+Measuring the proximal guide wire force \cite{yoon_design_2015}
+
+They measure the proximal guide wire force and the force between the surgeon's 
+hand and the handle used on the Phantom, the force feedback closed-loop control 
+can effectively eliminate the loss of mechanical impedance of force feedback 
+information. The accuracy control of force feedback is greatly enhanced in the 
+aspect of security and the operation efficiency.
+
+Write about all disadvantages of previous methods.
+
+Tools - >limited lifetime - find citation
+
+Vision -> huge time delays, accuracy
+
+Wire force - > repeatability issue
 
 
-\section{Force sensors}
+\section{Force Sensors}
 \label{sec:ForceSensors}
 
 Two general principles dominate in force measurement: piezoelectric and strain-gauge sensors. \cite{SGandP1}
@@ -38,72 +172,7 @@ On the basis of the above mentioned, piezoelectric sensors are preferable for dy
 We can use QTC-pills, but it has no-linearity and hysteresis issues. We can test in the future.
 
 
-\section{Literature Review}
-\label{sec:LitRev}
-
-Write about all disadvantages of previous methods.
-
-Tools - >limited lifetime - find citation
-
-Vision -> huge time delays, accuracy
-
-Wire force - > repeatability issue
-
+\section{Contributions}
+\label{sec:MyAppr}
 Write about my approach
 Trying to put sensors on the shaft itself, on the cannula, on the sleeve to see where we get the most sensitive results
-
-Here is a figure: Fig.\ref{fig:exampleFigure} and here is a table: Table \ref{tab:Protocol}.
-
-\begin{figure}[h]
-  \begin{center}
-    \includegraphics[width=120mm]{Fig/chap1/innomotion.pdf}
-  \end{center}
-  \vspace{-4mm}
-\caption[CAD model of the Innomotion robotic system.]
-{This is a sample figure with a sample citation \cite{Fischer2008_TMECH} \copyright 2008 IEEE.}
- \label{fig:exampleFigure}
-\vspace{-2mm}
-\end{figure}
-
-\section{My approach}
-\label{sec:MyAppr}
-Trying to put sensors on the shaft itself, on the cannula, on the sleeve to see where we get the most sensitive results
-
-\subsection{Requirements for the device}
-\label{sec:DevReq}
-Biocompatibility
-
-Linearity
-
-Range of forces 
-Highest gripping force in Da Vinci tool was seen in the Hemo-lok[R] clip applier (39.92 [+ or -] 0.89 N).
-0.3 - 11 N. 
-Tensile strength and failure load of sutures for robotic surgery
-Others
-
-\subsection{Strain gauge}
-\label{sec:SGReq}
-According to the manual for strain gauge selection provided by Vishay Micro-Measurements. The strain gauge should have following parameters:
-• Gauge length is 0.8 mm. Ideally gauge length should be 10 \% of the shaft radius;
-• Single grid;
-• Isoelastic (D alloy) that has higher gauge factor with E backing;
-• Encapsulated with pre attached leads;
-• Resistance – 120 Ohms;
-• Gauge factor - 2;
-• STC – number (self-temperature-compensation): DY – dynamic
-Since the diameter of the shaft is only 8.5 mm, one of the most important parameters, in this
-case, is the size of the strain gauge. Another important parameter is gauge‘s resistance, sensitivity
-of the strain gauge drastically depends on this parameter. Strain gauges with different resistivity
-were used (350 and 120 Ohms and sizes of 6 x 2.5 mm).
-
-\subsection{Sleeve designs}
-\label{sec:SlevDes}
-We designed different sleeves to get..
-
-\subsection{Sensor Location}
-\label{sec:SenLoc}
-Sensor location on sleeves, shaft and cannula - include COMSOL studies
-Strain Gauge Placement
-A qualitative analysis was done in Solidworks to assess better placement of the strain gauges on the shaft or cannula. First we found elasticity modulus of the shaft and cannula, and used them for further analysis.
-
-
