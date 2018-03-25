@@ -5,59 +5,24 @@ In this section we talk about all background knowledge necessary to
 
 \section{Teleoperated Surgical Robots}
 \label{sec:daVinci}
-Recently robots started to be extensively used for surgical procedures. The use of robots allows doctors to perform surgical procedures with high accuracy, repeatability and reliability. Which in turn results in reducing operation time, errors and post-operation injuries. Minimally invasive surgeries are beneficial for accurate procedures with minimal access to operated organs, e.g. neurosurgery, eye surgery, cardiac surgery, intravascular surgeries and etc.  Use of robots in minimally invasive procedures improves precision and reliabilty of surgeries. \cite{tavakoli_haptics_2008}
+Recently robots started to be extensively used for surgical procedures. The use of robots allows doctors to perform surgical procedures with high accuracy, repeatability and reliability. Which in turn results in reducing operation time, errors and post-operation injuries. Minimally invasive surgeries are beneficial for accurate procedures with minimal access to operated organs, e.g. neurosurgery, eye surgery, cardiac surgery, intravascular surgeries and etc.  Use of robots in minimally invasive procedures improves precision and reliabilty of operations. \cite{tavakoli_haptics_2008}
 
-There are two types of surgical devices, supporting and augmenting. 
+There are two types of devices used for surgeries, supporting and augmenting. 
 Supporting devices perform secondary functions to support the surgeon.  Some of them used for positioning and stabilization purposes of cameras, endoscopic tools, ultrasound probes and etc. Others to increase device dexterity or autonomy (dexterous and autonomous endoscopes).
 
-Augmenting devices are used to extend surgeon's ability in performing an operation. They can be divided in four categories. Hand-held tools are augmenting instruments that used for hand tremors reduction, for dexterity and navigation capability increase. Another type of augmenting devices are cooperatively-controlled tools, where the surgeon and the robot cooperatively manipulate the surgical device (e.g. ROBODOC system, Steady- Hand robot, LARS, the Neurobot, and the ACROBOT system). Teleoperated robots are type of augmenting tools, where surgeon controls the movements of a surgical robot via a surgeon's console (e.g. the da Vinci and the Zeus systems). And autonomous tools, which can perform some tasks (suturing and knot tying) autonomously. \cite{tavakoli_haptics_2008}
+Augmenting devices are used to extend surgeon's ability in performing an operation. They can be divided in four categories. Hand-held tools are augmenting instruments that used for hand tremors reduction, for dexterity and navigation capability increase. Another type of augmenting devices are cooperatively-controlled tools, where the surgeon and the robot cooperatively manipulate the surgical device (e.g. ROBODOC system, Steady- Hand robot, LARS, the Neurobot, and the ACROBOT system). Teleoperated robots are type of augmenting tools, where surgeon (master) controls the movements of a surgical robot (slave) via a surgeon's console (e.g. the da Vinci and the Zeus systems). And autonomous tools, which can perform some tasks (suturing and knot tying) autonomously. \cite{tavakoli_haptics_2008}
+
+Use of teleoperated robots in surgeries can solve many of the conventional surgery problems in terms of more precise manipulation capability, ergonomics, dexterity, and haptic feedback capability for the surgeon. They enhance dexterity by increase of instrument degrees of freedom, hand tremor compensation, and movements scaling that allows transformation of the control grips large movements into small motions inside the patient. 3-D view with depth perception gives surgeons ability to directly control a stable visual field with increased magnification and maneuverability. All of these enhances the surgeon's operation performance. However, robot-assisted surgeries are high cost, need large operational room space, do not have established efficacy, and need for tableside assistants. For these reasons ability of hospitals to use surgical robots is low, making their use for routine surgeries improbable. \cite{tavakoli_haptics_2008}
+
+Today, many surgical robotic systems have been commercially developed and approved by the FDA, such as the Da Vinci surgical system (Intuitive Surgical, Inc., Sunnyvale, CA) , Sensei X robotic catheter system (Hansen Medical Inc., Mountain View, CA), FreeHand v1.2 (FreeHand 2010 Ltd., Cardiff, UK), Invendoscopy E200 system (Invendo Medical GmbH, Germany), Flex® robotic system (Medrobotics Corp., Raynham, MA), Senhance (TransEnterix, Morrisville, NC), Auris robotic endoscopy system (ARES; Auris Surgical Robotics, Silicon Valley, CA, USA), The NeoGuide Endoscopy System (NeoGuide Endoscopy System Inc, Los Gatos, CA). \cite{lanfranco_robotic_2004,peters_review_2018} 
+
+There is also number of NON-FDA-approved platforms that currently under development or going through clinical trials. For example, MiroSurge (RMC, DLR, German Aerospace Center, Oberpfaffenhofen-Weßling), The ViaCath system (BIOTRONIK, Berlin, Germany), SPORT™ surgical system (Titan Medical Inc., Toronto, Ontario), The SurgiBot™ (TransEnterix, Morrisville, NC), The Versius Robotic System (Cambridge Medical Robotics Ltd., Cambridge, UK), MASTER (Nanyang Technological University and National University Health System), Verb Surgical (Verb Surgical Inc., J \& J/Alphabet, Mountain View, CA, USA), Miniature in vivo robot (MIVR) (MIVR, Virtual Incision, CAST, University of Nebraska Medical Center, Omaha, Nebraska, USA), the Einstein surgical robot (Medtronic, Minneapolis, MN). \cite{peters_review_2018}
+
+The da Vinci® Surgical System is one of the most commonly used robotic surgical systems. In 2015, over 3400 systems were in use around the world. More than 3 million surgeries were performed worldwide using da Vinci system \cite{_intuitive_2018}. The system has been approved for various types of surgeries such as cardiac, colorectal, thoracic, urological and gynecologic. However, new systems are emerging on the market, providing features that are absent currently in the da Vinci System. For example, in 2017 FDA approved Senhance robotic platform that provides actual haptic force feedback, allowing the surgeon to feel forces generated at the instruments end. In addition, the system uses eye-tracking technology to move the camera at the point the surgeon is looking at, while the da Vinci uses a footswitch panel to control the camera movement. Another example is Flex Robotic System, which consists of flexible endoscope for laparoendoscopic surgeries. This system is able to define a non-linear path to surgical target by advancing a flexible telescopic inner-outer mechanism with instruments inside it, whereas instruments in the da Vinci system can follow only non-flexible straight path. \cite{peters_review_2018}
 
 
-\cite{lanfranco_robotic_2004} Today, many robots and robot enhancements are being researched and developed. Schurr et al at Eberhard Karls University’s section for minimally invasive surgery have developed a master-slave manipulator system that they call ARTEMIS.13 This system consists of 2 robotic arms that are controlled by a surgeon at a control console. Dario et al at the MiTech laboratory of Scuola Superiore Sant’Anna in Italy have developed a prototype miniature robotic system for computer-enhanced colonoscopy.14 This system provides the same functions as conventional colonoscopy systems but it does so with an inchworm-like locomotion using vacuum suction. By allowing the endoscopist to teleoperate or directly supervise this endoscope and with the functional integration of endoscopic tools, they believe this system is not only feasible but may expand the applications of endoluminal diagnosis and surgery. Several other laboratories, including the authors’, are designing and developing systems and models for reality-based haptic feedback in minimally invasive surgery and also combining visual servoing with haptic feedback for robot-assisted surgery.15–19
-
-In addition to Prodoc, ROBODOC and the systems mentioned above several other robotic systems have been commercially developed and approved by the FDA for general surgical use. These include the AESOP system (Computer Motion Inc., Santa Barbara, CA), a voice-activated robotic endoscope, and the comprehensive master-slave surgical robotic systems, Da Vinci (Intuitive Surgical Inc., Mountain View, CA) and Zeus (Computer Motion Inc., Santa Barbara, CA).
-
-The da Vinci and Zeus systems are similar in their capabilities but different in their approaches to robotic surgery. Both systems are comprehensive master-slave surgical robots with multiple arms operated remotely from a console with video assisted visualization and computer enhancement. In the da Vinci system (Fig. 1), which evolved from the telepresence machines developed for NASA and the US Army, there are essentially 3 components: a vision cart that holds a dual light source and dual 3-chip cameras, a master console where the operating surgeon sits, and a moveable cart, where 2 instrument arms and the camera arm are mounted.1 The camera arm contains dual cameras and the image generated is 3-dimensional. The master console consists of an image processing computer that generates a true 3-dimensional image with depth of field; the view port where the surgeon views the image; foot pedals to control electrocautery, camera focus, instrument/camera arm clutches, and master control grips that drive the servant robotic arms at the patient’s side.6 The instruments are cable driven and provide 7 degrees of freedom. This system displays its 3-dimensional image above the hands of the surgeon so that it gives the surgeon the illusion that the tips of the instruments are an extension of the control grips, thus giving the impression of being at the surgical site.
-
-figure 3FF1
-FIGURE 1. Da Vinci system set up. (Courtesy of Intuitive Surgical Inc., Mountain View, CA)
-The Zeus system is composed of a surgeon control console and 3 table-mounted robotic arms (Fig. 2). The right and left robotic arms replicate the arms of the surgeon, and the third arm is an AESOP voice-controlled robotic endoscope for visualization. In the Zeus system, the surgeon is seated comfortably upright with the video monitor and instrument handles positioned ergonomically to maximize dexterity and allow complete visualization of the OR environment. The system uses both straight shafted endoscopic instruments similar to conventional endoscopic instruments and jointed instruments with articulating end-effectors and 7 degrees of freedom.
-
-figure 3FF2
-FIGURE 2. Zeus system set up. (Courtesy of Computer Motion Inc., Santa Barbara, CA)
-Go to:
-ADVANTAGES OF ROBOT-ASSISTED SURGERY
-The advantages of these systems are many because they overcome many of the obstacles of laparoscopic surgery (Table 1). They increase dexterity, restore proper hand-eye coordination and an ergonomic position, and improve visualization (Table 2). In addition, these systems make surgeries that were technically difficult or unfeasible previously, now possible.
-
-Table thumbnail
-TABLE 1. Advantages and Disadvantages of Conventional Laparoscopic Surgery Versus Robot-Assisted Surgery
-Table thumbnail
-TABLE 2. Advantages and Disadvantages of Robot-Assisted Surgery Versus Conventional Surgery
-These robotic systems enhance dexterity in several ways. Instruments with increased degrees of freedom greatly enhance the surgeon’s ability to manipulate instruments and thus the tissues. These systems are designed so that the surgeons’ tremor can be compensated on the end-effector motion through appropriate hardware and software filters. In addition, these systems can scale movements so that large movements of the control grips can be transformed into micromotions inside the patient.6
-
-Another important advantage is the restoration of proper hand-eye coordination and an ergonomic position. These robotic systems eliminate the fulcrum effect, making instrument manipulation more intuitive. With the surgeon sitting at a remote, ergonomically designed workstation, current systems also eliminate the need to twist and turn in awkward positions to move the instruments and visualize the monitor.
-
-By most accounts, the enhanced vision afforded by these systems is remarkable. The 3-dimensional view with depth perception is a marked improvement over the conventional laparoscopic camera views. Also to one’s advantage is the surgeon’s ability to directly control a stable visual field with increased magnification and maneuverability. All of this creates images with increased resolution that, combined with the increased degrees of freedom and enhanced dexterity, greatly enhances the surgeon’s ability to identify and dissect anatomic structures as well as to construct microanastomoses.
-
-Go to:
-DISADVANTAGES OF ROBOT-ASSISTED SURGERY
-There are several disadvantages to these systems. First of all, robotic surgery is a new technology and its uses and efficacy have not yet been well established. To date, mostly studies of feasibility have been conducted, and almost no long-term follow up studies have been performed. Many procedures will also have to be redesigned to optimize the use of robotic arms and increase efficiency. However, time will most likely remedy these disadvantages.
-
-Another disadvantage of these systems is their cost. With a price tag of a million dollars, their cost is nearly prohibitive. Whether the price of these systems will fall or rise is a matter of conjecture. Some believe that with improvements in technology and as more experience is gained with robotic systems, the price will fall.6 Others believe that improvements in technology, such as haptics, increased processor speeds, and more complex and capable software will increase the cost of these systems.9 Also at issue is the problem of upgrading systems; how much will hospitals and healthcare organizations have to spend on upgrades and how often? In any case, many believe that to justify the purchase of these systems they must gain widespread multidisciplinary use.9
-
-Another disadvantage is the size of these systems. Both systems have relatively large footprints and relatively cumbersome robotic arms. This is an important disadvantage in today’s already crowded-operating rooms.9 It may be difficult for both the surgical team and the robot to fit into the operating room. Some suggest that miniaturizing the robotic arms and instruments will address the problems associated with their current size. Others believe that larger operating suites with multiple booms and wall mountings will be needed to accommodate the extra space requirements of robotic surgical systems. The cost of making room for these robots and the cost of the robots themselves make them an especially expensive technology.
-
-One of the potential disadvantages identified is a lack of compatible instruments and equipment. Lack of certain instruments increases reliance on tableside assistants to perform part of the surgery.6 This, however, is a transient disadvantage because new technologies have and will develop to address these shortcomings.
-
-Most of the disadvantages identified will be remedied with time and improvements in technology. Only time will tell if the use of these systems justifies their cost. If the cost of these systems remains high and they do not reduce the cost of routine procedures, it is unlikely that there will be a robot in every operating room and thus unlikely that they will be used for routine surgeries
-
-Senhance robot with force feedback, which is FDA approved. Principle - put 
-6-DOF force sensor 
-
-Da Vinci is the first FDA approved surgical robotic system. It can be used for 
-various types of surgeries such as cardiac, colorectal, thoracic, urological 
-and gynecologic. More than 3 million operation were performed worldwide using da Vinci system. \cite{_intuitive_2018}
 Effectiveness of da Vinci system in comparison to opened surgery and other systems \cite{yu_safety_2014}
+
 
 
 \section{Importance of Haptic Feedback}
@@ -71,6 +36,25 @@ In [106], a scenario is proposed to incorporate force feedback into the Zeus sur
 
 \section{Current Approaches}
 \label{sec:CurAppr}
+
+1.3 Haptics for Robotic Surgery and Therapy 
+Incorporating haptic sensation to robotic systems for surgery or therapy especially for minimally invasive surgery, which involves limited instrument maneuverability and 2-D camera vision, is a logical next step in the develop- ment of these systems. To do so, in addition to instrumentation of surgical tools, appropriate haptics-enabled user interfaces must be developed.
+ 
+1.3.1 Haptic user interface technology
+In the following, examples of the currently available haptic devices are 
+described. For a more complete survey of haptic devices, see [55]. 
+
+1.3.1.1 PHANToM 
+The PHANToM from Sensable Technologies Inc. (www.sensable.com) is one of the most commonly used haptic devices and comes in a number of models with different features. PHANToM 1.5A provides six DOFs input control. Of the six DOFs of the arm, depending on the model, some or all are force-reflective. In Figure 1.2a, a PHANToM 1.5/6DOF with force feedback capability in all of the six DOFs is shown. 
+
+1.3.1.2 Freedom-6S 
+The Freedom-6S shown in Figure 1.2b is a 6-DOF device from MPB Technologies Inc. (www.mpb-technologies.ca) that provides force feedback in all of the six degrees of freedom. The position stage is direct driven while the orientation stage is driven remotely by tendons. The Freedom-6S features static and dynamic balancing in all axes (see [54] for further design details). 
+1.3.1.3 Laparoscopic Impulse Engine and Surgical Workstation 
+Originally as part of a laparoscopic surgical simulator, the Laparoscopic Impulse Engine was designed by Immersion Corp. (www.immersion.com). The device can track the position of the instrument tip in five DOFs with high resolution and speed while providing force feedback in three DOFs. More recently, Immersion has developed the Laparoscopic Surgical Work- station (Figure 1.2c), which is capable of providing force feedback in five DOFs. An application example is the Virtual Endoscopic Surgery Trainer (VEST) from Select-IT VEST Systems AG (www.select-it.de). The VEST system uses the Laparoscopic Impulse Engine as its force-feedback input interface for simulating laparoscopic surgery interventions. 
+
+1.3.1.4 Xitact IHP 
+The Xitact IHPTM from Xitact Medical Simulation (www.xitact.com) is a 4-DOF force feedback manipulator based on a spherical remote-center-of- motion mechanical structure and was originally designed for virtual reality based minimally invasive surgery simulation [42]. It features high output force capability, low friction, zero backlash and a large, singularity-free workspace. A picture of the Xitact IHP is shown in Figure 1.2d. 
+
 
 
 Placing force sensors on the surgical instrument \cite{hong_design_2012}
