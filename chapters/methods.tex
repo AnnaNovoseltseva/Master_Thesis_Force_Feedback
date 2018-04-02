@@ -4,24 +4,89 @@
 %use \chaptermark{}
 % to alter or adjust the chapter heading in the running head
 
-This chapter introduces methods and methodology of this work.
+This chapter introduces methods and results of this work. 
 
-\section{System Architecture}
+\section{Force Measurement}
 \label{sec:sysArch}
-System architecture is shown on figure .. Include block diagram
+Block diagram of the created system for 3-DOF force measurement is shown on figure \ref{fig:BlockDiag}. Forces that applied on the end of surgical tool are measured using strain gauges, which change their resistance with force. Using created printed circuit boards (PCBs), this resistance changes are measured and published within ROS. At the same time we measure current joint position of the tool, which is needed for the force calibration. On the PC position data and data from PCBs are used to find values of the force in X,Y,Z directions.
+
+\begin{figure}[h]
+	\begin{center}
+		\includegraphics[width=140mm]{fig/methods/dbd2.pdf}
+	\end{center}
+	\vspace{-4mm}
+	\caption[Block diagram]
+	{Block diagram}
+	\label{fig:BlockDiag}
+	\vspace{-2mm}
+\end{figure}
 
 \section{Sensor Placement Optimization}
 \label{sec:SimMod}
-
-	Sensor location on sleeves, shaft and cannula - include COMSOL studies
-	Strain Gauge Placement
-	A qualitative analysis was done in Solidworks to assess better placement of the strain gauges on the shaft or cannula. First we found elasticity modulus of the shaft and cannula, and used them for further analysis.
-	The shaft and cannula material are unknown, so we studied their elasticity modulus, .. experimentally.
-
+A finite element analysis was done in Solidworks to assess better placement of the strain gauges on the created device.  Since the shaft and cannula materials are unknown, in order to run finite element analysis their elasticity modulus and density were found experimentally.
+	
 	\subsection{Elasticity Modulus Measurements}
 	\label{sec:ElasMod}
-	Elasticity Modulus of the shaft and the cannula were found experimentally (Figure 1). One end of the observing sample (shaft or cannula) was fixed and the force was applied on the other end. We used weights: 250g for the shaft and 555g for the cannula. The deformation was detected with dial indicator XXX. Experiment was done 5 times, average displacement value was used.
-	...
+	Elasticity Modulus of the shaft and the cannula were found experimentally (Figure \ref{fig:ElasModSet}). One end of the observing sample (shaft/cannula) was fixed and the force was applied on the other end. We used weights 250g for the shaft and 555g for the cannula to apply forces. The deformation caused by forces was detected with dial indicator. Experiment was done 5 times, average displacement value was used to calculate elasticity modulus.
+	
+\begin{figure}[h]
+	\begin{center}
+		\includegraphics[width=120mm]{fig/methods/el_mod_set.pdf}
+	\end{center}
+	\vspace{-4mm}
+	\caption[Setup to measure elasticity modulus]
+	{Setup to measure elasticity modulus}
+	\label{fig:ElasModSet}
+	\vspace{-2mm}
+\end{figure}
+
+\begin{table}
+\caption {Elasticity Modulus Measurement Data} \label{tab:elasMod} 
+\begin{tabular}{ | c | c | c | c | c | c | c | c | } 
+\hline
+Component & $d_o$, mm & $d_i$, mm & $I$, mm\textsuperscript{4} & $m$, g & $F$, N & $L$, mm & $L_{tot}$, mm \\ 
+\hline
+Shaft & 8.4 & 6 & $1.808 \cdot 10^{-10}$ & 250 & 3.25 & 276.2 & 366.8\\ 
+\hline
+Cannula & 10.54 & 8.75 & $3.181 \cdot 10^{-10}$ & 555 & 6.011 & 95.5 & 105.55 \\ 
+\hline
+\end{tabular}
+
+\begin{tabular}{ | c | c | c | } 
+\hline
+Component & $\delta \pm SD$, mm & $E \pm SD$, GPa \\ 
+\hline
+Shaft & $2.856 \pm 0.123$ & $44.31 \pm 1.86$ \\ 
+\hline
+Cannula & $0.086 \pm 0.004$ & $63.92 \pm 2.97$ \\ 
+\hline
+\end{tabular}
+\end{table}
+
+Elasticity Modulus was found using following equation:
+
+\begin{equation}
+E = \frac{FL^3}{3 \delta I} 
+\end{equation}
+
+where $F$ - force, $L$ - length from the fixed point to indicator, $I$ - area moment of inertia, $\delta$ - displacement.
+
+Area moment of Inertia: 
+\begin{equation}
+I = \frac{\pi (d_o^4 - d_i^4)}{64}
+\end{equation}
+
+where $d_o$ - cylinder outside diameter, $d_i$- cylinder inside diameter.
+
+Force acting on indicator:
+\begin{equation}
+F = \frac{L_{tot}}{L}mg
+\end{equation}
+
+where $L_{tot}$ - total length of the object, $m$ - mass of the weight, $g$ - gravitational constant.
+
+Experimentally found value of elasticity modulus for the shaft is equal to 44.31 GPa with standard deviation (SD) 1.86 GPa. Mean value of elasticity modulus of the cannula is 63.92 GPa with SD 2.97 GPa, which is close to aluminum modulus of elasticity (69 GPa \cite{youngs_modulus}).
+
 	\subsection{Density Measurements}
 	\label{sec:DenMeas}
 
@@ -40,6 +105,7 @@ System architecture is shown on figure .. Include block diagram
 
 \section{Mechanical Design}
 \label{sec:mechDes}
+At first we were rying to put sensors on the instrument shaft itself, on the cannula, on the sleeve to see where we get the most accurate results. 
 
 	\subsection{Strain Gauge}
 	\label{sec:SGReq}
