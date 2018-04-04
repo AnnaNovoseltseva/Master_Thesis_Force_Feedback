@@ -4,8 +4,6 @@
 %use \chaptermark{}
 % to alter or adjust the chapter heading in the running head
 
-This chapter introduces methods and results of this work. 
-
 \section{Force Measurement}
 \label{sec:sysArch}
 Block diagram of the created system for 3-DOF force measurement is shown on figure \ref{fig:BlockDiag}. Forces that applied on the end of surgical tool are measured using strain gauges, which change their resistance with force. Using created printed circuit boards (PCBs), this resistance changes are measured and published within ROS. At the same time we measure current joint position of the tool, which is needed for the force calibration. On the PC position data and data from PCBs are used to find values of the force in X,Y,Z directions.
@@ -23,11 +21,11 @@ Block diagram of the created system for 3-DOF force measurement is shown on figu
 
 \section{Sensor Placement Optimization}
 \label{sec:SimMod}
-A finite element analysis was done in Solidworks to assess better placement of the strain gauges on the created device.  Since the shaft and cannula materials are unknown, in order to run finite element analysis their elasticity modulus and density were found experimentally.
+A finite element analysis was done in Solidworks to assess better placement of the strain gauges on the created device. In order to run finite element analysis material properties, such as elastic modulus, poisson`s ratio, and density are necessary to know. Sleeve material is aluminum 6061, that has elastic modulus 68.9 GPa, poisson`s ratio 0.33, and density 2700 kg/m\textsuperscript{3} \cite{aluminum_properties}. Since the shaft and cannula materials are unknown, in order to run finite element analysis their elasticity modulus and density were found experimentally.
 	
-	\subsection{Elasticity Modulus Measurements}
+	\subsection{Elastic Modulus Measurements}
 	\label{sec:ElasMod}
-	Elasticity Modulus of the shaft and the cannula were found experimentally (Figure \ref{fig:ElasModSet}). One end of the observing sample (shaft/cannula) was fixed and the force was applied on the other end. We used weights 250g for the shaft and 555g for the cannula to apply forces. The deformation caused by forces was detected with dial indicator. Experiment was done 5 times, average displacement value was used to calculate elasticity modulus.
+	Elastic Modulus of the shaft and the cannula were found experimentally (Figure \ref{fig:ElasModSet}). One end of the observing sample (shaft/cannula) was fixed and the force was applied on the other end. We used weights 250g for the shaft and 555g for the cannula to apply forces. The deformation caused by forces was detected with dial indicator. Experiment was done 5 times, average displacement value was used to calculate elastic modulus. Results are shown in Table \ref{tab:elasMod}.
 	
 \begin{figure}[h]
 	\begin{center}
@@ -63,7 +61,7 @@ Cannula & $0.086 \pm 0.004$ & $63.92 \pm 2.97$ \\
 \end{tabular}
 \end{table}
 
-Elasticity Modulus was found using following equation:
+Elastic Modulus was found using following equation:
 
 \begin{equation}
 E = \frac{FL^3}{3 \delta I} 
@@ -85,10 +83,47 @@ F = \frac{L_{tot}}{L}mg
 
 where $L_{tot}$ - total length of the object, $m$ - mass of the weight, $g$ - gravitational constant.
 
-Experimentally found value of elasticity modulus for the shaft is equal to 44.31 GPa with standard deviation (SD) 1.86 GPa. Mean value of elasticity modulus of the cannula is 63.92 GPa with SD 2.97 GPa, which is close to aluminum modulus of elasticity (69 GPa \cite{youngs_modulus}).
+Experimentally found mean value of elastic modulus of the shaft is equal to 44.31 GPa with standard deviation (SD) 1.86 GPa, elastic modulus of the cannula is 63.92 GPa with SD 2.97 GPa, which is close to aluminum modulus of elasticity (68.9 GPa \cite{youngs_modulus}).
 
 	\subsection{Density Measurements}
 	\label{sec:DenMeas}
+Density was found using following equation:
+
+\begin{equation}
+p=\frac{m}{V}
+\end{equation}
+
+where $m$ - mass, $V$ - volume.
+
+Shaft material density is 3380 kg/m\textsuperscript{3}. From the elastic modulus of the cannula, we assumed that it is made of aluminum and consequently has density equal to 2700 kg/ m\textsuperscript{3}.
+
+\subsection{Simulation Results}
+\label{sec:FEAres}
+From the Figure 2, it can be seen that the mounting location of the cannula seems to be under the greatest amount of strain. Additionally, the slight gap between the cannula and the DaVinci tool creates a large load point at the tip of the cannula as well as creating a slight moment of inaccuracy in readings at small loads. 
+
+We suggest to place strain gauges at the mounting location of the cannula. Maximum strain is 0.46 mm, in case of 10N load with maximally opened shaft. From the literature, strain gauges length should be more than 5% of maximum strain, hence, minimum length of the strain gauge should be 9.2 mm. 
+
+Gauge Factor (GF) for strain gauges usually is 2. According to the formula (4) strain gauge with resistance 120 Ω will give change in resistance 0.115 Ω, and 350 Ω - 0.338 Ω:
+R=GFR,
+where GF - gauge factor, R - resistance, - strain.
+
+All material properties are listed in Table \ref{tab:matProp}.
+\begin{table}
+\caption {Material Properties} \label{tab:matProp} 
+\begin{center}
+\begin{tabular}{ | c | c | c | c | c | c | c | c | } 
+\hline
+Component & Elastic Modulus, GPa & Density, kg/ m\textsuperscript{3} \\ 
+\hline
+Shaft & 44.31 & 3380\\ 
+\hline
+Cannula & 63.92 & 2700 \\ 
+\hline
+Sleeve & 68.9 & 2700  \\ 
+\hline
+\end{tabular}
+\end{center}
+\end{table}
 
 \section{Requirements for the Device}
 	\label{sec:DevReq}
@@ -140,34 +175,39 @@ At first we were rying to put sensors on the instrument shaft itself, on the can
 	On the aluminum sleeve
 	On the nylon sleeve
 
-	\subsection{Fabrication of the Sleeves}
-	\label{sec:sleevesFabr}
+\subsection{Sensors on the tool and the cannula}
+\label{sec:senOnToolCan}
 
-	Do not use 3D printed sleeves - causes non-linearity issue
-	Use 350 Ohm strain-gauges and full-bridge circuit.
-	So far the best design is Sleeve 1 - it is simple with linear output.
 
-		\begin{figure}
-			\begin{center}
-			\includegraphics[width=120mm]{fig/methods/z_dir.png}
-			\end{center}
-			\vspace{-4mm}
-		\caption[Z-direction force feedback sensor]
-		{Z-direction force feedback sensor}
-		\label{fig:Z-direction}
-		\vspace{-2mm}
-		\end{figure}
+\subsection{X-Y direction}
+\label{sec:xyDir}
+Do not use 3D printed sleeves - causes non-linearity issue
+Use 350 Ohm strain-gauges and full-bridge circuit.
+	
+\subsection{Z-direction}
+\label{sec:zDir}
+\begin{figure}
+	\begin{center}
+		\includegraphics[width=120mm]{fig/methods/z_dir.png}
+	\end{center}
+	\vspace{-4mm}
+	\caption[Z-direction force feedback sensor]
+	{Z-direction force feedback sensor}
+	\label{fig:Z-direction}
+	\vspace{-2mm}
+\end{figure}
 
-		\begin{figure}
-			\begin{center}
-			\includegraphics[width=120mm]{fig/methods/z_dir_sec.png}
-			\end{center}
-			\vspace{-4mm}
-		\caption[Z-direction force feedback sensor - section vew]
-		{Z-direction force feedback sensor - section vew}
-		\label{fig:Z-direction_sec}
-		\vspace{-2mm}
-		\end{figure}
+\begin{figure}
+	\begin{center}
+		\includegraphics[width=120mm]{fig/methods/z_dir_sec.png}
+	\end{center}
+	\vspace{-4mm}
+	\caption[Z-direction force feedback sensor - section vew]
+	{Z-direction force feedback sensor - section vew}
+	\label{fig:Z-direction_sec}
+	\vspace{-2mm}
+\end{figure}
+
 
 \section{Electrical and Software Design}
 \label{sec:elecDes}
@@ -258,3 +298,52 @@ First we used set of weights applied in two directions, but since the system was
 	\label{sec:HystExp}
 	Hysteresis was checked .. 
 	We written separate program to check hysteresis
+	
+\subsection{Static Characteristics}
+\label{sec:StatCharac}
+Precision represents capacity of a sensing system to give the same reading when repetitively measuring the same measurand under the same conditions. The precision is a statistical parameter and can be assessed by the standard deviation (or variance) of a set of readings of the system for similar inputs.
+
+One of the measurements of signal quality is signal-to-noise ratio (SNR). A higher value of SNR means the clear acquisitions with low signal distortions and artifacts caused by unwanted noise. It is defined as:
+
+\begin{equation}
+\frac{S}{N}=\frac{Mean value of signal}{Standard deviation of noise}
+\end{equation}
+
+For X-direction SNR is $3232 \pm 78$, for Y-direction SNR is $2857 \pm 150$, which is much bigger than 1. It means that system has very low noise.
+
+Error is the difference between the actual value of the measurand and the value produced by the sensing system. Error can be caused by a variety of internal and external sources and is closely related to accuracy. Accuracy can be related to absolute or relative error as:
+
+\begin{equation}
+Absolute error = \frac{Output}{ True value}
+\end{equation}
+
+\begin{figure}
+	\begin{center}
+		\includegraphics[width=120mm]{fig/methods/z_dir_sec.png}
+	\end{center}
+	\vspace{-4mm}
+	\caption[Z-direction force feedback sensor - section vew]
+	{Z-direction force feedback sensor - section vew}
+	\label{fig:Z-direction_sec}
+	\vspace{-2mm}
+\end{figure}
+
+From figure we can assume that fluctuations in the output signal are due to systematic errors. 
+
+Drift is observed when a gradual change in the sensing system’s output is seen, while the measurand actually remains constant. Drift is the undesired change that is unrelated to the measurand. It is considered a systematic error, which can be attributed to interfering parameters such as mechanical instability and temperature instability, contamination, and the sensor’s materials degradation. 
+
+Resolution (or discrimination) is the minimal change of the measurand that can produce a detectable increment in the output signal. Resolution is strongly limited by any noise in the signal.
+
+In a sensing system, minimum detectable signal (MDS) is the minimum signal increment that can be observed, when all interfering factors are taken into account. When the increment is assessed from zero, the value is generally referred to as threshold or detection limit. If the interferences are large relative to the input, it will be difficult to extract a clear signal and a small MDS cannot be obtained.
+
+Sensitivity is the ratio of the incremental change in the sensor’s output (Dy) to the incremental change of the measurand in input (Dx). The slope of the calibration curve, y f(x), can be used for the calculation of sensitivity.
+
+The closeness of the calibration curve to a specified straight line shows the linearity of a sensor. Its degree of resemblance to a straight line describes how linear a system is.
+
+Hysteresis is the difference between output readings for the same measurand, depending on the trajectory followed by the sensor.
+
+The maximum and minimum values of the measurand that can be measured with a sensing system are called the measurement range, which is also called the dynamic range or span. This range results in a meaningful and accurate output for the sensing system. \cite{kalantar-zadeh_sensors_2013}
+
+
+
+
