@@ -12,3 +12,4 @@ dist/
 *.lof
 *.fls
 *.fdb_latexmk
+main.*
