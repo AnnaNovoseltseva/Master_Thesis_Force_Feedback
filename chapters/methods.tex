@@ -166,7 +166,7 @@ All material properties used for simulations are listed in Table \ref{tab:matPro
 	
 	Force sensitivity: The device should be sensitive enough with minimum detectable signal (MDS) at least 0.3 N and give accurate readings (error < 0.05 N) \cite{mack_interactive_2012}.
 	
-	Speed of force reading: Device is used for real-time haptic feedback, the minimum requirement for data acquisition speed is 500 Hz. The created device is compliant with mentioned requirements.
+	Speed of force reading: Device is used for real-time haptic feedback, the minimum requirement for data acquisition speed is 1 kHz \cite{seungmoon_choi_effect_2004}.
 	
 	No restriction of motion range of the device: We were able to measure force in three directions independently from each other using separate wheatstone bridges for each direction. At the same time tool can rotate freely and change depth of insertion.	
 	
@@ -351,28 +351,42 @@ More details on the developed PCB are on github link.
 
 	\subsection{Noise Analysis}
 	\label{sec:NoiseExp}
-	Noise analysis was performed using oscilloscope ... Make FFT analysis
-
-		\begin{figure}[h]
-			\begin{center}
-			\includegraphics[width=120mm]{fig/results/40us_1stADC.png}
-			\end{center}
-			\vspace{-4mm}
-		\caption[Noise analysis of the output signal]
-		{Noise analysis of the output signal}
-		\label{fig:OutputSignal}
-		\vspace{-2mm}
-		\end{figure}
+	Fast Fourier transform (FFT) waveform analysis of the noise signal was performed using Tektronix MSO 4034 Mixed Signal Oscilloscope. The oscilloscope automatically applied the Hanning window, which has good frequency resolution and reduced spectral leakage\cite{harris_use_1978}.
+	
+\begin{figure}[h]%
+\centering
+\subfigure[1st channel]{%
+\label{fig:first}%
+\includegraphics[height=2.2in]{fig/methods/noise_1_log.png}}%
+\qquad
+\subfigure[2nd channel]{%
+\label{fig:second}%
+\includegraphics[height=2.2in]{fig/methods/noise_2_log.png}}%
+\caption{FFT analysis results}
+\end{figure}
+	
+	The signal frequency from the force sensor should be in range of (0 to 1 kHz). From the FFT analysis it can be concluded, that the noise frequency is in range (2.5 kHz and higher) with amplitude (-50 mV to 70 mV) for both channels. That means, low pass filter with cutoff frequency 2 kHz should be applied on the output signal. It was decided to use data averaging due to its simplicity of implementation and small time delays. It is an equivalent of low pass filtering that compensates the high frequency noise \cite{filtering_mov_ave}.
 
 	\subsection{Microcontroller Software}
 	\label{sec:MicrSoft}
-	We use arduino for ..
-	Filtering was implemented on microcontroller by finding average of recent 5 readings 
-	Filtering - ideally small time delay. Total teleoperation cycle delay - less than 100ms (visually noticeable delay). Kalman filter? Use same parameters for both signals to get identical time delay.
-	good article about changing baud rate.
+	Microcontroller ATMEGA328P is used in the developed PCB for acqusition, filtering, and sending data to ROS. Main advantage of this microcontroller is that it has open-source packages for serial communication with ROS. The microcontroller is programmed to initialize ros nodes with names "adc\textunderscore xy" for XY-device and "adc\textunderscore zlc" for Z-device. The master-slave communication is created between X-Y and Z- devices for data acquizition synchronization by sending start conversion signals between two PCBs. When one of the devices gets the signal it starts to communicate with ADC though SPI interface (Figure \ref{fig:SPI_com}) \cite{introduction_SPI}. The acquired data is filtered from the high frequency noise by averaging of the 5 most recent readings. And the filtered data is published through the serial port with the baud rate 115200 bits per second. 
+	
+\begin{figure}[h]
+	\begin{center}
+		\includegraphics[width=140mm]{fig/methods/SPI_communication.png}
+	\end{center}
+	\vspace{-4mm}
+	\caption[ADC LTC1865 Operating Sequence]
+	{LTC1865 Operating Sequence \cite{ltc1865}}
+	\label{fig:SPI_com}
+	\vspace{-2mm}
+\end{figure}
+
+The github link to master device code and slave-device code.
 
 	\subsection{ROS Architecture}
 	\label{sec:p2}
+	To make communication between microcontroller and ROS work it is necessary to install rosserial\textunderscore arduino package \cite{rosserial_arduino}.
 	
 \section{Calibration}
 \label{section:Calibration}
