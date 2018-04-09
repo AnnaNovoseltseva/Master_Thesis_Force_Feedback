@@ -1,6 +1,6 @@
 \chapter{Methods and Results}
 \label{methods} % Always give a unique label
-%use \chaptermark{}
+%use
 % to alter or adjust the chapter heading in the running head
 
 \section{Force Measurement}
@@ -8,11 +8,11 @@
 
 \begin{figure}[h]
 	\begin{center}
-		\includegraphics[width=100mm]{fig/methods/calib_setup.png}
+		\includegraphics[width=100mm]{fig/methods/the_device.png}
 	\end{center}
 	\vspace{-4mm}
 	\caption[Developed force-measuring system on the PSM]
-	{Block diagram}
+	{Developed force-measuring system on the PSM}
 	\label{fig:PSM_with_FF}
 	\vspace{-2mm}
 \end{figure}
@@ -204,7 +204,10 @@ For the device strain gauges with resistance 350 $\Omega$, GF is 2, single grid,
 
 	Application of strain gauges was done following the manual provided by Vishay Micro-Measurements. \cite{StrGugeInst}.
 
-	First the working surface (glass) and tweezers were cleaned with Neutralizer 5. After that shaft surface preparation was started, using solvent degreaser GC-6 Isopropyl Alcohol. A gauge layout was then applied with a 4H drafting pencil. The surface was then conditioned with Conditioner A and the extra liquid was wiped with gauze. Finally, the surface was then neutralized with M-Prep Neutralizer 5A. \cite{StrGugeInst}
+	First the working surface (glass) and tweezers were cleaned with Neutralizer 5. 
+	After that shaft surface preparation was started, using solvent degreaser GC-6 Isopropyl Alcohol. 
+	A gauge layout was then applied with a 4H drafting pencil. The surface was then conditioned with Conditioner A and the extra liquid was wiped with gauze. 
+	Finally, the surface was then neutralized with M-Prep Neutralizer 5A. \cite{StrGugeInst}
 
 	The strain gauges were first placed on the glass and then transported using mylar tape onto the instrument surface. A thin layer of catalyst was applied on the strain gauge and given one minute to dry. Then adhesive M-BOND 200 was applied on the surface, pressure was applied on the tape for one minute, then two more minutes to let it dry before the tape was removed. Then leads soldering was done by application of pats, and soldering them with thin wires. \cite{youtube}
 
@@ -278,11 +281,11 @@ Three rings and plate were manufactured with Aluminum Alloy 6061, attachment par
 
 	\subsection{Circuit design}
 	\label{sec:cirDes}
-	Block diagram of the PCB is shown on Figure \ref{fig:PCB_block_diag}. 
+	Block diagram of the developed PCB is shown on Figure \ref{fig:PCB_block_diag}. Signal waveforms are shown on Figure \ref{fig:Wave_Out}.
 
 \begin{figure}[h]
 	\begin{center}
-		\includegraphics[width=140mm]{fig/methods/PCB_diagram.pdf}
+		\includegraphics[width=150mm]{fig/methods/PSC_block_wave.pdf}
 	\end{center}
 	\vspace{-4mm}
 	\caption[Block diagram of the circuit]
@@ -290,6 +293,18 @@ Three rings and plate were manufactured with Aluminum Alloy 6061, attachment par
 	\label{fig:PCB_block_diag}
 	\vspace{-2mm}
 \end{figure}
+%\begin{figure}[h]
+%	\begin{center}
+%		\includegraphics[width=60mm]{fig/methods/signal_diag.pdf}
+%	\end{center}
+%	\vspace{-4mm}
+%	\caption[Signal Waveforms]
+%	{Signal Waveforms}
+%	\label{fig:Wave_Out}
+%	\vspace{-2mm}
+%\end{figure}
+
+Four strain gauges are connected to form a wheatstone bridge circuit. On Figures \ref{fig:WB_xy_dev} - \ref{fig:WB_z} placement of strain gauges (1-4) and their wheatstone bridge configurations are shown for both devices. Strain gauges deform due to applied forces, and it causes voltage change on wheatstone bridge. Output signal from the wheatstone bridge goes to the instrumentation amplifier. Since ADC can convert only positive voltage, voltage converter changes voltage range of the output signal from ($-5V$ to $+5V$) to ($0V$ to $+5V$) range. That signal is converted to digital signal with 16-bit ADC, which communicates with microcontroller via SPI interface. The output signal is transferred to the computer via USB. 
 	
 \begin{figure}[h]
 	\begin{center}
@@ -313,10 +328,26 @@ Three rings and plate were manufactured with Aluminum Alloy 6061, attachment par
 	\vspace{-2mm}
 \end{figure}
 	
-	Strain gauges are shown with numbers 1-4.
-	Using Altium Designer 15.1 PCB was developed and manufactured elsewhere. 
+\begin{figure}[h]
+	\begin{center}
+		\includegraphics[width=120mm]{fig/methods/PCB_real_look.png}
+	\end{center}
+	\vspace{-4mm}
+	\caption[Manufactured PCB]
+	{Manufactured PCB}
+	\label{fig:PCB_real}
+	\vspace{-2mm}
+\end{figure}
+	
+Using Altium Designer 15.1 the PCB design was developed and manufactured at Advanced Circuits \cite{PCB_manufacturer}. 
 
-Write about how to calibrate the PCB itself and how it works.
+In the developed PCB (Figure \ref{fig:PCB_real}) trimpots are used for calibration of the instrumentation amplifier gain (shown yellow) and change of reference voltage (shown red).
+
+Instrumentation amplifier gain change is needed to set up appropriate measuring force range (0-11 N). During calibration, when 11 N applied on the tool end, the output signal (that goes to ADC) should be smaller than 4.5 V. When the same force applied in the opposite direction, the output signal should be bigger than 0.5 V.
+ 
+Reference voltage change is used for the compensation of wheatstone bridge unbalance caused by strain gauge resistance tolerances. During the calibration, it should be tuned until it gives the output signal close to 2.5 V, when no forces applied on the device.
+
+More details on the developed PCB are on github link.
 
 	\subsection{Noise Analysis}
 	\label{sec:NoiseExp}
@@ -353,7 +384,7 @@ First we used set of weights applied in two directions, but since the system was
 
 	\subsection{Calibration of the Load Cell}
 	\label{sec:CalLoadCell}
-	Was pefrormed using following setup cite figure ..
+	Was performed using following setup cite figure ..
 	Calibration equation we got ..
 
 	\subsection{Calibration Results}
@@ -416,7 +447,7 @@ The maximum and minimum values of the measurand that can be measured with a sens
 	Distance from the cannula to the tip - measure - 3 ¼ inch. Maximum distance is 9 inches.
 
 
-	\subsection{Temeperature Dependence}
+	\subsection{Temperature Dependence}
 	\label{sec:TempExp}
 	Try in 36.6 Celsius and room temperature
 	Effect of the surrounding temperature on the device was ..
