@@ -11,21 +11,21 @@
 		\includegraphics[width=100mm]{fig/methods/the_device.png}
 	\end{center}
 	\vspace{-4mm}
-	\caption[Developed force-measuring system on the PSM]
-	{Developed force-measuring system on the PSM}
+	\caption[Developed Force Measuring System Attached to the PSM]
+	{Developed Force Measuring System Attached to the PSM}
 	\label{fig:PSM_with_FF}
 	\vspace{-2mm}
 \end{figure}
 
-Block diagram of the created system for 3-DOF force measurement is shown on figure \ref{fig:BlockDiag}. Forces that applied on the end of surgical tool are measured using strain gauges, which change their resistance with force. Using created printed circuit boards (PCBs), this resistance changes are measured and published within ROS. At the same time we measure current joint position of the tool, which is needed for the force calibration. On the PC position data and data from PCBs are used to find values of the force in X,Y,Z directions.
+Block diagram of the created system for 3-DOF force measurement is shown on figure \ref{fig:BlockDiag}. Forces that applied on the end of surgical tool are measured using strain gauges, which change their resistance with force. Using created printed circuit boards (PCBs), this resistance changes are measured and published within ROS. At the same time we measure current joint position of the tool, which is needed for the force calibration. The position data and data from PCBs are used to find values of the force in X,Y,Z directions.
 
 \begin{figure}[h]
 	\begin{center}
 		\includegraphics[width=140mm]{fig/methods/dbd2.pdf}
 	\end{center}
 	\vspace{-4mm}
-	\caption[Block diagram]
-	{Block diagram}
+	\caption[Block Diagram]
+	{Block Diagram}
 	\label{fig:BlockDiag}
 	\vspace{-2mm}
 \end{figure}
@@ -43,8 +43,8 @@ A finite element analysis was done in Solidworks to assess better placement of t
 		\includegraphics[width=120mm]{fig/methods/el_mod_set.pdf}
 	\end{center}
 	\vspace{-4mm}
-	\caption[Setup to measure elasticity modulus]
-	{Setup to measure elasticity modulus}
+	\caption[Setup to Measure Elastic Modulus]
+	{Setup to Measure Elastic Modulus}
 	\label{fig:ElasModSet}
 	\vspace{-2mm}
 \end{figure}
@@ -118,7 +118,7 @@ The mounting location of the active strain gauges should be under the greatest a
 	\end{center}
 	\vspace{-4mm}
 	\caption[X-Y device]
-	{Strain in the device to measure forces in X-Y direction}
+	{Strain in the Device to Measure Forces in X-Y Direction}
 	\label{fig:XYdev}
 	\vspace{-2mm}
 \end{figure}
@@ -130,7 +130,7 @@ The mounting location of the active strain gauges should be under the greatest a
 	\end{center}
 	\vspace{-4mm}
 	\caption[Z device]
-	{Strain in the device to measure forces in Z direction}
+	{Strain in the Device to Measure Forces in Z Direction}
 	\label{fig:Zdev}
 	\vspace{-2mm}
 \end{figure}
@@ -227,7 +227,7 @@ The manufactured sleeve is placed on the cannula end and is fixed with a set scr
 	\end{center}
 	\vspace{-4mm}
 	\caption[XY-direction force feedback sensor]
-	{XY-direction force feedback sensor}
+	{XY-direction Force Feedback Fensor}
 	\label{fig:xy-direction}
 	\vspace{-2mm}
 \end{figure}
@@ -238,7 +238,7 @@ The manufactured sleeve is placed on the cannula end and is fixed with a set scr
 	\end{center}
 	\vspace{-4mm}
 	\caption[XY-direction force feedback sensor]
-	{Displacement of XY device}
+	{Displacement of the XY Device}
 	\label{fig:xy-displ}
 	\vspace{-2mm}
 \end{figure}
@@ -254,7 +254,7 @@ In order to get accurate readings maximum displacement of the sleeve sides shoul
 	\end{center}
 	\vspace{-4mm}
 	\caption[Z-direction force feedback sensor]
-	{Z-direction force feedback sensor}
+	{Z-direction Force Feedback Fensor}
 	\label{fig:Z-direction}
 	\vspace{-2mm}
 \end{figure}
@@ -265,7 +265,7 @@ In order to get accurate readings maximum displacement of the sleeve sides shoul
 	\end{center}
 	\vspace{-4mm}
 	\caption[Z-direction force feedback sensor - section vew]
-	{Z-direction force feedback sensor - section vew}
+	{Z-direction Force Feedback Sensor (Section View)}
 	\label{fig:Z-direction_sec}
 	\vspace{-2mm}
 \end{figure}
@@ -289,7 +289,7 @@ Three rings and plate were manufactured with Aluminum Alloy 6061, attachment par
 	\end{center}
 	\vspace{-4mm}
 	\caption[Block diagram of the circuit]
-	{Block diagram of the circuit}
+	{Block Diagram of the Circuit}
 	\label{fig:PCB_block_diag}
 	\vspace{-2mm}
 \end{figure}
@@ -304,7 +304,7 @@ Three rings and plate were manufactured with Aluminum Alloy 6061, attachment par
 %	\vspace{-2mm}
 %\end{figure}
 
-Four strain gauges are connected to form a wheatstone bridge circuit. On Figures \ref{fig:WB_xy_dev} - \ref{fig:WB_z} placement of strain gauges (1-4) and their wheatstone bridge configurations are shown for both devices. Strain gauges deform due to applied forces, and it causes voltage change on wheatstone bridge. Output signal from the wheatstone bridge goes to the instrumentation amplifier. Since ADC can convert only positive voltage, voltage converter changes voltage range of the output signal from ($-5V$ to $+5V$) to ($0V$ to $+5V$) range. That signal is converted to digital signal with 16-bit ADC, which communicates with microcontroller via SPI interface. The output signal is transferred to the computer via USB. 
+Four strain gauges are connected to form a wheatstone bridge circuit. On Figures \ref{fig:WB_xy_dev} - \ref{fig:WB_z} placement of strain gauges (1-4) and their wheatstone bridge configurations are shown for both devices. Strain gauges deform due to applied forces, and it causes voltage change on wheatstone bridge. Output signal from the wheatstone bridge goes to the instrumentation amplifier. Since ADC can convert only positive voltage, voltage converter changes voltage range of the output signal from ($-5V$ to $+5V$) to ($0V$ to $+5V$) range. That signal is converted to digital signal with 16-bit ADC, which communicates with the microcontroller via SPI interface. The output signal is transferred to the computer via USB. 
 	
 \begin{figure}[h]
 	\begin{center}
@@ -312,7 +312,7 @@ Four strain gauges are connected to form a wheatstone bridge circuit. On Figures
 	\end{center}
 	\vspace{-4mm}
 	\caption[Wheatstone bridge configuration of XY-device]
-	{Wheatstone bridge configuration of XY-device}
+	{Wheatstone Bridge Configuration of the XY-device}
 	\label{fig:WB_xy_dev}
 	\vspace{-2mm}
 \end{figure}
@@ -323,7 +323,7 @@ Four strain gauges are connected to form a wheatstone bridge circuit. On Figures
 	\end{center}
 	\vspace{-4mm}
 	\caption[Wheatstone bridge configuration of Z-device]
-	{Wheatstone bridge configuration of Z-device}
+	{Wheatstone Bridge Configuration of the Z-device}
 	\label{fig:WB_z}
 	\vspace{-2mm}
 \end{figure}
@@ -355,14 +355,14 @@ More details on the developed PCB are on github link.
 	
 \begin{figure}[h]%
 \centering
-\subfigure[1st channel]{%
+\subfigure[1st Channel]{%
 \label{fig:first}%
 \includegraphics[height=2.2in]{fig/methods/noise_1_log.png}}%
 \qquad
-\subfigure[2nd channel]{%
+\subfigure[2nd Channel]{%
 \label{fig:second}%
 \includegraphics[height=2.2in]{fig/methods/noise_2_log.png}}%
-\caption{FFT analysis results}
+\caption{FFT Analysis Results}
 \end{figure}
 	
 	The signal frequency from the force sensor should be in range of (0 to 1 kHz). From the FFT analysis it can be concluded, that the noise frequency is in range (2.5 kHz and higher) with amplitude (-50 mV to 70 mV) for both channels. That means, low pass filter with cutoff frequency 2 kHz should be applied on the output signal. It was decided to use data averaging due to its simplicity of implementation and small time delays. It is an equivalent of low pass filtering that compensates the high frequency noise \cite{filtering_mov_ave}.
@@ -386,15 +386,38 @@ The github link to master device code and slave-device code.
 
 	\subsection{ROS Architecture}
 	\label{sec:p2}
-	To make communication between microcontroller and ROS work it is necessary to install rosserial\textunderscore arduino package \cite{rosserial_arduino}.
+Figure \ref{fig:ROS_arch} shows the ROS architecture of the developed system. In the python script we create a \textit{force\textunderscore feedback} node. The node is subscribed to X, Y, Z ADC data acquired form sensors and position of the sterile adapter from the daVinci controller. These data are used to find forces. The calculated forces (\textit{force\textunderscore x, force\textunderscore y, force\textunderscore z}) are then published.
+\begin{figure}[h]
+	\begin{center}
+		\includegraphics[width=80mm]{fig/methods/ROS_architecture.pdf}
+	\end{center}
+	\vspace{-4mm}
+	\caption[ROS architecture]
+	{ROS Architecture}
+	\label{fig:ROS_arch}
+	\vspace{-2mm}
+\end{figure}	
+
+The program calculates magnitude of the forces in X, Y, Z directions using the calibration equation:
+\begin{equation}
+F = \frac{adc_{data} - b}{a}
+\end{equation}
+
+where $b$ is the constant equal to ADC reading when $F = 0$, $adc_{data}$ is current sensor reading in corresponding direction, and $a$ is linear function of sterile adapter position:
+\begin{equation}
+a = c \cdot position + d
+\end{equation}
+
+where $c$ and $d$ are constants found during calibration and $position$ is the position of the sterile adapter.
+ 
+	%To make communication between microcontroller and ROS work it is necessary to install rosserial\textunderscore arduino package \cite{rosserial_arduino}.
 	
 \section{Calibration}
 \label{section:Calibration}
-First we used set of weights applied in two directions, but since the system was too sensitive for direction of force, we had to change our approach of determining the force direction. It was decided to use optical tracking system for that purpose.
 
 	\subsection{Calibration Setup}
 	\label{sec:CalSetup}
-	Tell how calibration with optical tracking system is working
+	The block diagram of the calibration system is shown on Figure..
 
 	\subsection{Calibration of the Load Cell}
 	\label{sec:CalLoadCell}
