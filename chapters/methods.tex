@@ -399,12 +399,12 @@ Figure \ref{fig:ROS_arch} shows the ROS architecture of the developed system. In
 \end{figure}	
 
 The program calculates magnitude of the forces in X, Y, Z directions using the calibration equation:
-\begin{equation}
+\begin{equation}\label{eq:calib_eq}
 F = \frac{adc_{data} - b}{a}
 \end{equation}
 
 where $b$ is the constant equal to ADC reading when $F = 0$, $adc_{data}$ is current sensor reading in corresponding direction, and $a$ is linear function of sterile adapter position:
-\begin{equation}
+\begin{equation}\label{eq:ster_adap_pos}
 a = c \cdot position + d
 \end{equation}
 
@@ -417,7 +417,36 @@ where $c$ and $d$ are constants found during calibration and $position$ is the p
 
 	\subsection{Calibration Setup}
 	\label{sec:CalSetup}
-	The block diagram of the calibration system is shown on Figure..
+	In order to find parameters of the calibration equation (\ref{eq:calib_eq}), the calibration system was developed (Figure \ref{fig:Calib_setup_BD}). Load cell and Polaris optical tracking system are used to find "true" force applied to the tool end. The load cell is used to find the magnitude of the applied force and the optical trackers (4-5) to find the direction of the force.
+	
+	During the calibration user should first calibrate the load cell. Then insert the tool in the sterile adapter.  The force readings depend on the position of the sterile adapter, meaning that the force/sensor readings curve should be found for different positions of the adapter. Finding the curve for only two positions would be enough, because the correlation between the curve and position is linear, as equation (\ref{eq:ster_adap_pos}) shows. 
+	
+\begin{figure}[h]
+	\begin{center}
+	\includegraphics[width=100mm]{fig/methods/block_diagram_of_calib_setup.pdf}
+	\end{center}
+	\vspace{-4mm}
+	\caption[Block Diagram of the Calibration Setup]
+	{Block Diagram of the Calibration Setup}
+	\label{fig:Calib_setup_BD}
+	\vspace{-2mm}
+\end{figure}
+
+Before starting data collection, the PSM joint of the sterile adapter should be fixed in position 1. After fixing the adapter, in order to transform Polaris camera frame to the robot frame, the transformation matrix should be found. For this purpose, three optical markers (1-3) are attached to the PSM. Z-direction vector corresponds to the vector formed by (2-1) optical markers, Y-direction vector is formed by (2-3) optical markers. X-direction vector can be found as a cross product between these two vectors:
+\begin{equation}
+\vec{X} = \vec{Y}\times \vec{Z}
+\end{equation}
+Using found $\vec{X}$, $\vec{Y}$, $\vec{Z}$ vectors and taking the position of (2) optical marker as a position of the origin vector. The transformation matrix can be found:
+\begin{equation}
+T_{w}^{c} = 
+\begin{bmatrix}
+    X_{x} 	& Y_{x} 		& Z_{x} 		&  x_{0} \\
+    X_{y} 	& Y_{y} 		& Z_{y} 		&  y_{0} \\
+    X_{z} 	& Y_{z} 		& Z_{z} 		&  z_{0} \\
+    0		 	& 0 			& 0 			& 1
+\end{bmatrix}
+\end{equation}
+
 
 	\subsection{Calibration of the Load Cell}
 	\label{sec:CalLoadCell}
