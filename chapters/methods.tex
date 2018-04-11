@@ -511,28 +511,34 @@ F_{m} = adc_{lc}*a_{lc} + b_{lc}
 	Calibration resulted in parameters of the linear equation being  $a_{lc} = -4.95 \cdot 10^{-4}$ and $b_{lc} = 16.6$. These values were used to find magnitude of the applied force on the tool end during X-Y and Z devices calibration.
 
 \subsection{Calibration Results}
+The calibration results for X-Y device are shown on figures \ref{fig:Y_calib_res}, \ref{fig:X_calib_res}.  	
 	Find mean square root error
+\begin{equation}
+RMSE = \sqrt{\frac{\sum_{i=1}^{n}{{(\hat{y_i} - y_i)}^2}}{n}}
+\end{equation}
 	
-\begin{figure}[h]
-	\begin{center}
-	\includegraphics[width=100mm]{fig/results/force_pred_x.pdf}
-	\end{center}
-	\vspace{-4mm}
-	\caption[Calibration Results in X-direction]
-	{Calibration Results in X-direction}
-	\label{fig:X_calib_res}
-	\vspace{-2mm}
+\begin{figure}[h]%
+\centering
+\subfigure[X-direction]{%
+\label{fig:first}%
+\includegraphics[width=90mm]{fig/results/force_pred_x.pdf}}%
+\qquad
+\subfigure[Y-direction]{%
+\label{fig:second}%
+\includegraphics[width=90mm]{fig/results/force_pred_y.pdf}}%
+\caption{Calibration Results of XY Device}
 \end{figure}
 
-\begin{figure}[h]
-	\begin{center}
-	\includegraphics[width=100mm]{fig/results/force_pred_y.pdf}
-	\end{center}
-	\vspace{-4mm}
-	\caption[Calibration Results in Y-direction]
-	{Calibration Results in Y-direction}
-	\label{fig:Y_calib_res}
-	\vspace{-2mm}
+\begin{figure}[h]%
+\centering
+\subfigure[Z Device]{%
+\label{fig:first}%
+\includegraphics[width=90mm]{fig/results/force_pred_z.pdf}}%
+\qquad
+\subfigure[Joint Effort]{%
+\label{fig:second}%
+\includegraphics[width=90mm]{fig/results/force_pred_z_effort.pdf}}%
+\caption{Calibration Results in Z-direction}
 \end{figure}
 
 Precision represents capacity of a sensing system to give the same reading when repetitively measuring the same measurand under the same conditions. The precision is a statistical parameter and can be assessed by the standard deviation (or variance) of a set of readings of the system for similar inputs.
