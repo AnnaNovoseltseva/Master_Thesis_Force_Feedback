@@ -117,7 +117,7 @@ The mounting location of the active strain gauges should be under the greatest a
 		\includegraphics[width=100mm]{fig/methods/old_sleeve.png}
 	\end{center}
 	\vspace{-4mm}
-	\caption[X-Y device]
+	\caption[Strain in the Device to Measure Forces in X-Y Direction]
 	{Strain in the Device to Measure Forces in X-Y Direction}
 	\label{fig:XYdev}
 	\vspace{-2mm}
@@ -129,7 +129,7 @@ The mounting location of the active strain gauges should be under the greatest a
 		\includegraphics[width=100mm]{fig/methods/z_dir_sim.png}
 	\end{center}
 	\vspace{-4mm}
-	\caption[Z device]
+	\caption[Strain in the Device to Measure Forces in Z Direction]
 	{Strain in the Device to Measure Forces in Z Direction}
 	\label{fig:Zdev}
 	\vspace{-2mm}
@@ -226,8 +226,8 @@ The manufactured sleeve is placed on the cannula end and is fixed with a set scr
 		\includegraphics[width=80mm]{fig/methods/xy_dev_cl.png}
 	\end{center}
 	\vspace{-4mm}
-	\caption[XY-direction force feedback sensor]
-	{XY-direction Force Feedback Fensor}
+	\caption[XY-direction Force Feedback Sensor]
+	{XY-direction Force Feedback Sensor}
 	\label{fig:xy-direction}
 	\vspace{-2mm}
 \end{figure}
@@ -237,7 +237,7 @@ The manufactured sleeve is placed on the cannula end and is fixed with a set scr
 		\includegraphics[width=80mm]{fig/methods/old_sleeve_displ.png}
 	\end{center}
 	\vspace{-4mm}
-	\caption[XY-direction force feedback sensor]
+	\caption[Displacement of the XY Device]
 	{Displacement of the XY Device}
 	\label{fig:xy-displ}
 	\vspace{-2mm}
@@ -253,8 +253,8 @@ In order to get accurate readings maximum displacement of the sleeve sides shoul
 		\includegraphics[width=80mm]{fig/methods/z_dir_design.png}
 	\end{center}
 	\vspace{-4mm}
-	\caption[Z-direction force feedback sensor]
-	{Z-direction Force Feedback Fensor}
+	\caption[Z-direction Force Feedback Sensor]
+	{Z-direction Force Feedback Sensor}
 	\label{fig:Z-direction}
 	\vspace{-2mm}
 \end{figure}
@@ -264,7 +264,7 @@ In order to get accurate readings maximum displacement of the sleeve sides shoul
 		\includegraphics[width=80mm]{fig/methods/z_dir_sec.png}
 	\end{center}
 	\vspace{-4mm}
-	\caption[Z-direction force feedback sensor - section vew]
+	\caption[Z-direction Force Feedback Sensor (Section View)]
 	{Z-direction Force Feedback Sensor (Section View)}
 	\label{fig:Z-direction_sec}
 	\vspace{-2mm}
@@ -288,7 +288,7 @@ Three rings and plate were manufactured with Aluminum Alloy 6061, attachment par
 		\includegraphics[width=150mm]{fig/methods/PSC_block_wave.pdf}
 	\end{center}
 	\vspace{-4mm}
-	\caption[Block diagram of the circuit]
+	\caption[Block Diagram of the Circuit]
 	{Block Diagram of the Circuit}
 	\label{fig:PCB_block_diag}
 	\vspace{-2mm}
@@ -311,7 +311,7 @@ Four strain gauges are connected to form a wheatstone bridge circuit. On Figures
 		\includegraphics[width=120mm]{fig/methods/Wiring_xy_sleeve.pdf}
 	\end{center}
 	\vspace{-4mm}
-	\caption[Wheatstone bridge configuration of XY-device]
+	\caption[Wheatstone Bridge Configuration of the XY-device]
 	{Wheatstone Bridge Configuration of the XY-device}
 	\label{fig:WB_xy_dev}
 	\vspace{-2mm}
@@ -322,7 +322,7 @@ Four strain gauges are connected to form a wheatstone bridge circuit. On Figures
 		\includegraphics[width=140mm]{fig/methods/Wiring_z.pdf}
 	\end{center}
 	\vspace{-4mm}
-	\caption[Wheatstone bridge configuration of Z-device]
+	\caption[Wheatstone Bridge Configuration of the Z-device]
 	{Wheatstone Bridge Configuration of the Z-device}
 	\label{fig:WB_z}
 	\vspace{-2mm}
@@ -392,7 +392,7 @@ Figure \ref{fig:ROS_arch} shows the ROS architecture of the developed system. In
 		\includegraphics[width=80mm]{fig/methods/ROS_architecture.pdf}
 	\end{center}
 	\vspace{-4mm}
-	\caption[ROS architecture]
+	\caption[ROS Architecture]
 	{ROS Architecture}
 	\label{fig:ROS_arch}
 	\vspace{-2mm}
@@ -484,7 +484,7 @@ F = mg
 	\includegraphics[width=80mm]{fig/methods/Load_Cell_Calibration.pdf}
 	\end{center}
 	\vspace{-4mm}
-	\caption[Load Cell Calibration]
+	\caption[Block Diagram of the Load Cell Calibration Setup]
 	{Block Diagram of the Load Cell Calibration Setup}
 	\label{fig:Calib_setup_LC}
 	\vspace{-2mm}
@@ -502,7 +502,7 @@ F_{m} = adc_{lc}*a_{lc} + b_{lc}
 	\includegraphics[width=80mm]{fig/methods/load_cell_calib_data.png}
 	\end{center}
 	\vspace{-4mm}
-	\caption[Load Cell Calibration]
+	\caption[Load Cell Calibration Result]
 	{Load Cell Calibration Result}
 	\label{fig:LC_calib_res}
 	\vspace{-2mm}
@@ -510,28 +510,31 @@ F_{m} = adc_{lc}*a_{lc} + b_{lc}
 
 	Calibration resulted in parameters of the linear equation being  $a_{lc} = -4.95 \cdot 10^{-4}$ and $b_{lc} = 16.6$. These values were used to find magnitude of the applied force on the tool end during X-Y and Z devices calibration.
 
-
-
-	\subsection{Calibration Results}
+\subsection{Calibration Results}
 	Find mean square root error
+	
+\begin{figure}[h]
+	\begin{center}
+	\includegraphics[width=100mm]{fig/results/force_pred_x.pdf}
+	\end{center}
+	\vspace{-4mm}
+	\caption[Calibration Results in X-direction]
+	{Calibration Results in X-direction}
+	\label{fig:X_calib_res}
+	\vspace{-2mm}
+\end{figure}
 
-		\begin{figure}
-			\centering
-			\begin{subfigure}
-				\centering
-				\includegraphics[width=120mm]{fig/results/x-dir.png}
-				\caption{X-component}
-				\label{fig:Xdirection}
-			\end{subfigure}
-			\begin{subfigure}
-				\centering
-				\includegraphics[width=120mm]{fig/results/y-dir.png}
-				\caption{Y-component}
-				\label{fig:Ydirection}
-			\end{subfigure}
-			\caption{Calibration results}
-			\label{fig:Calibration}
-		\end{figure}
+\begin{figure}[h]
+	\begin{center}
+	\includegraphics[width=100mm]{fig/results/force_pred_y.pdf}
+	\end{center}
+	\vspace{-4mm}
+	\caption[Calibration Results in Y-direction]
+	{Calibration Results in Y-direction}
+	\label{fig:Y_calib_res}
+	\vspace{-2mm}
+\end{figure}
+
 Precision represents capacity of a sensing system to give the same reading when repetitively measuring the same measurand under the same conditions. The precision is a statistical parameter and can be assessed by the standard deviation (or variance) of a set of readings of the system for similar inputs.
 
 One of the measurements of signal quality is signal-to-noise ratio (SNR). A higher value of SNR means the clear acquisitions with low signal distortions and artifacts caused by unwanted noise. It is defined as:
