@@ -472,18 +472,45 @@ P_{r} = {T_{c}^{ r}}^{-1} \cdot P_{c}
 	
 	\subsection{Calibration of the Load Cell}
 	\label{sec:CalLoadCell}
-	The calibration of the load cell is part of the calibration process of the developed device. The setup for load cell calibration is shown on Figure \ref{fig:Calib_setup_LC}.
+	The calibration of the load cell is a part of the calibration process of the created device. The bloack diagram of the setup for the load cell calibration is shown on Figure \ref{fig:Calib_setup_LC}. The force $F$ was applied on the load cell using weights, its value: 
+\begin{equation}
+F = mg
+\end{equation}
+
+	where $m$ is mass of the weight and $g$ is the gravitational constant.
 
 \begin{figure}[h]
 	\begin{center}
-	\includegraphics[width=105mm]{fig/methods/block_diagram_of_calib_setup.pdf}
+	\includegraphics[width=80mm]{fig/methods/Load_Cell_Calibration.pdf}
 	\end{center}
 	\vspace{-4mm}
-	\caption[Block Diagram of the Calibration Setup]
-	{Block Diagram of the Calibration Setup}
+	\caption[Load Cell Calibration]
+	{Block Diagram of the Load Cell Calibration Setup}
 	\label{fig:Calib_setup_LC}
 	\vspace{-2mm}
 \end{figure}
+
+	The calibration equation for the load cell is following:
+\begin{equation}
+F_{m} = adc_{lc}*a_{lc} + b_{lc}
+\end{equation}
+
+	where $adc_{lc}$ is acquired ADC data from the load cell; $a_{lc}$ and $b_{lc}$ are constants of the linear equation.
+
+\begin{figure}[h]
+	\begin{center}
+	\includegraphics[width=80mm]{fig/methods/load_cell_calib_data.png}
+	\end{center}
+	\vspace{-4mm}
+	\caption[Load Cell Calibration]
+	{Load Cell Calibration Result}
+	\label{fig:LC_calib_res}
+	\vspace{-2mm}
+\end{figure}
+
+	Calibration resulted in parameters of the linear equation being  $a_{lc} = -4.95 \cdot 10^{-4}$ and $b_{lc} = 16.6$. These values were used to find magnitude of the applied force on the tool end during X-Y and Z devices calibration.
+
+
 
 	\subsection{Calibration Results}
 	Find mean square root error
