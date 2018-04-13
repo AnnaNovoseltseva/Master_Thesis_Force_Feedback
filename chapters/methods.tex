@@ -621,7 +621,8 @@ Hysteresis, N & 0.99 & 2.4 & 2.8 & 1.2 \\
 
 \subsection{Calibration Curve Dependence from Sterile Adapter Position}
 	\label{sec:DisExp}
-	Movement of the sterile adapter joint causes change of the moment arm length.	Position of sterile adapter is acquired from daVinci controller.
+	
+Movement of the sterile adapter joint causes change of the moment arm length ($L_{gauge}$ on Figure \ref{fig:Free_Body_Diagram}).	 	
 
 \begin{figure}[h]
 	\begin{center}
@@ -633,17 +634,30 @@ Hysteresis, N & 0.99 & 2.4 & 2.8 & 1.2 \\
 	\label{fig:Free_Body_Diagram}
 	\vspace{-2mm}
 \end{figure}
+
+	The force applied on the X-Y sensor $F_{sensor}$ linearly depends on the moment arm length:
+	\begin{equation}
+	F_{sensor} = \frac{L_{shaft}}{L_{gauge}} \cdot F_{tool}
+	\end{equation}
+	where $F_{tool}$ is the force applied on the tool end, $L_{shaft}$ is the length of the shaft.
+
+The dependence between position of the sterile adapter and calibration curve constants ($a$ and $b$ from equation \ref{eq:calib_eq}) is linear for X and Y force components (Figures \ref{fig:X_position_dep}, \ref{fig:Y_position_dep}).
+
+The $R^2$ of constant $a$ is 0.9 for X-component of the force, 0.827 for Y-component. Low linear fit is caused by considerable systematic errors of the sensors.
+
+Constant $b$ does not depend on the sterile adapter position and changes due to systematic errors and noise in the system.
+
 	
 \begin{figure}[h]%
 \label{fig:X_position_dep}%
 \centering
 \subfigure[Constant a]{%
 \label{fig:X_con_a}%
-\includegraphics[width=90mm]{fig/results/a_dist_dep_x.pdf}}%
+\includegraphics[width=100mm]{fig/results/a_dist_dep_x.pdf}}%
 \qquad
 \subfigure[Constant b]{%
 \label{fig:X_con_b}%
-\includegraphics[width=90mm]{fig/results/b_dist_dep_x.pdf}}%
+\includegraphics[width=100mm]{fig/results/b_dist_dep_x.pdf}}%
 \caption{Sterile Adapter Position Calibration Results for X-direction}
 \end{figure}
 
@@ -652,16 +666,13 @@ Hysteresis, N & 0.99 & 2.4 & 2.8 & 1.2 \\
 \centering
 \subfigure[Constant a]{%
 \label{fig:Y_con_a}%
-\includegraphics[width=90mm]{fig/results/a_dist_dep_y.pdf}}%
+\includegraphics[width=100mm]{fig/results/a_dist_dep_y.pdf}}%
 \qquad
 \subfigure[Constant b]{%
 \label{fig:Y_con_b}%
-\includegraphics[width=90mm]{fig/results/b_dist_dep_y.pdf}}%
+\includegraphics[width=100mm]{fig/results/b_dist_dep_y.pdf}}%
 \caption{Sterile Adapter Position Calibration Results for Y-direction}
 \end{figure}
-
-
-
 
 
 
