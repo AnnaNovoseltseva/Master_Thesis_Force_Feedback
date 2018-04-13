@@ -5,7 +5,7 @@ set -e
 INTERACTION=nonstopmode
 OUTDIR=dist
 JOBNAME=thesis
-ITERATIONS=1 # set to 3 for references and ToC
+ITERATIONS=3 # set to 3 for references and ToC
 
 echo "Cleaning up workspace"
 

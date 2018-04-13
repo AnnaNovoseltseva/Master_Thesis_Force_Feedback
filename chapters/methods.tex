@@ -17,7 +17,7 @@
 	\vspace{-2mm}
 \end{figure}
 
-Block diagram of the created system for 3-DOF force measurement is shown on figure \ref{fig:BlockDiag}. Forces that applied on the end of surgical tool are measured using strain gauges, which change their resistance with force. Using created printed circuit boards (PCBs), this resistance changes are measured and published within ROS. At the same time we measure current joint position of the tool, which is needed for the force calibration. The position data and data from PCBs are used to find values of the force in X,Y,Z directions.
+Block diagram of the created system for 3-DOF force measurement is shown on Figure \ref{fig:BlockDiag}. Forces that applied on the end of surgical tool are measured using strain gauges, which change their resistance with force. Using created printed circuit boards (PCBs), this resistance changes are measured and published within ROS. At the same time we measure current joint position of the tool, which is needed for the force calibration. The position data and data from PCBs are used to find values of the force in X,Y,Z directions.
 
 \begin{figure}[h]
 	\begin{center}
@@ -215,7 +215,7 @@ For the device strain gauges with resistance 350 $\Omega$, GF is 2, single grid,
 
 	In compliance with the literature \cite{StrGugeInst} for application of the strain gauge on metals, the same materials and technique can be used. Therefore, the same method was used to apply strain gauges on different materials.
 
-\subsection{X-Y direction}
+\subsection{X-Y Device}
 \label{sec:xyDir}
 
 XY-device consists of one sleeve and one set screw. We manufactured sleeve using Aluminum 6061 Alloy. %First, hole with diameter 9.5 mm should be drilled in the center using the lathe machine. Then on the milling machine all the side slots and inner square should be milled. On the same machine hole for the set screw should be drilled. After that set screw thread was tapped.%
@@ -245,7 +245,7 @@ The manufactured sleeve is placed on the cannula end and is fixed with a set scr
 
 In order to get accurate readings maximum displacement of the sleeve sides should prevent shaft from hitting the cannula. It means that it should be less than $d=(d_{can_in} - d_{shaft_out})/2 = (8.75 - 8.4)/2 = 0.175$ mm. From the Solidworks simulation (Figure \ref{fig:xy-displ}), maximum displacement is 0.037 mm, which is in appropriate range.
 
-\subsection{Z-direction}
+\subsection{Z Device}
 \label{sec:zDir}
 
 \begin{figure}[h]
@@ -512,11 +512,17 @@ F_{m} = adc_{lc}*a_{lc} + b_{lc}
 
 	Calibration resulted in parameters of the linear equation being  $a_{lc} = -4.95 \cdot 10^{-4}$ and $b_{lc} = 16.6$. These values were used to find magnitude of the applied force on the tool end during X-Y and Z devices calibration.
 
-\subsection{Calibration Results}
+\section{Results}
+\label{sec:res}
 
-The calibration results are shown on figures \ref{fig:XY_calib_res}, \ref{fig:Z_calib_res}, where blue dots are sensor readings and the calibration function shown as a red line. The results for the Z device are presented on figure \ref{fig:Z_calib_sen}. As an alternative method to evaluate forces exerted in a Z-direction we used joint effort readings (Figure \ref{fig:Z_joint_effort}). This method is simple to implement by subscribing to the joint efforts from the daVinci controller and can be used for performance comparison with created Z-device.
+\subsection{Calibration Results and Sensors Characteristics}
+\label{ssec:Cal_Res}
+
+The calibration results are shown on Figures \ref{fig:XY_calib_res}, \ref{fig:Z_calib_res}, where blue dots are sensor readings and the calibration function shown as a red line. The results for the Z device are presented on Figure \ref{fig:Z_calib_sen}. As an alternative method to evaluate forces exerted in a Z-direction we used joint effort readings (Figure \ref{fig:Z_joint_effort}). This method is simple to implement by subscribing to the joint efforts from the daVinci controller and can be used for performance comparison with created Z-device.
 
 The performance of the created devices was evaluated using standard sensor characteristics, such as absolute error, signal to noise ratio, root mean square error, sensitivity, hysteresis, and measurement range.
+
+All the following infromation about sensor chracteristics is from \cite{kalantar-zadeh_sensors_2013}.
 
 \begin{figure}[h]%
 \label{fig:XY_calib_res}%
@@ -548,9 +554,9 @@ The accuracy of the developed sensory systems was assessed using the Root Mean S
 \begin{equation}
 RMSE = \sqrt{\frac{\sum_{i=1}^{n}{{(\hat{y_i} - y_i)}^2}}{n}}
 \end{equation}
-where $\hat{y_i}$ is predicted with equation (\ref{eq:calib_eq}) force value ; $y_i$ is observed "true" force value found using load cell and Polaris; $n$ is number of observations \cite{kalantar-zadeh_sensors_2013}.
+where $\hat{y_i}$ is predicted with equation (\ref{eq:calib_eq}) force value ; $y_i$ is observed "true" force value found using load cell and Polaris; $n$ is number of observations.
 
-Error is the difference between the actual value of the force and the value produced by the system (Equation \ref{eq:error}). Errors are related to accuracy and can be caused by different sources \cite{kalantar-zadeh_sensors_2013}. 
+Error is the difference between the actual value of the force and the value produced by the system (Equation \ref{eq:error}). Errors are related to accuracy and can be caused by different sources. 
 
 \begin{equation}\label{eq:error}
 error = \hat{y_i} - y_i
@@ -561,7 +567,7 @@ One of the measurements of signal quality is signal-to-noise ratio (SNR). A high
 \begin{equation}
 SNR=\frac{\mu}{\sigma}
 \end{equation}
-where $\mu$ is mean value of signal, $\sigma$ is standard deviation of noise \cite{kalantar-zadeh_sensors_2013}.
+where $\mu$ is mean value of signal, $\sigma$ is standard deviation of noise.
 
 The slope of the calibration curve is used for the sensitivity $S$ calculation.
 
@@ -570,17 +576,17 @@ S = Dy/Dx
 \end{equation}
 where $Dy$ is the incremental change in the sensor’s output, $Dx$ is the incremental change of the force. 
 
-Resolution is the smallest change of the applied force that gives a noticeable change in the sensor output, it is limited by the signal noise \cite{kalantar-zadeh_sensors_2013}.
+Resolution is the smallest change of the applied force that gives a noticeable change in the sensor output, it is limited by the signal noise.
 
-Linearity of the system is proximity of the calibration curve to the straight line. $R^2$ is used to evaluate linearity by measuring closeness of the measured data to the fitted regression line \cite{kalantar-zadeh_sensors_2013}.
+Linearity of the system is proximity of the calibration curve to the straight line. $R^2$ is used to evaluate linearity by measuring closeness of the measured data to the fitted regression line.
 
-Hysteresis is the difference between sensor outputs when the sensor is loaded versus unloaded \cite{kalantar-zadeh_sensors_2013}.
+Hysteresis is the difference between sensor outputs when the sensor is loaded versus unloaded.
 
-The measurement range consists of the maximum and minimum values of the force that can be measured with created systems \cite{kalantar-zadeh_sensors_2013}. For created system it corresponds to force values, when the output signal reaches saturation. However, for Z-directional measurements, when z-component of the applied force was higher than 12 N it caused sliding of the sterile adapter. Which meaning physical limitation of the system.
+The measurement range consists of the maximum and minimum values of the force that can be measured with created systems. For created system it corresponds to force values, when the output signal reaches saturation. However, for Z-directional measurements, when z-component of the applied force was higher than 12 N it caused sliding of the sterile adapter. Which meaning physical limitation of the system.
 
-Precision represents ability of the system to give the the same output under the same conditions. The precision of the system was assessed by the standard deviation of the sensor outputs, when similar forces were applied \cite{kalantar-zadeh_sensors_2013}. 
+Precision represents ability of the system to give the the same output under the same conditions. The precision of the system was assessed by the standard deviation of the sensor outputs, when similar forces were applied. 
 
-All sensor characteristics were calculated for X-Y device, Z-device, and Z-direction evaluation joint effort method and provided in the table \ref{tab:SenChar}.
+All sensor characteristics were calculated for X-Y device, Z-device, and Z-direction evaluation joint effort method and provided in the Table \ref{tab:SenChar}.
 
 \begin{table}[h]
 \caption {Sensors Characteristics} \label{tab:SenChar} 
@@ -611,15 +617,37 @@ Hysteresis, N & 0.99 & 2.4 & 2.8 & 1.2 \\
 \hline
 \end{tabular}
 \end{center}
-\end{table}s
+\end{table}
 
-
-\section{Experiments}
-\label{sec:Experims}
-
-	\subsection{Distance from the cannula to the tip dependence from readings}
+\subsection{Calibration Curve Dependence from Sterile Adapter Position}
 	\label{sec:DisExp}
-	Distance from the cannula to the tip - measure - 3 ¼ inch. Maximum distance is 9 inches.
+	Movement of sterile adapter joint causes change of the length	Position of sterile adapter is acquired from daVinci controller.
+	
+\begin{figure}[h]%
+\label{fig:X_position_dep}%
+\centering
+\subfigure[Constant a]{%
+\label{fig:X_con_a}%
+\includegraphics[width=90mm]{fig/results/a_dist_dep_x.pdf}}%
+\qquad
+\subfigure[Constant b]{%
+\label{fig:X_con_b}%
+\includegraphics[width=90mm]{fig/results/b_dist_dep_x.pdf}}%
+\caption{Sterile Adapter Position Calibration Results for X-direction}
+\end{figure}
+
+\begin{figure}[h]%
+\label{fig:Y_position_dep}%
+\centering
+\subfigure[Constant a]{%
+\label{fig:Y_con_a}%
+\includegraphics[width=90mm]{fig/results/a_dist_dep_y.pdf}}%
+\qquad
+\subfigure[Constant b]{%
+\label{fig:Y_con_b}%
+\includegraphics[width=90mm]{fig/results/b_dist_dep_y.pdf}}%
+\caption{Sterile Adapter Position Calibration Results for Y-direction}
+\end{figure}
 
 
 
