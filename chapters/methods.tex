@@ -515,7 +515,7 @@ F_{m} = adc_{lc}*a_{lc} + b_{lc}
 \section{Results}
 \label{sec:res}
 
-\subsection{Calibration Results and Sensors Characteristics}
+\subsection{Calibration Results}
 \label{ssec:Cal_Res}
 
 The calibration results are shown on Figures \ref{fig:XY_calib_res}, \ref{fig:Z_calib_res}, where blue dots are sensor readings and the calibration function shown as a red line. The results for the Z device are presented on Figure \ref{fig:Z_calib_sen}. As an alternative method to evaluate forces exerted in a Z-direction we used joint effort readings (Figure \ref{fig:Z_joint_effort}). This method is simple to implement by subscribing to the joint efforts from the daVinci controller and can be used for performance comparison with created Z-device.
@@ -621,7 +621,18 @@ Hysteresis, N & 0.99 & 2.4 & 2.8 & 1.2 \\
 
 \subsection{Calibration Curve Dependence from Sterile Adapter Position}
 	\label{sec:DisExp}
-	Movement of sterile adapter joint causes change of the length	Position of sterile adapter is acquired from daVinci controller.
+	Movement of the sterile adapter joint causes change of the moment arm length.	Position of sterile adapter is acquired from daVinci controller.
+
+\begin{figure}[h]
+	\begin{center}
+	\includegraphics[width=120mm]{fig/results/free_body_diagram.pdf}
+	\end{center}
+	\vspace{-4mm}
+	\caption[Sterile Adapter Movement]
+	{Sterile Adapter Movement}
+	\label{fig:Free_Body_Diagram}
+	\vspace{-2mm}
+\end{figure}
 	
 \begin{figure}[h]%
 \label{fig:X_position_dep}%
