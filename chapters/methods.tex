@@ -343,7 +343,7 @@ Using Altium Designer 15.1 the PCB design was developed and manufactured at Adva
 
 In the developed PCB (Figure \ref{fig:PCB_real}) trimpots are used for calibration of the instrumentation amplifier gain (shown yellow) and change of reference voltage (shown red).
 
-Instrumentation amplifier gain change is needed to set up appropriate measuring force range (0-11 N). During calibration, when 11 N applied on the tool end, the output signal (that goes to ADC) should be smaller than 4.5 V. When the same force applied in the opposite direction, the output signal should be bigger than 0.5 V.
+Instrumentation amplifier gain change is needed to set up appropriate measuring force range (0-11 N). During calibration, when 11 N applied on the tool end, the output signal (that goes to ADC) should be smaller than 4 V. When the same force applied in the opposite direction, the output signal should be bigger than 1 V.
  
 Reference voltage change is used for the compensation of wheatstone bridge unbalance caused by strain gauge resistance tolerances. During the calibration, it should be tuned until it gives the output signal close to 2.5 V, when no forces applied on the device.
 
@@ -409,6 +409,8 @@ a = c \cdot position + d
 \end{equation}
 
 where $c$ and $d$ are constants found during calibration and $position$ is the position of the sterile adapter.
+
+Z-device readings does not depend on the position of the sterile adapter. Hence, $a$ has a constant value for Z-device.
  
 	%To make communication between microcontroller and ROS work it is necessary to install rosserial\textunderscore arduino package \cite{rosserial_arduino}.
 	
@@ -511,67 +513,106 @@ F_{m} = adc_{lc}*a_{lc} + b_{lc}
 	Calibration resulted in parameters of the linear equation being  $a_{lc} = -4.95 \cdot 10^{-4}$ and $b_{lc} = 16.6$. These values were used to find magnitude of the applied force on the tool end during X-Y and Z devices calibration.
 
 \subsection{Calibration Results}
-The calibration results for X-Y device are shown on figures \ref{fig:Y_calib_res}, \ref{fig:X_calib_res}.  	
-	Find mean square root error
-\begin{equation}
-RMSE = \sqrt{\frac{\sum_{i=1}^{n}{{(\hat{y_i} - y_i)}^2}}{n}}
-\end{equation}
-	
+
+The calibration results are shown on figures \ref{fig:XY_calib_res}, \ref{fig:Z_calib_res}, where blue dots are sensor readings and the calibration function shown as a red line. The results for the Z device are presented on figure \ref{fig:Z_calib_sen}. As an alternative method to evaluate forces exerted in a Z-direction we used joint effort readings (Figure \ref{fig:Z_joint_effort}). This method is simple to implement by subscribing to the joint efforts from the daVinci controller and can be used for performance comparison with created Z-device.
+
+The performance of the created devices was evaluated using standard sensor characteristics, such as absolute error, signal to noise ratio, root mean square error, sensitivity, hysteresis, and measurement range.
+
 \begin{figure}[h]%
+\label{fig:XY_calib_res}%
 \centering
 \subfigure[X-direction]{%
-\label{fig:first}%
+\label{fig:X_calib_res}%
 \includegraphics[width=90mm]{fig/results/force_pred_x.pdf}}%
 \qquad
 \subfigure[Y-direction]{%
-\label{fig:second}%
+\label{fig:Y_calib_res}%
 \includegraphics[width=90mm]{fig/results/force_pred_y.pdf}}%
 \caption{Calibration Results of XY Device}
 \end{figure}
 
 \begin{figure}[h]%
+\label{fig:Z_calib_res}%
 \centering
 \subfigure[Z Device]{%
-\label{fig:first}%
+\label{fig:Z_calib_sen}%
 \includegraphics[width=90mm]{fig/results/force_pred_z.pdf}}%
 \qquad
 \subfigure[Joint Effort]{%
-\label{fig:second}%
+\label{fig:Z_joint_effort}%
 \includegraphics[width=90mm]{fig/results/force_pred_z_effort.pdf}}%
 \caption{Calibration Results in Z-direction}
 \end{figure}
 
-Precision represents capacity of a sensing system to give the same reading when repetitively measuring the same measurand under the same conditions. The precision is a statistical parameter and can be assessed by the standard deviation (or variance) of a set of readings of the system for similar inputs.
+The accuracy of the developed sensory systems was assessed using the Root Mean Square Error (RMSE), which is:
+\begin{equation}
+RMSE = \sqrt{\frac{\sum_{i=1}^{n}{{(\hat{y_i} - y_i)}^2}}{n}}
+\end{equation}
+where $\hat{y_i}$ is predicted with equation (\ref{eq:calib_eq}) force value ; $y_i$ is observed "true" force value found using load cell and Polaris; $n$ is number of observations \cite{kalantar-zadeh_sensors_2013}.
+
+Error is the difference between the actual value of the force and the value produced by the system (Equation \ref{eq:error}). Errors are related to accuracy and can be caused by different sources \cite{kalantar-zadeh_sensors_2013}. 
+
+\begin{equation}\label{eq:error}
+error = \hat{y_i} - y_i
+\end{equation}
 
 One of the measurements of signal quality is signal-to-noise ratio (SNR). A higher value of SNR means the clear acquisitions with low signal distortions and artifacts caused by unwanted noise. It is defined as:
 
 \begin{equation}
-\frac{S}{N}=\frac{Mean value of signal}{Standard deviation of noise}
+SNR=\frac{\mu}{\sigma}
 \end{equation}
+where $\mu$ is mean value of signal, $\sigma$ is standard deviation of noise \cite{kalantar-zadeh_sensors_2013}.
 
-For X-direction SNR is $3232 \pm 78$, for Y-direction SNR is $2857 \pm 150$, which is much bigger than 1. It means that system has very low noise.
-
-Error is the difference between the actual value of the measurand and the value produced by the sensing system. Error can be caused by a variety of internal and external sources and is closely related to accuracy. Accuracy can be related to absolute or relative error as:
+The slope of the calibration curve is used for the sensitivity $S$ calculation.
 
 \begin{equation}
-Absolute error = \frac{Output}{ True value}
+S = Dy/Dx
 \end{equation}
+where $Dy$ is the incremental change in the sensor’s output, $Dx$ is the incremental change of the force. 
 
-From figure we can assume that fluctuations in the output signal are due to systematic errors. 
+Resolution is the smallest change of the applied force that gives a noticeable change in the sensor output, it is limited by the signal noise \cite{kalantar-zadeh_sensors_2013}.
 
-Drift is observed when a gradual change in the sensing system’s output is seen, while the measurand actually remains constant. Drift is the undesired change that is unrelated to the measurand. It is considered a systematic error, which can be attributed to interfering parameters such as mechanical instability and temperature instability, contamination, and the sensor’s materials degradation. 
+Linearity of the system is proximity of the calibration curve to the straight line. $R^2$ is used to evaluate linearity by measuring closeness of the measured data to the fitted regression line \cite{kalantar-zadeh_sensors_2013}.
 
-Resolution (or discrimination) is the minimal change of the measurand that can produce a detectable increment in the output signal. Resolution is strongly limited by any noise in the signal.
+Hysteresis is the difference between sensor outputs when the sensor is loaded versus unloaded \cite{kalantar-zadeh_sensors_2013}.
 
-In a sensing system, minimum detectable signal (MDS) is the minimum signal increment that can be observed, when all interfering factors are taken into account. When the increment is assessed from zero, the value is generally referred to as threshold or detection limit. If the interferences are large relative to the input, it will be difficult to extract a clear signal and a small MDS cannot be obtained.
+The measurement range consists of the maximum and minimum values of the force that can be measured with created systems \cite{kalantar-zadeh_sensors_2013}. For created system it corresponds to force values, when the output signal reaches saturation. However, for Z-directional measurements, when z-component of the applied force was higher than 12 N it caused sliding of the sterile adapter. Which meaning physical limitation of the system.
 
-Sensitivity is the ratio of the incremental change in the sensor’s output (Dy) to the incremental change of the measurand in input (Dx). The slope of the calibration curve, y f(x), can be used for the calculation of sensitivity.
+Precision represents ability of the system to give the the same output under the same conditions. The precision of the system was assessed by the standard deviation of the sensor outputs, when similar forces were applied \cite{kalantar-zadeh_sensors_2013}. 
 
-The closeness of the calibration curve to a specified straight line shows the linearity of a sensor. Its degree of resemblance to a straight line describes how linear a system is.
+All sensor characteristics were calculated for X-Y device, Z-device, and Z-direction evaluation joint effort method and provided in the table \ref{tab:SenChar}.
 
-Hysteresis is the difference between output readings for the same measurand, depending on the trajectory followed by the sensor.
+\begin{table}[h]
+\caption {Sensors Characteristics} \label{tab:SenChar} 
+\begin{center}
+\begin{tabular}{ | c | c | c | c | c | } 
+\hline
+ &  X-sensor & Y-sensor & Z-sensor & Joint Effort \\ 
+\hline
+Error $\pm$ SD, N & $0.059 \pm 0.435$ & $0.017 \pm 0.755$ & $-0.716 \pm 1.324$ & $-1.411 \pm 0.672$ \\ 
+\hline
+RMSE & 0.44 & 0.75 & 1.5 & 1.56 \\ 
+\hline
+S/N & 2888 & 3041 & 114 & 566 \\
+\hline
+Noise SD, N & 0.011 & 0.004 & 0.115 & 0.017 \\
+\hline
+Sensitivity & 911 & 1030 & 618 & 0.977 \\
+\hline
+Precision, N & 0.4 & 0.65 & 0.63 & 0.35 \\
+\hline
+Resolution, N & 0.03 & 0.02 & 0.2 & 0.03 \\
+\hline
+$R^2$ & 0.965 & 0.924 & 0.938 & 0.963 \\
+\hline
+Range, N & -19 to 23 & -18 to 20 & -29 to 34 & -12 to 12 \\
+\hline
+Hysteresis, N & 0.99 & 2.4 & 2.8 & 1.2 \\
+\hline
+\end{tabular}
+\end{center}
+\end{table}s
 
-The maximum and minimum values of the measurand that can be measured with a sensing system are called the measurement range, which is also called the dynamic range or span. This range results in a meaningful and accurate output for the sensing system. \cite{kalantar-zadeh_sensors_2013}
 
 \section{Experiments}
 \label{sec:Experims}
@@ -581,17 +622,6 @@ The maximum and minimum values of the measurand that can be measured with a sens
 	Distance from the cannula to the tip - measure - 3 ¼ inch. Maximum distance is 9 inches.
 
 
-	\subsection{Temperature Dependence}
-	\label{sec:TempExp}
-	Try in 36.6 Celsius and room temperature
-	Effect of the surrounding temperature on the device was ..
-
-	Do all experiments at least three times and calculate all statistic things you can (SD)
-
-	\subsection{Hysteresis}
-	\label{sec:HystExp}
-	Hysteresis was checked .. 
-	We written separate program to check hysteresis
 
 
 
