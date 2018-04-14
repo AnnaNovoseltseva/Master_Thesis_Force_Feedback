@@ -8,7 +8,7 @@
 
 \begin{figure}[h]
 	\begin{center}
-		\includegraphics[width=100mm]{fig/methods/the_device.png}
+	\includegraphics[width=100mm]{fig/methods/the_device.png}
 	\end{center}
 	\vspace{-4mm}
 	\caption[Developed Force Measuring System Attached to the PSM]
@@ -518,7 +518,7 @@ F_{m} = adc_{lc}*a_{lc} + b_{lc}
 \subsection{Calibration Results}
 \label{ssec:Cal_Res}
 
-The calibration results are shown on Figures \ref{fig:XY_calib_res}, \ref{fig:Z_calib_res}, where blue dots are sensor readings and the calibration function shown as a red line. The results for the Z device are presented on Figure \ref{fig:Z_calib_sen}. As an alternative method to evaluate forces exerted in a Z-direction we used joint effort readings (Figure \ref{fig:Z_joint_effort}). This method is simple to implement by subscribing to the joint efforts from the daVinci controller and can be used for performance comparison with created Z-device.
+The calibration results are shown on Figures \ref{fig:XY_calib_res}, \ref{fig:Z_calib_res}, where blue dots are sensor readings and the calibration function shown as a red line. The results for the Z device are presented on Figure \ref{fig:Z_calib_sen}. As an alternative method to evaluate forces exerted in a Z-direction we used joint effort readings (Figure \ref{fig:Z_joint_effort}). This method is simple to implement by subscribing to the joint efforts from the daVinci controller and can be used for comparison with created Z-device.
 
 The performance of the created devices was evaluated using standard sensor characteristics, such as absolute error, signal to noise ratio, root mean square error, sensitivity, hysteresis, and measurement range.
 
@@ -575,15 +575,15 @@ The slope of the calibration curve is used for the sensitivity $S$ calculation.
 \begin{equation}
 S = Dy/Dx
 \end{equation}
-where $Dy$ is the incremental change in the sensor’s output, $Dx$ is the incremental change of the force. All systems have high sensitivity.
+where $Dy$ is the incremental change in the sensor’s output, $Dx$ is the incremental change of the force. All the systems have relatively high sensitivity.
 
-Resolution is the smallest change of the applied force that gives a noticeable change in the sensor output, it is limited by the signal noise. Since the system have low noise, it has better resolution than required 0.3 N.
+Resolution is the smallest change of the applied force that gives a noticeable change in the sensor output, it is limited by the signal noise. Devices have higher resolution than required 0.3 N.
 
 Linearity of the system is proximity of the calibration curve to the straight line. $R^2$ is used to evaluate linearity by measuring closeness of the measured data to the fitted regression line. Generally, strain gauges have linear response with deformation and all sensors showed high linearity with $R^2$ higher than 90\%.
 
 Hysteresis is the difference between sensor outputs when the sensor is loaded versus unloaded. All sensors have shown high hysteresis, up to 2.8 N.
 
-The measurement range consists of the maximum and minimum values of the force that can be measured with created systems. For created system it corresponds to force values, when the output signal reaches saturation. However, for Z-directional measurements, when z-component of the applied force was higher than 12 N it caused sliding of the sterile adapter. Which meaning physical limitation of the system.
+The measurement range consists of the maximum and minimum values of the force that can be measured with created systems. For created system it corresponds to force values, when the output signal reaches saturation. However, for Z-directional measurements, when z-component of the applied force was higher than 12 N it caused sliding of the sterile adapter. Meaning physical limitation for Z-direction force measurements. All designed devices measure forces in slightly higher than $\pm 11 N$ range. When the applied force exceeds the specified range, the device readings can be used to trigger safety alert.
 
 Precision represents ability of the system to give the the same output under the same conditions. The precision of the system was assessed by the standard deviation of the sensor outputs, when similar forces were applied.  All sensors have low precision, which is reflected in high absolute errors values.
 
@@ -612,7 +612,7 @@ Resolution, N & 0.03 & 0.02 & 0.2 & 0.03 \\
 \hline
 $R^2$ & 0.965 & 0.924 & 0.938 & 0.963 \\
 \hline
-Range, N & -19 to 23 & -18 to 20 & -29 to 34 & -12 to 12 \\
+Range, N & -19 to 23 & -18 to 20 & -12 to 12 & -12 to 12 \\
 \hline
 Hysteresis, N & 0.99 & 2.4 & 2.8 & 1.2 \\
 \hline
