@@ -32,7 +32,7 @@ Block diagram of the created system for 3-DOF force measurement is shown on Figu
 
 \section{Sensor Placement Optimization}
 \label{sec:SimMod}
-A finite element analysis was done in Solidworks to assess better placement of the strain gauges on the created device. In order to run finite element analysis material properties, such as elastic modulus, poisson`s ratio, and density are necessary to know. Sleeve material is aluminum 6061, that has elastic modulus 68.9 GPa, poisson`s ratio 0.33, and density 2700 kg/m\textsuperscript{3} \cite{aluminum_properties}. Since the shaft and cannula materials are unknown, in order to run finite element analysis their elasticity modulus and density were found experimentally.
+A finite element analysis was done in Solidworks to assess better placement of the strain gauges on the created device. In order to run finite element analysis material properties, such as elastic modulus, poisson`s ratio, and density are necessary to know. Devices material is aluminum 6061, that has elastic modulus 68.9 GPa, poisson`s ratio 0.33, and density 2700 kg/m\textsuperscript{3} \cite{aluminum_properties}. Since the shaft and cannula materials are unknown, in order to run finite element analysis their elasticity modulus and density were found experimentally.
 	
 	\subsection{Elastic Modulus Measurements}
 	\label{sec:ElasMod}
@@ -49,7 +49,7 @@ A finite element analysis was done in Solidworks to assess better placement of t
 	\vspace{-2mm}
 \end{figure}
 
-\begin{table}
+\begin{table}[h]
 \caption {Elasticity Modulus Measurement Data} \label{tab:elasMod} 
 \begin{tabular}{ | c | c | c | c | c | c | c | c | } 
 \hline
@@ -280,7 +280,7 @@ Three rings and plate were manufactured with Aluminum Alloy 6061, attachment par
 
 	\subsection{Circuit design}
 	\label{sec:cirDes}
-	Block diagram of the developed PCB is shown on Figure \ref{fig:PCB_block_diag}. Signal waveforms are shown on Figure \ref{fig:Wave_Out}.
+	Signal waveforms and the block diagram of the developed PCB are shown on Figure \ref{fig:PCB_bd}.
 
 \begin{figure}[h]
 	\begin{center}
@@ -289,7 +289,7 @@ Three rings and plate were manufactured with Aluminum Alloy 6061, attachment par
 	\vspace{-4mm}
 	\caption[Block Diagram of the Circuit]
 	{Block Diagram of the Circuit}
-	\label{fig:PCB_block_diag}
+	\label{fig:PCB_bd}
 	\vspace{-2mm}
 \end{figure}
 
@@ -336,7 +336,6 @@ Instrumentation amplifier gain change is needed to set up appropriate measuring 
  
 Reference voltage change is used for the compensation of wheatstone bridge unbalance caused by strain gauge resistance tolerances. During the calibration, it should be tuned until it gives the output signal close to 2.5 V, when no forces applied on the device.
 
-More details on the developed PCB are on github link.
 
 	\subsection{Noise Analysis}
 	\label{sec:NoiseExp}
@@ -359,7 +358,7 @@ More details on the developed PCB are on github link.
 
 	\subsection{Microcontroller Software}
 	\label{sec:MicrSoft}
-	Microcontroller ATMEGA328P is used in the developed PCB for acqusition, filtering, and sending data to ROS. Main advantage of this microcontroller is that it has open-source packages for serial communication with ROS. The microcontroller is programmed to initialize ros nodes with names "adc\textunderscore xy" for XY-device and "adc\textunderscore zlc" for Z-device. The master-slave communication is created between X-Y and Z- devices for data acquizition synchronization by sending start conversion signals between two PCBs. When one of the devices gets the signal it starts to communicate with ADC though SPI interface (Figure \ref{fig:SPI_com}) \cite{introduction_SPI}. The acquired data is filtered from the high frequency noise by averaging of the 5 most recent readings. And the filtered data is published through the serial port with the baud rate 115200 bits per second. 
+	Microcontroller ATMEGA328P is used in the developed PCB for data acqusition, filtering, and sending to ROS. The microcontroller has open-source packages for serial communication with ROS. The microcontroller is programmed to initialize ros nodes with names "adc\textunderscore xy" for XY-device and "adc\textunderscore zlc" for Z-device. The master-slave communication is created between X-Y and Z- devices for data acquizition synchronization by sending start conversion signals between two PCBs. When one of the devices gets the signal it starts to communicate with ADC though SPI interface (Figure \ref{fig:SPI_com}) \cite{introduction_SPI}. The acquired data is filtered from the high frequency noise by averaging of the 5 most recent readings. And the filtered data is published through the serial port with the baud rate 115200 bits per second. 
 	
 \begin{figure}[h]
 	\begin{center}
@@ -371,8 +370,6 @@ More details on the developed PCB are on github link.
 	\label{fig:SPI_com}
 	\vspace{-2mm}
 \end{figure}
-
-The github link to master device code and slave-device code.
 
 	\subsection{ROS Architecture}
 	\label{sec:p2}
@@ -465,7 +462,7 @@ P_{r} = {T_{c}^{ r}}^{-1} \cdot P_{c}
 	
 	\subsection{Calibration of the Load Cell}
 	\label{sec:CalLoadCell}
-	The calibration of the load cell is a part of the calibration process of the created device. The bloack diagram of the setup for the load cell calibration is shown on Figure \ref{fig:Calib_setup_LC}. The force $F$ was applied on the load cell using weights, its value: 
+	The calibration of the load cell is a part of the calibration process of the created device. The block diagram of the setup for the load cell calibration is shown on Figure \ref{fig:Calib_setup_LC}. The force $F$ was applied on the load cell using weights, its value: 
 \begin{equation}
 F = mg
 \end{equation}
@@ -509,7 +506,7 @@ F_{m} = adc_{lc}*a_{lc} + b_{lc}
 \subsection{Calibration Results}
 \label{ssec:Cal_Res}
 
-The calibration results are shown on Figures \ref{fig:XY_calib_res}, \ref{fig:Z_calib_res}, where blue dots are sensor readings and the calibration function shown as a red line. The results for the Z device are presented on Figure \ref{fig:Z_calib_sen}. As an alternative method to evaluate forces exerted in a Z-direction we used joint effort readings (Figure \ref{fig:Z_joint_effort}). This method is simple to implement by subscribing to the joint efforts from the daVinci controller and can be used for comparison with created Z-device.
+The calibration results are shown on Figures \ref{fig:XY_calib_res} - \ref{fig:Z_calib_res}, where blue dots are sensor readings and the calibration function shown as a red line. The results for the Z device are presented on Figure \ref{fig:Z_calib_sen}. As an alternative method to evaluate forces exerted in a Z-direction we used joint effort readings (Figure \ref{fig:Z_joint_effort}). This method is simple to implement by subscribing to the joint efforts from the daVinci controller and can be used for comparison with created Z-device.
 
 The performance of the created devices was evaluated using standard sensor characteristics, such as absolute error, signal to noise ratio, root mean square error, sensitivity, hysteresis, and measurement range.
 
@@ -578,7 +575,7 @@ The measurement range consists of the maximum and minimum values of the force th
 
 Precision represents ability of the system to give the the same output under the same conditions. The precision of the system was assessed by the standard deviation of the sensor outputs, when similar forces were applied.  All sensors have low precision, which is reflected in high absolute errors values.
 
-All sensor characteristics were calculated for X-Y device, Z-device, and Z-direction evaluation joint effort method and provided in the Table \ref{tab:SenChar}.
+All sensor characteristics were calculated for X-Y device, Z-device, and Z-direction evaluation joint effort method and provided in the Table \ref{tab:SenChar}. For each sensor, the calculated sensor characteristics are average values from the results of 3 trials.
 
 \begin{table}[h]
 \caption {Sensors Characteristics} \label{tab:SenChar} 
@@ -633,7 +630,7 @@ Movement of the sterile adapter joint causes change of the moment arm length ($L
 	\end{equation}
 	where $F_{tool}$ is the force applied on the tool end, $L_{shaft}$ is the length of the shaft.
 
-The dependence between position of the sterile adapter and calibration curve constants ($a$ and $b$ from equation \ref{eq:calib_eq}) is linear for X and Y force components (Figures \ref{fig:X_position_dep} - \ref{fig:Y_position_dep}).
+The dependence between position of the sterile adapter and calibration curve constants ($a$ and $b$ from equation \ref{eq:calib_eq}) is linear for X and Y force components (Figures \ref{fig:X_position_dep} - \ref{fig:Y_position_dep}). We ran 3 trials for each position.
 
 The $R^2$ of constant $a$ is 0.9 for X-component of the force, 0.827 for Y-component. Low linear fit is caused by considerable systematic errors of the sensors.
 
