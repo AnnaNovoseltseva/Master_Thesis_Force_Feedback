@@ -271,7 +271,7 @@ In order to get accurate readings maximum displacement of the sleeve sides shoul
 \end{figure}
 
 
-Z-device (Figures \ref{fig:Z-direction}, \ref{fig:Z-direction_sec}) consists of attachment to the sterile adapter, 2 thrust ball bearings, three rings, plate, and two cylindrical spacers. Three rings and two ball bearings are used to transfer only z-directional forces further to the plate and keep ability of the shaft to rotate. The ring in the center is in direct contact with the instrument shaft, two outer rings are for the push and pull forces transfer. The plate experience maximum strain and all strain gauge sensors are mounted on it.  Two cylindrical spacers are used to give plate space to move and they are mounted on the attachment plate. the attachment plate consist of three plates, they are press fitted on the sterile adapter and fixed with four set screws.
+Z-device (Figures \ref{fig:Z-direction} - \ref{fig:Z-direction_sec}) consists of attachment to the sterile adapter, 2 thrust ball bearings, three rings, plate, and two cylindrical spacers. Three rings and two ball bearings are used to transfer only z-directional forces further to the plate and keep ability of the shaft to rotate. The ring in the center is in direct contact with the instrument shaft, two outer rings are for the push and pull forces transfer. The plate experience maximum strain and all strain gauge sensors are mounted on it.  Two cylindrical spacers are used to give plate space to move and they are mounted on the attachment plate. the attachment plate consist of three plates, they are press fitted on the sterile adapter and fixed with four set screws.
 
 Three rings and plate were manufactured with Aluminum Alloy 6061, attachment parts were 3-D printed, fasteners were used as spacers.
 
@@ -363,9 +363,10 @@ More details on the developed PCB are on github link.
 \label{fig:second}%
 \includegraphics[height=2.2in]{fig/methods/noise_2_log.png}}%
 \caption{FFT Analysis Results}
+\label{fig:FFT_res}
 \end{figure}
 	
-	The signal frequency from the force sensor should be in range of (0 to 1 kHz). From the FFT analysis it can be concluded, that the noise frequency is in range (2.5 kHz and higher) with amplitude (-50 mV to 70 mV) for both channels. That means, low pass filter with cutoff frequency 2 kHz should be applied on the output signal. It was decided to use data averaging due to its simplicity of implementation and small time delays. It is an equivalent of low pass filtering that compensates the high frequency noise \cite{filtering_mov_ave}.
+	The signal frequency from the force sensor should be in range of (0 to 1 kHz). From the FFT analysis results (Figure \ref{fig:FFT_res}) it can be concluded, that the noise frequency is in range (2.5 kHz and higher) with amplitude (-50 mV to 70 mV) for both channels. That means, low pass filter with cutoff frequency 2 kHz should be applied on the output signal. It was decided to use data averaging due to its simplicity of implementation and small time delays. It is an equivalent of low pass filtering that compensates the high frequency noise \cite{filtering_mov_ave}.
 
 	\subsection{Microcontroller Software}
 	\label{sec:MicrSoft}
@@ -387,6 +388,7 @@ The github link to master device code and slave-device code.
 	\subsection{ROS Architecture}
 	\label{sec:p2}
 Figure \ref{fig:ROS_arch} shows the ROS architecture of the developed system. In the python script we create a \textit{force\textunderscore feedback} node. The node is subscribed to X, Y, Z ADC data acquired form sensors and position of the sterile adapter from the daVinci controller. These data are used to find forces. The calculated forces (\textit{force\textunderscore x, force\textunderscore y, force\textunderscore z}) are then published.
+
 \begin{figure}[h]
 	\begin{center}
 		\includegraphics[width=80mm]{fig/methods/ROS_architecture.pdf}
@@ -525,7 +527,6 @@ The performance of the created devices was evaluated using standard sensor chara
 All the following infromation about sensor chracteristics is from \cite{kalantar-zadeh_sensors_2013}.
 
 \begin{figure}[h]%
-\label{fig:XY_calib_res}%
 \centering
 \subfigure[X-direction]{%
 \label{fig:X_calib_res}%
@@ -535,10 +536,10 @@ All the following infromation about sensor chracteristics is from \cite{kalantar
 \label{fig:Y_calib_res}%
 \includegraphics[width=90mm]{fig/results/force_pred_y.pdf}}%
 \caption{Calibration Results of XY Device}
+\label{fig:XY_calib_res}%
 \end{figure}
 
 \begin{figure}[h]%
-\label{fig:Z_calib_res}%
 \centering
 \subfigure[Z Device]{%
 \label{fig:Z_calib_sen}%
@@ -548,6 +549,7 @@ All the following infromation about sensor chracteristics is from \cite{kalantar
 \label{fig:Z_joint_effort}%
 \includegraphics[width=90mm]{fig/results/force_pred_z_effort.pdf}}%
 \caption{Calibration Results in Z-direction}
+\label{fig:Z_calib_res}%
 \end{figure}
 
 The accuracy of the developed sensory systems was assessed using the Root Mean Square Error (RMSE), which is:
@@ -642,7 +644,7 @@ Movement of the sterile adapter joint causes change of the moment arm length ($L
 	\end{equation}
 	where $F_{tool}$ is the force applied on the tool end, $L_{shaft}$ is the length of the shaft.
 
-The dependence between position of the sterile adapter and calibration curve constants ($a$ and $b$ from equation \ref{eq:calib_eq}) is linear for X and Y force components (Figures \ref{fig:X_position_dep}, \ref{fig:Y_position_dep}).
+The dependence between position of the sterile adapter and calibration curve constants ($a$ and $b$ from equation \ref{eq:calib_eq}) is linear for X and Y force components (Figures \ref{fig:X_position_dep} - \ref{fig:Y_position_dep}).
 
 The $R^2$ of constant $a$ is 0.9 for X-component of the force, 0.827 for Y-component. Low linear fit is caused by considerable systematic errors of the sensors.
 
@@ -650,7 +652,6 @@ Constant $b$ does not depend on the sterile adapter position and changes due to 
 
 	
 \begin{figure}[h]%
-\label{fig:X_position_dep}%
 \centering
 \subfigure[Constant a]{%
 \label{fig:X_con_a}%
@@ -660,10 +661,10 @@ Constant $b$ does not depend on the sterile adapter position and changes due to 
 \label{fig:X_con_b}%
 \includegraphics[width=100mm]{fig/results/b_dist_dep_x.pdf}}%
 \caption{Sterile Adapter Position Calibration Results for X-direction}
+\label{fig:X_position_dep}%
 \end{figure}
 
 \begin{figure}[h]%
-\label{fig:Y_position_dep}%
 \centering
 \subfigure[Constant a]{%
 \label{fig:Y_con_a}%
@@ -673,6 +674,7 @@ Constant $b$ does not depend on the sterile adapter position and changes due to 
 \label{fig:Y_con_b}%
 \includegraphics[width=100mm]{fig/results/b_dist_dep_y.pdf}}%
 \caption{Sterile Adapter Position Calibration Results for Y-direction}
+\label{fig:Y_position_dep}%
 \end{figure}
 
 

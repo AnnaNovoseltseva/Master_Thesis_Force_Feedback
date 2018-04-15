@@ -23,7 +23,6 @@ The proposed research is aimed to solve lack of haptic feedback in the daVinci s
 %Effectiveness of daVinci system in comparison to opened surgery and other systems \cite{yu_safety_2014}
 
 
-
 \section{Importance of Haptic Feedback}
 \label{sec:hapticFeedbackImportance}
 
@@ -34,45 +33,24 @@ In several studies \cite{lim_role_2015, alleblas_effects_2017, currie_role_2017}
 
 In order to implement haptic feedback in the daVinci system, it is necessary to create force feedback estimation method for surgical tools first. Current approached of incorporating force feedback include placement of force sensors on surgical tools, change of instruments design and some sensorless methods.
 
-\subsection{Sensor placement on Tools}
-Placing force sensors on the surgical instrument \cite{hong_design_2012}
+\subsection{Sensor Placement on Instrument}
+\begin{itemize}
+\item Placing force sensors on the surgical instruments \cite{hong_design_2012}. In this paper, authors suggested to measure pulling and grasping forces at the tip of surgical instrument by mounting strain gauges on top and bottom surfaces of each of the two flexure hinges of the forceps. RMS errors were close to 0.1 N. One of the disadvantages of this method is biocompatibility problem, another is increasing the cost of each tool. Taking into account that each instrument has limited lifespan  \cite{ho_health_2011}, it will lead to significant increase of surgery cost.
 
-They suggest to measure of pulling and grasp forces at the tip of surgical instrument. For the design of the compliant forceps, the required compliance characteristics are first defined using a simple spring model with one linear and one torsional springs. This model may be directly realized as the compliant forceps. However, for the compact realization of the mechanism, we synthesize the spring model with two torsional springs that has equivalent compliance characteristics to the linear-torsional spring model. Then, each of the synthesized torsional springs is realized physically by means of a flexure hinge. From this design approach, direct measurement of the pulling and grasp forces is possible at the forceps, and measuring sensitivity can be adjusted in the synthesis process. The validity of the design is evaluated by finite element analysis. Further, from the measured values of bending strains of two flexure hinges, a method to compute the decoupled pulling and grasp forces is presented via the theory of screws. Finally, force- sensing performance of the proposed compliant forceps is verified from the experiments of the prototype using some weights and load cells. 10.1109/TRO.2012.2194889 
-
-Optical stuff \cite{_micro_2004}
-A 5 mm diameter tri-axial force sensor has been developed for minimally invasive robotic surgery. To define the required force range and resolution, a needle driver has been equipped with strain gauges. In vivo tests with different types of needles and tissue show that the required force range and resolution are, respectively, 2.5 N and 0.01 N. The new sensor is based on a flexible titanium structure of which the deformations are measured through reflective measurements with three optical fibres. It has a range of 2.5 N in axial direction and 1.7 N in radial direction.
+\item  Some researches use optical methods for force evaluation. These methods are divided by different sensing principles they use: intensity modulation, wavelength modulation and phase modulation \cite{su_fiber_optic_2017}. In the paper \cite{_micro_2004}, authors developed 3-axial force sensor that uses intensity principle. It is based on a flexible titanium structure, that deforms with applied forces. These deformations are measured through reflective measurements with three optical fibres. The method shows measurement force range 0.01 N to 2.5 N with 0.01 N resolution. The disadvantage of this method is narrow force measurement range.
+\end{itemize}
 
 \subsection{New Instrument Designs}
-Making new surgical instrument design \cite{schwalb_forcesensing_2017}
+Making new surgical instrument design \cite{schwalb_forcesensing_2017}. Authors developed new force-sensing surgical tool, that uses a proximally located force/torque sensor. This allows to avoid miniaturization and sterilization issues. The method have high sensing accuracy with errors less than 0.09 N. The outer diameter of the developed tool is 12 mm. This method as well requires increase of the tool cost, leading to higher surgery expenses.
 
-Method In this paper a force-feedback enabled surgical robotic system is 
-described in which the developed force-sensing surgical tool is discussed in detail. The developed surgical tool makes use of a proximally located 
-force/torque sensor, which, in contrast to a distally located sensor, 
-requires no miniaturization or sterilizability. Results Experimental results 
-are presented, and indicate high force sensing accuracies with errors <0.09 N. 
-Conclusions It is shown that developing a force-sensing surgical tool utilizing a proximally located force/torque sensor is feasible, where a tool outer diameter of 12 mm can be achieved. For future work it is desired to decrease the current tool outer diameter to 10 mm. 
+\subsection{Sensorless Methods}
 
-Tools - >limited lifetime - find citation
-
-\subsection{Sensorless estimation methods}
+All sensorlees estimation methods avoid drawbacks associated with biocompatibility and integration issues.
 
 \begin{itemize}
-\item Vision based solution \cite{aviles_towards_2017}
+\item Vision based solution \cite{aviles_towards_2017}. Authors proposed to use vision based solution with supervised learning to estimate the applied forces. After extraction of the motion geometry of the object surface, they use deep network to learn the relationship between the extracted visual information and the applied force. The evaluated average root-mean square error of the method is 0.02 N.  The disadvantage of this methods is necessity to know object’s material properties, and some materials such as bones would not visually deform. Additionally, the method has significant time delays due to computation time and is not suitable for real-time force feedback. 
 
-They proposed to use vision based solution with supervised learning to estimate the applied force and provide the surgeon with a suitable representation of it.
- The proposed solution starts with extracting the geometry of motion of the heart's surface by minimizing an energy functional to recover its 3D deformable structure. A deep network, based on a LSTM-RNN architecture, is then used to learn the relationship between the extracted visual-geometric information and the applied force, and to find accurate mapping between the two. Our proposed force estimation solution avoids the drawbacks usually associated with force sensing devices, such as biocompatibility and integration issues. We evaluate our approach on phantom and realistic tissues in which we report an average root-mean square error of 0.02 N.
-
-Vision -> huge time delays, accuracy
-
-\item Sliding pertrubation observer
-
-This paper suggests a bilateral controller applying sliding perturbation 
-observer based force estimation method. In the suggested bilateral controller, the master control uses impedance control and the slave control uses a sliding mode control (SMC). A torque and force sensorless teleoperation system can be implemented using the suggested bilateral control structure through an experimental evaluation. This paper presents a method of estimating the reaction force of the surgical robot instrument without sensors and attempts to use state observer of control algorithm. Sliding mode control with sliding perturbation observer (SMCSPO) is used to drive the instrument, where the sliding perturbation observer (SPO) computes the amount of perturbation defined as the combination of the uncertainties and nonlinear terms where the major uncertainties arise from the reaction force. Based on this idea, this paper proposes a method to estimate the reaction force on the end-effector tip of the surgical robot instruments using only SPO and encoder without any additional sensors. To evaluate the validity of this paper, experiment was performed and the results showed that the estimated force computed from SPO is similar to the actual force.
-
-\item Measuring the proximal guide wire force  \cite{sang_hongqiang_external_2017}
-
-In this paper \cite{sang_hongqiang_external_2017}, authors estimate external forces using dynamics model and motor currents from the robot. They linearly parameterized PSM dynamics model and used it to derive forces values. As a result, they implemented sensorless force estimation method and they concluded that it was feasible. Even though, the proposed method does not show good repeatability and accuracy.
-
+\item Measuring the proximal guide wire force. In the papers \cite{sang_hongqiang_external_2017, yoon_design_2015}, authors estimate external forces using dynamics models and motor currents from the robot. They linearly parameterized PSM dynamics model and used it to derive forces values. As a result, they implemented sensorless force estimation method and they concluded that it was feasible. Even though, the proposed method does not show good repeatability and accuracy.
 \end{itemize}
 
 \section{Force Sensors}
@@ -80,13 +58,15 @@ In this paper \cite{sang_hongqiang_external_2017}, authors estimate external for
 
 For the force sensing depending on their operating principle following types of sensors can be used: piezoelectric, strain-gauges, quantum tunneling composite pills (QTC Pills) or optical sensors. \cite{SGandP1}
 
-Piezoelectric sensors consist of two crystal disks with an electrode foil in between. When force is applied, an electric charge, proportional to the applied force, is obtained and can be measured. Piezoelectric sensors show small deformation when force is applied, this results in a high resonance frequency. Also, piezoelectric sensors due to their principle of operation have significant linearity error and drift. \cite{SGandP2}
+\begin{itemize}
+\item Piezoelectric sensors consist of two crystal disks with an electrode foil in between. When force is applied, an electric charge, proportional to the applied force, is obtained and can be measured. Piezoelectric sensors show small deformation when force is applied, this results in a high resonance frequency. Also, piezoelectric sensors due to their principle of operation have significant linearity error and drift. \cite{SGandP2}
 
-“Quantum Tunneling Composite Pills” or QTC Pills are flexible polymers, that have exceptional electrical properties. They are made of nonconducting material that contains small nickel particles.  In the resting state, it acts as an insulator, because metal particles are too far from each other. But when it is compressed, its conductivity increases and current can pass through it \cite{azaman_characteristic_2016}. QTC Pills are very sensitive and can work in wide ranged o forces. However, they have exponential relationship between force and resistance, they are temperature sensitive and depend on charge application time. Meaning they have low accuracy and not suitable for dynamic force measurements \cite{_quantum_2010}.
+\item QTC Pills are flexible polymers, that have exceptional electrical properties. They are made of nonconducting material that contains small nickel particles.  In the resting state, it acts as an insulator, because metal particles are too far from each other. But when it is compressed, its conductivity increases and current can pass through it \cite{azaman_characteristic_2016}. QTC Pills are very sensitive and can work in wide ranged o forces. However, they have exponential relationship between force and resistance, they are temperature sensitive and depend on charge application time. Meaning they have low accuracy and not suitable for dynamic force measurements \cite{_quantum_2010}.
 
-In the strain gauge based force transducers the force causes deformation and subsequent linear change in resistance. Strain gauges are usually connected to a Wheatstone bridge circuit, where the output voltage is proportional to the applied force. Strain gauge based transducers provide small individual errors (200 ppm), show no drift, and are therefore appropriate for long-term monitoring tasks. However, they are relatively big, temperature dependent, and have lower resonance frequency in comparison to piezoelectric sensors. \cite{SGandP1,SGandP2}
+\item In the strain gauge based force transducers the force causes deformation and subsequent linear change in resistance. Strain gauges are usually connected to a Wheatstone bridge circuit, where the output voltage is proportional to the applied force. Strain gauge based transducers provide small individual errors (200 ppm), show no drift, and are therefore appropriate for long-term monitoring tasks. However, they are relatively big, temperature dependent, and have lower resonance frequency in comparison to piezoelectric sensors. \cite{SGandP1,SGandP2}
 
-Optical retro-reflective sensors can be used for force measurements. An emitter and receiver of these sensors are located at the same host. The light from the emitter goes through optical fibers reaches reflector and the reflected light goes back to the receiver. An interruption of the light beam due to bending can initiate a change of the signal output. Optical sensors are rarely used for force sensing applications, because measurement range and sensing accuracy of such sensors is limited \ref{su_fiber_optic_2017}.
+\item Optical retro-reflective sensors can be used for the force measurements. Emitter and receiver of these sensors are located at the same host. The light from the emitter goes through optical fibers reaches reflector and the reflected light goes back to the receiver. An interruption of the light beam due to bending can initiate a change of the signal output. Optical sensors are rarely used for force sensing applications, because measurement range and sensing accuracy of such sensors is limited \cite{su_fiber_optic_2017}.
+\end{itemize}
 
 On the basis of the above mentioned, piezoelectric sensors are preferable for dynamic measurements of small forces while strain gauge sensors are better when large forces are measured. In this study, strain gauges were used since they show better accuracy and long-term stability. \cite{SGandP1,SGandP2}
 
