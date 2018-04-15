@@ -3,7 +3,7 @@
 
 The results have shown that the developed system is linear and has high sensitivity, appropriate measuring range, high resolution, and low noise. In addition, the results from FFT analysis have shown that the developed PCB gives low noise output. The noise is outside frequency range of the original signal and can be easily filtered out using digital low pass filter.
 
-At the same time, the sensory system have high absolute errors, high RMSE, low precision, and significant hysteresis. Figure \ref{fig:Syst_err} shows X-component of the force measured at the same time using X-Y device and using "real force" data from the load cell. The error value changes simultaneously with rapid changes of the force applied. Taking into account, low noisiness of the system, plausible explanation of the fluctuations in the output signal is systematic errors. Important to note, that the errors could be related to high hysteresis of the sensors.
+At the same time, the sensory system have high absolute errors, high RMSE, low precision, and significant hysteresis. Figure \ref{fig:Syst_err} shows X-component of the force measured at the same time using X-Y device and using "actual force" data from the load cell. The error value changes simultaneously with rapid changes of the force applied. Taking into account, low noisiness of the system, plausible explanation of the fluctuations in the output signal is systematic errors. Important to note, that the errors could be related to high hysteresis of the sensors.
 
 \section{Mechanical Design Issues}
 
@@ -51,8 +51,6 @@ The system has separate wheatstone bridges for each direction, giving the abilit
 \end{figure}
 	
 	Both devices should undergo sterilization. XY device goes inside the patient, meaning that it should be created using biocompatible materials. The current version of the device is not biocompatible. The biocompatibilty can be achieved using stainless steel as a device material and biocompatible epoxy to cover strain gauges, also teflon coated wires should be used for all electrical connections. Use of stainless steel will require change of the device dimensions, since the material has different elasticity.
-	
-		The type of sensor can be changed as well. Use of QTC-pills seem to be promising approach, since it has smaller size and higher sensitivity. However, it has nonlinear output, meaning some electrical design and calibration complications.
 	
 \section{Electrical Design Issues}
 	The real-time haptic feedback requires minimum data acquisition speed to be 1 kHz \cite{seungmoon_choi_effect_2004}. However, the current maximum speed is 588 Hz due to limitation of data transfer speed of serial communication (115.2 Kbps). In order to increase the speed, the communication channel can be changed to SPI (up to 10 Mbps) \cite{_uart_porotocol} or one of the wireless protocols, such as Bluetooth (up tp 1 Mbps) or wifi (up to 100 Mbps) \cite{_wireless_protocols}. Also, communication protocol between microcontroller and ADC can be changed from SPI to faster parallel communication. Additionally, the microcontroller can be changed to faster one, so it can support wireless communication. All these changes require change of the PCB design and microcontroller software. 

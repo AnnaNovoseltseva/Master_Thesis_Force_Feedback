@@ -8,9 +8,9 @@ Recently robots started to be extensively used for surgical procedures. The use 
 There are two types of devices used for surgeries, supporting and augmenting. 
 Supporting devices perform secondary functions to support the surgeon.  Some of them used for positioning and stabilization purposes of cameras, endoscopic tools, ultrasound probes and etc. Others to increase device dexterity or autonomy (dexterous and autonomous endoscopes).
 
-Augmenting devices are used to extend surgeon's ability in performing an operation. They can be divided in four categories. Hand-held tools are augmenting instruments that used for hand tremors reduction, for dexterity and navigation capability increase. Another type of augmenting devices are cooperatively-controlled tools, where the surgeon and the robot cooperatively manipulate the surgical device (e.g. ROBODOC system, Steady- Hand robot, LARS, the Neurobot, and the ACROBOT system). Teleoperated robots are type of augmenting tools, where surgeon (master) controls the movements of a surgical robot (slave) via a surgeon's console (e.g. the daVinci and the Zeus systems). And autonomous tools, which can perform some tasks (suturing and knot tying) autonomously. \cite{tavakoli_haptics_2008}
+Augmenting devices are used to extend surgeon's ability in performing an operation. They can be divided in four categories. Hand-held tools are augmenting instruments that used for hand tremors reduction, for dexterity and navigation capability increase. Another type of augmenting devices are cooperatively-controlled tools, where the surgeon and the robot cooperatively manipulate the surgical device (e.g. ROBODOC system, Steady- Hand robot, LARS, the Neurobot, and the ACROBOT system). Teleoperated robots are type of augmenting tools, where surgeon (master) controls the movements of a surgical robot (slave) via a surgeon's console (e.g. the daVinci system, Sensei X, Senhance). And autonomous tools, which can perform some tasks (suturing and knot tying) autonomously. \cite{tavakoli_haptics_2008}
 
-Use of teleoperated robots in surgeries can solve many of the conventional surgery problems in terms of more precise manipulation capability, ergonomics, dexterity, and haptic feedback capability for the surgeon. They enhance dexterity by increase of instrument degrees of freedom, hand tremor compensation, and movements scaling that allows transformation of the control grips large movements into small motions inside the patient. 3-D view with depth perception gives surgeons ability to directly control a stable visual field with increased magnification and maneuverability. All of these enhances the surgeon's operation performance. However, robot-assisted surgeries are high cost, need large operational room space, do not have established efficacy, and need for tableside assistants. For these reasons ability of hospitals to use surgical robots is low, making their use for routine surgeries improbable. \cite{tavakoli_haptics_2008}
+Use of teleoperated robots in surgeries can solve many of the conventional surgery problems in terms of more precise manipulation capability, ergonomics, dexterity, and haptic feedback capability for the surgeon. They enhance dexterity by increase of instrument degrees of freedom, hand tremor compensation, and movements scaling that allows transformation of the control grips large movements into small motions inside the patient. 3-D view with depth perception gives surgeons ability to directly control a stable visual field with increased magnification and maneuverability. All of these enhances the surgeon's operation performance. However, robot-assisted surgeries are high cost, need large operational room space, do not have established efficacy, and have need for tableside assistants. For these reasons ability of hospitals to use surgical robots is low, making their use for routine surgeries improbable. \cite{tavakoli_haptics_2008}
 
 Today, many surgical robotic systems have been commercially developed and approved by the FDA, such as the daVinci surgical system (Intuitive Surgical, Inc., Sunnyvale, CA) , Sensei X robotic catheter system (Hansen Medical Inc., Mountain View, CA), FreeHand v1.2 (FreeHand 2010 Ltd., Cardiff, UK), Invendoscopy E200 system (Invendo Medical GmbH, Germany), Flex® robotic system (Medrobotics Corp., Raynham, MA), Senhance (TransEnterix, Morrisville, NC), Auris robotic endoscopy system (ARES; Auris Surgical Robotics, Silicon Valley, CA, USA), The NeoGuide Endoscopy System (NeoGuide Endoscopy System Inc, Los Gatos, CA). \cite{lanfranco_robotic_2004,peters_review_2018} 
 
@@ -18,142 +18,78 @@ There is also number of NON-FDA-approved platforms that currently under developm
 
 The daVinci® Surgical System is one of the most commonly used robotic surgical systems. In 2015, over 3400 systems were in use around the world. More than 3 million surgeries were performed worldwide using daVinci system \cite{_intuitive_2018}. The system has been approved for various types of surgeries such as cardiac, colorectal, thoracic, urological and gynecologic. However, new systems are emerging on the market, providing features that are absent currently in the daVinci System. For example, in 2017 FDA approved Senhance robotic platform that provides actual haptic force feedback, allowing the surgeon to feel forces generated at the instruments end. In addition, the system uses eye-tracking technology to move the camera at the point the surgeon is looking at, while the daVinci uses a footswitch panel to control the camera movement. Another example is Flex Robotic System, which consists of flexible endoscope for laparoendoscopic surgeries. This system is able to define a non-linear path to surgical target by advancing a flexible telescopic inner-outer mechanism with instruments inside it, whereas instruments in the daVinci system can follow only non-flexible straight path. \cite{peters_review_2018}
 
+The proposed research is aimed to solve lack of haptic feedback in the daVinci system.
 
-Effectiveness of daVinci system in comparison to opened surgery and other systems \cite{yu_safety_2014}
+%Effectiveness of daVinci system in comparison to opened surgery and other systems \cite{yu_safety_2014}
 
 
 
 \section{Importance of Haptic Feedback}
 \label{sec:hapticFeedbackImportance}
-Write about studies with and without haptic feedback.
 
-It has been shown that incorporating force feedback into teleoperated sys- tems can reduce the magnitude of contact forces and therefore the energy consumption, the task completion time and the number of errors. In sev- eral studies [122, 147, 15], addition of force feedback is reported to achieve some or all of the following: reduction of the RMS force by 30% to 60%, the peak force by a factor of 2 to 6, the task completion time by 30% and the error rate by 60%. 
-
-In [106], a scenario is proposed to incorporate force feedback into the Zeus surgical system by integrating a PHANToM haptic input device into the system. In [85], a dextrous slave combined with a modified PHAN- ToM haptic master which is capable of haptic feedback in four DOFs is presented. A slave system which uses a modified Impulse Engine as the haptic master device is described in [30]. In [107], a telesurgery master- slave system that is capable of reflecting forces in three degrees of freedom (DOFs) is discussed. A master-slave system composed of a 6-DOF parallel slave micromanipulator and a 6-DOF parallel haptic master manipulator is described in [150]. Other examples of haptic surgical teleoperation include [93] and [11]. The haptics technology can also be used for surgical training and simulation purposes. For example, a 7-DOF haptic device that can be applied to surgical training is developed in [56]. A 5-DOF haptic mecha- nism that is used as part of a training simulator for urological operations is discussed in [146]. 
-
+In several studies \cite{lim_role_2015, alleblas_effects_2017, currie_role_2017}, it have been shown that implementation of force feedback into teleoperated robotic systems can reduce root-mean-sqaure (RMS) and peak values of contact forces, energy consumption, time rquired for task completion and the surgical errors rate \cite{tavakoli_haptics_2008}.
 
 \section{Current Approaches}
 \label{sec:CurAppr}
 
-1.3 Haptics for Robotic Surgery and Therapy 
-Incorporating haptic sensation to robotic systems for surgery or therapy especially for minimally invasive surgery, which involves limited instrument maneuverability and 2-D camera vision, is a logical next step in the develop- ment of these systems. To do so, in addition to instrumentation of surgical tools, appropriate haptics-enabled user interfaces must be developed.
- 
-1.3.1 Haptic user interface technology
-In the following, examples of the currently available haptic devices are 
-described. For a more complete survey of haptic devices, see [55]. 
+In order to implement haptic feedback in the daVinci system, it is necessary to create force feedback estimation method for surgical tools first. Current approached of incorporating force feedback include placement of force sensors on surgical tools, change of instruments design and some sensorless methods.
 
-1.3.1.1 PHANToM 
-The PHANToM from Sensable Technologies Inc. (www.sensable.com) is one of the most commonly used haptic devices and comes in a number of models with different features. PHANToM 1.5A provides six DOFs input control. Of the six DOFs of the arm, depending on the model, some or all are force-reflective. In Figure 1.2a, a PHANToM 1.5/6DOF with force feedback capability in all of the six DOFs is shown. 
-
-1.3.1.2 Freedom-6S 
-The Freedom-6S shown in Figure 1.2b is a 6-DOF device from MPB Technologies Inc. (www.mpb-technologies.ca) that provides force feedback in all of the six degrees of freedom. The position stage is direct driven while the orientation stage is driven remotely by tendons. The Freedom-6S features static and dynamic balancing in all axes (see [54] for further design details). 
-1.3.1.3 Laparoscopic Impulse Engine and Surgical Workstation 
-Originally as part of a laparoscopic surgical simulator, the Laparoscopic Impulse Engine was designed by Immersion Corp. (www.immersion.com). The device can track the position of the instrument tip in five DOFs with high resolution and speed while providing force feedback in three DOFs. More recently, Immersion has developed the Laparoscopic Surgical Work- station (Figure 1.2c), which is capable of providing force feedback in five DOFs. An application example is the Virtual Endoscopic Surgery Trainer (VEST) from Select-IT VEST Systems AG (www.select-it.de). The VEST system uses the Laparoscopic Impulse Engine as its force-feedback input interface for simulating laparoscopic surgery interventions. 
-
-1.3.1.4 Xitact IHP 
-The Xitact IHPTM from Xitact Medical Simulation (www.xitact.com) is a 4-DOF force feedback manipulator based on a spherical remote-center-of- motion mechanical structure and was originally designed for virtual reality based minimally invasive surgery simulation [42]. It features high output force capability, low friction, zero backlash and a large, singularity-free workspace. A picture of the Xitact IHP is shown in Figure 1.2d. 
-
-
-
+\subsection{Sensor placement on Tools}
 Placing force sensors on the surgical instrument \cite{hong_design_2012}
 
-They suggest to the measure of pulling and grasp forces at the tip of surgical 
-instrument. For the design of the compliant forceps, the required compliance 
-characteristics are first defined using a simple spring model with one linear 
-and one torsional springs. This model may be directly realized as the compliant 
-forceps. However, for the compact realization of the mechanism, we synthesize 
-the spring model with two torsional springs that has equivalent compliance 
-characteristics to the linear-torsional spring model. Then, each of the 
-synthesized torsional springs is realized physically by means of a flexure 
-hinge. From this design approach, direct measurement of the pulling and grasp 
-forces is possible at the forceps, and measuring sensitivity can be adjusted 
-in the synthesis process. The validity of the design is evaluated by finite 
-element analysis. Further, from the measured values of bending strains of two 
-flexure hinges, a method to compute the decoupled pulling and grasp forces is 
-presented via the theory of screws. Finally, force- sensing performance of the 
-proposed compliant forceps is verified from the experiments of the prototype 
-using some weights and load cells. 10.1109/TRO.2012.2194889 
+They suggest to measure of pulling and grasp forces at the tip of surgical instrument. For the design of the compliant forceps, the required compliance characteristics are first defined using a simple spring model with one linear and one torsional springs. This model may be directly realized as the compliant forceps. However, for the compact realization of the mechanism, we synthesize the spring model with two torsional springs that has equivalent compliance characteristics to the linear-torsional spring model. Then, each of the synthesized torsional springs is realized physically by means of a flexure hinge. From this design approach, direct measurement of the pulling and grasp forces is possible at the forceps, and measuring sensitivity can be adjusted in the synthesis process. The validity of the design is evaluated by finite element analysis. Further, from the measured values of bending strains of two flexure hinges, a method to compute the decoupled pulling and grasp forces is presented via the theory of screws. Finally, force- sensing performance of the proposed compliant forceps is verified from the experiments of the prototype using some weights and load cells. 10.1109/TRO.2012.2194889 
 
+Optical stuff \cite{_micro_2004}
+A 5 mm diameter tri-axial force sensor has been developed for minimally invasive robotic surgery. To define the required force range and resolution, a needle driver has been equipped with strain gauges. In vivo tests with different types of needles and tissue show that the required force range and resolution are, respectively, 2.5 N and 0.01 N. The new sensor is based on a flexible titanium structure of which the deformations are measured through reflective measurements with three optical fibres. It has a range of 2.5 N in axial direction and 1.7 N in radial direction.
+
+\subsection{New Instrument Designs}
 Making new surgical instrument design \cite{schwalb_forcesensing_2017}
 
 Method In this paper a force-feedback enabled surgical robotic system is 
-described in which the developed force-sensing surgical tool is discussed in 
-detail. The developed surgical tool makes use of a proximally located 
+described in which the developed force-sensing surgical tool is discussed in detail. The developed surgical tool makes use of a proximally located 
 force/torque sensor, which, in contrast to a distally located sensor, 
 requires no miniaturization or sterilizability. Results Experimental results 
 are presented, and indicate high force sensing accuracies with errors <0.09 N. 
-Conclusions It is shown that developing a force-sensing surgical tool utilizing 
-a proximally located force/torque sensor is feasible, where a tool outer diameter 
-of 12 mm can be achieved. For future work it is desired to decrease the current 
-tool outer diameter to 10 mm. 
-
-Sensorless estimation methods
-
-Vision based solution \cite{aviles_towards_2017}
-
-They proposed to use vision based solution with supervised learning to estimate 
-the applied force and provide the surgeon with a suitable representation of it.
- The proposed solution starts with extracting the geometry of motion of the 
- heart's surface by minimizing an energy functional to recover its 3D deformable 
- structure. A deep network, based on a LSTM-RNN architecture, is then used to 
- learn the relationship between the extracted visual-geometric information and 
- the applied force, and to find accurate mapping between the two. Our proposed 
- force estimation solution avoids the drawbacks usually associated with force 
- sensing devices, such as biocompatibility and integration issues. We evaluate 
- our approach on phantom and realistic tissues in which we report an average 
- root-mean square error of 0.02 N.
-
-SLiding pertrubation observer
-
-This paper suggests a bilateral controller applying sliding perturbation 
-observer based force estimation method. In the suggested bilateral controller, 
-the master control uses impedance control and the slave control uses a sliding 
-mode control (SMC). A torque and force sensorless teleoperation system can be 
-implemented using the suggested bilateral control structure through an 
-experimental evaluation. This paper presents a method of estimating the 
-reaction force of the surgical robot instrument without sensors and attempts 
-to use state observer of control algorithm. Sliding mode control with sliding 
-perturbation observer (SMCSPO) is used to drive the instrument, where the 
-sliding perturbation observer (SPO) computes the amount of perturbation 
-defined as the combination of the uncertainties and nonlinear terms where 
-the major uncertainties arise from the reaction force. Based on this idea, 
-this paper proposes a method to estimate the reaction force on the end-effector 
-tip of the surgical robot instruments using only SPO and encoder without 
-any additional sensors. To evaluate the validity of this paper, experiment 
-was performed and the results showed that the estimated force computed from 
-SPO is similar to the actual force.
-
-Measuring the proximal guide wire force \cite{yoon_design_2015}
-
-They measure the proximal guide wire force and the force between the surgeon's 
-hand and the handle used on the Phantom, the force feedback closed-loop control 
-can effectively eliminate the loss of mechanical impedance of force feedback 
-information. The accuracy control of force feedback is greatly enhanced in the 
-aspect of security and the operation efficiency.
-
-Write about all disadvantages of previous methods.
+Conclusions It is shown that developing a force-sensing surgical tool utilizing a proximally located force/torque sensor is feasible, where a tool outer diameter of 12 mm can be achieved. For future work it is desired to decrease the current tool outer diameter to 10 mm. 
 
 Tools - >limited lifetime - find citation
 
+\subsection{Sensorless estimation methods}
+
+\begin{itemize}
+\item Vision based solution \cite{aviles_towards_2017}
+
+They proposed to use vision based solution with supervised learning to estimate the applied force and provide the surgeon with a suitable representation of it.
+ The proposed solution starts with extracting the geometry of motion of the heart's surface by minimizing an energy functional to recover its 3D deformable structure. A deep network, based on a LSTM-RNN architecture, is then used to learn the relationship between the extracted visual-geometric information and the applied force, and to find accurate mapping between the two. Our proposed force estimation solution avoids the drawbacks usually associated with force sensing devices, such as biocompatibility and integration issues. We evaluate our approach on phantom and realistic tissues in which we report an average root-mean square error of 0.02 N.
+
 Vision -> huge time delays, accuracy
 
-Wire force - > repeatability issue
+\item Sliding pertrubation observer
 
+This paper suggests a bilateral controller applying sliding perturbation 
+observer based force estimation method. In the suggested bilateral controller, the master control uses impedance control and the slave control uses a sliding mode control (SMC). A torque and force sensorless teleoperation system can be implemented using the suggested bilateral control structure through an experimental evaluation. This paper presents a method of estimating the reaction force of the surgical robot instrument without sensors and attempts to use state observer of control algorithm. Sliding mode control with sliding perturbation observer (SMCSPO) is used to drive the instrument, where the sliding perturbation observer (SPO) computes the amount of perturbation defined as the combination of the uncertainties and nonlinear terms where the major uncertainties arise from the reaction force. Based on this idea, this paper proposes a method to estimate the reaction force on the end-effector tip of the surgical robot instruments using only SPO and encoder without any additional sensors. To evaluate the validity of this paper, experiment was performed and the results showed that the estimated force computed from SPO is similar to the actual force.
+
+\item Measuring the proximal guide wire force  \cite{sang_hongqiang_external_2017}
+
+In this paper \cite{sang_hongqiang_external_2017}, authors estimate external forces using dynamics model and motor currents from the robot. They linearly parameterized PSM dynamics model and used it to derive forces values. As a result, they implemented sensorless force estimation method and they concluded that it was feasible. Even though, the proposed method does not show good repeatability and accuracy.
+
+\end{itemize}
 
 \section{Force Sensors}
 \label{sec:ForceSensors}
 
-Two general principles dominate in force measurement: piezoelectric and strain-gauge sensors. \cite{SGandP1}
+For the force sensing depending on their operating principle following types of sensors can be used: piezoelectric, strain-gauges, quantum tunneling composite pills (QTC Pills) or optical sensors. \cite{SGandP1}
 
 Piezoelectric sensors consist of two crystal disks with an electrode foil in between. When force is applied, an electric charge, proportional to the applied force, is obtained and can be measured. Piezoelectric sensors show small deformation when force is applied, this results in a high resonance frequency. Also, piezoelectric sensors due to their principle of operation have significant linearity error and drift. \cite{SGandP2}
 
+“Quantum Tunneling Composite Pills” or QTC Pills are flexible polymers, that have exceptional electrical properties. They are made of nonconducting material that contains small nickel particles.  In the resting state, it acts as an insulator, because metal particles are too far from each other. But when it is compressed, its conductivity increases and current can pass through it \cite{azaman_characteristic_2016}. QTC Pills are very sensitive and can work in wide ranged o forces. However, they have exponential relationship between force and resistance, they are temperature sensitive and depend on charge application time. Meaning they have low accuracy and not suitable for dynamic force measurements \cite{_quantum_2010}.
+
 In the strain gauge based force transducers the force causes deformation and subsequent linear change in resistance. Strain gauges are usually connected to a Wheatstone bridge circuit, where the output voltage is proportional to the applied force. Strain gauge based transducers provide small individual errors (200 ppm), show no drift, and are therefore appropriate for long-term monitoring tasks. However, they are relatively big, temperature dependent, and have lower resonance frequency in comparison to piezoelectric sensors. \cite{SGandP1,SGandP2}
+
+Optical retro-reflective sensors can be used for force measurements. An emitter and receiver of these sensors are located at the same host. The light from the emitter goes through optical fibers reaches reflector and the reflected light goes back to the receiver. An interruption of the light beam due to bending can initiate a change of the signal output. Optical sensors are rarely used for force sensing applications, because measurement range and sensing accuracy of such sensors is limited \ref{su_fiber_optic_2017}.
 
 On the basis of the above mentioned, piezoelectric sensors are preferable for dynamic measurements of small forces while strain gauge sensors are better when large forces are measured. In this study, strain gauges were used since they show better accuracy and long-term stability. \cite{SGandP1,SGandP2}
 
-We can use QTC-pills, but it has no-linearity and hysteresis issues. We can test in the future.
-
-
 \section{Contributions}
 \label{sec:MyAppr}
-Force sensing devices for measuring forces in X-Y direction and one for Z-direction measurement were created. They allow to get accurate force readings from the daVinci tools of the PSM.  These devices can be easily added to the existing daVinci system. Since we have to add created device on each robot arm only, it is cheaper than placement of sensors on each separate surgical tool.  Moreover, created devices allow to get force data faster than through visual data processing method. 
+Force sensing devices for measuring forces in X-Y direction and one for Z-direction measurement were created. They allow to get accurate force readings from the daVinci tools of the PSM.  These devices can be easily added to the existing daVinci system. Since we have to add created device on each robot arm only, it is cheaper than placement of sensors on each separate surgical tool.  Moreover, created devices allow to get force data faster than through visual data processing method. And it has chance to show better precision than motor current method.

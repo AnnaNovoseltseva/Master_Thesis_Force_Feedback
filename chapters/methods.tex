@@ -419,7 +419,7 @@ Z-device readings does not depend on the position of the sterile adapter. Hence,
 
 	\subsection{Calibration Setup}
 	\label{sec:CalSetup}
-	In order to find parameters of the calibration equation (\ref{eq:calib_eq}), the calibration system was developed (Figure \ref{fig:Calib_setup_BD}). The load cell and Polaris optical tracking system are used to find "true" force applied to the tool end. The load cell is used to find the magnitude of the applied force and the optical markers (4-5) to find the direction of the force.
+	In order to find parameters of the calibration equation (\ref{eq:calib_eq}), the calibration system was developed (Figure \ref{fig:Calib_setup_BD}). The load cell and Polaris optical tracking system are used to find "actual" force applied to the tool end. The load cell is used to find the magnitude of the applied force and the optical markers (4-5) to find the direction of the force.
 	
 	The calibration of the device starts with calibration of the load cell. The daVinci tool is inserted in the sterile adapter.  The force readings depend on the position of the sterile adapter, meaning that the force/sensor readings curve should be found for different positions of the adapter. Finding the curve for only two positions would be enough, because the correlation between the curve and position is linear, as the equation (\ref{eq:ster_adap_pos}) shows. 
 	
@@ -554,7 +554,7 @@ The accuracy of the developed sensory systems was assessed using the Root Mean S
 \begin{equation}
 RMSE = \sqrt{\frac{\sum_{i=1}^{n}{{(\hat{y_i} - y_i)}^2}}{n}}
 \end{equation}
-where $\hat{y_i}$ is predicted with equation (\ref{eq:calib_eq}) force value ; $y_i$ is observed "true" force value found using load cell and Polaris; $n$ is number of observations.
+where $\hat{y_i}$ is predicted with equation (\ref{eq:calib_eq}) force value ; $y_i$ is observed "actual" force value found using load cell and Polaris; $n$ is number of observations.
 RMSE values of all systems are high, meaning low accuracy of the developed system.
 
 Error is the difference between the actual value of the force and the value produced by the system (Equation \ref{eq:error}). Errors are related to accuracy and can be caused by different sources. In our case all errors were higher than 0.05 N, meaning that system does not meet accuracy requirements.
