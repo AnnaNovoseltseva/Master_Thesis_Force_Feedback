@@ -17,7 +17,7 @@
 	\vspace{-2mm}
 \end{figure}
 
-Block diagram of the created system for 3-DOF force measurement is shown on Figure \ref{fig:BlockDiag}. Forces that applied on the end of surgical tool are measured using strain gauges, which change their resistance with force. Using created printed circuit boards (PCBs), this resistance changes are measured and published within ROS. At the same time we measure current joint position of the tool, which is needed for the force calibration. The position data and data from PCBs are used to find values of the force in X,Y,Z directions.
+Block diagram of the created system for 3-DOF force measurement is shown in Figure \ref{fig:BlockDiag}. Forces that applied on the end of the surgical tool are measured using strain gauges, which change their resistance with force. Using created printed circuit boards (PCBs), these resistance changes are measured and published within ROS. At the same time, we measure a current joint position of the tool, which is needed for the force calibration. The position data and data from PCBs are used to find values of the force in X, Y, Z directions.
 
 \begin{figure}[h]
 	\begin{center}
@@ -32,11 +32,11 @@ Block diagram of the created system for 3-DOF force measurement is shown on Figu
 
 \section{Sensor Placement Optimization}
 \label{sec:SimMod}
-A finite element analysis was done in Solidworks to assess better placement of the strain gauges on the created device. In order to run finite element analysis material properties, such as elastic modulus, poisson`s ratio, and density are necessary to know. Devices material is aluminum 6061, that has elastic modulus 68.9 GPa, poisson`s ratio 0.33, and density 2700 kg/m\textsuperscript{3} \cite{aluminum_properties}. Since the shaft and cannula materials are unknown, in order to run finite element analysis their elasticity modulus and density were found experimentally.
+A finite element analysis was done in Solidworks to assess better placement of the strain gauges on the created device. In order to run finite element analysis material properties, such as elastic modulus, Poisson's ratio, and density are necessary to know. Devices material is aluminum 6061, that has elastic modulus 68.9 GPa, Poisson's ratio 0.33, and density 2700 kg/m\textsuperscript{3} \cite{aluminum_properties}. Since the shaft and cannula materials are unknown, in order to run finite element analysis their elasticity modulus and density were found experimentally.
 	
 	\subsection{Elastic Modulus Measurements}
 	\label{sec:ElasMod}
-	Elastic Modulus of the shaft and the cannula were found experimentally (Figure \ref{fig:ElasModSet}). One end of the observing sample (shaft/cannula) was fixed and the force was applied on the other end. We used weights 250g for the shaft and 555g for the cannula to apply forces. The deformation caused by forces was detected with dial indicator. Experiment was done 5 times, average displacement value was used to calculate elastic modulus. Results are shown in Table \ref{tab:elasMod}.
+	Elastic Modulus of the shaft and the cannula were found experimentally (Figure \ref{fig:ElasModSet}). One end of the observing sample (shaft/cannula) was fixed and the force was applied to the other end. We used weights 250g for the shaft and 555g for the cannula to apply forces. The deformation caused by forces was detected with a dial indicator. The experiment was done 5 times, average displacement value was used to calculate elastic modulus. Results are shown in Table \ref{tab:elasMod}.
 	
 \begin{figure}[h]
 	\begin{center}
@@ -72,7 +72,7 @@ Cannula & $0.086 \pm 0.004$ & $63.92 \pm 2.97$ \\
 \end{tabular}
 \end{table}
 
-Elastic Modulus was found using following equation:
+Elastic Modulus was found using the following equation:
 
 \begin{equation}
 E = \frac{FL^3}{3 \delta I} 
@@ -94,7 +94,7 @@ F = \frac{L_{tot}}{L}mg
 
 where $L_{tot}$ - total length of the object, $m$ - mass of the weight, $g$ - gravitational constant.
 
-Experimentally found mean value of elastic modulus of the shaft is equal to 44.31 GPa with standard deviation (SD) 1.86 GPa, elastic modulus of the cannula is 63.92 GPa with SD 2.97 GPa.
+Experimentally found the mean value of elastic modulus of the shaft is equal to 44.31 GPa with standard deviation (SD) 1.86 GPa, an elastic modulus of the cannula is 63.92 GPa with SD 2.97 GPa.
 
 	\subsection{Density Measurements}
 	\label{sec:DenMeas}
@@ -110,7 +110,7 @@ Weight was measured using mechanical scale. Volume of the shaft was found by fol
 
 \subsection{Simulation Results}
 \label{sec:FEAres}
-The mounting location of the active strain gauges should be under the greatest amount of strain. From the Figure \ref{fig:XYdev}, it can be seen that strain gauges for X-Y direction device should be mounted on the area shown green, that corresponds to strain value approximately equal to $1.5 \cdot 10^{-4}$. Passive strain gauges, that will be used only for temperature compensation, will be placed on the blue area perpendicular to the active strain gauges.
+The mounting location of the active strain gauges should be under the greatest amount of strain. From the Figure \ref{fig:XYdev}, it can be seen that strain gauges for X-Y direction device should be mounted on the area shown green, that corresponds to strain value approximately equal to $1.5 \cdot 10^{-4}$. Passive strain gauges, that will be used only for temperature compensation, will be placed in the blue area perpendicular to the active strain gauges.
 
 \begin{figure}[h]
 	\begin{center}
@@ -135,7 +135,7 @@ The mounting location of the active strain gauges should be under the greatest a
 	\vspace{-2mm}
 \end{figure}
 
-For Z-direction measurement forces (Figure \ref{fig:Zdev}), area shown with yellow-green color under the highest strain. On both sides and both ends of this plate strain gauges should be placed to form full bridge.
+For Z-direction measurement forces (Figure \ref{fig:Zdev}), the area shown with yellow-green color under the highest strain. On both sides and both ends of this plate strain gauges should be placed to form the full bridge.
 
 \begin{table}
 \caption {Material Properties} \label{tab:matProp} 
@@ -160,19 +160,19 @@ All material properties used for simulations are listed in Table \ref{tab:matPro
 	\label{sec:DevReq}
 	From the literature review, following requirements for the device were outlined:
 \begin{itemize}
-	\item \textbf{\textit{Biocompatibility}}. Z-device is attached to sterile adapter and does not have to be biocompatible. However, X-Y device goes inside the patient, it means that it should be sterilized and biocompatible.
-	
-	\item \textbf{\textit{Force range}}. Some studies \cite{mack_interactive_2012, prasad_modular_2003 } have shown that force range applied during surgeries lies in range ($0-11 N$). The designed device need to measure forces in that range, and if the force goes beyond that range it can be used to trigger safety alert.
-	
-	\item \textbf{\textit{Force sensitivity}}. The device should be sensitive enough with resolution at least $0.3 N$ and give accurate readings ($error < 0.05 N$) \cite{mack_interactive_2012}.
-	
-	\item \textbf{\textit{Speed of force reading}}. Device is used for real-time haptic feedback, the minimum requirement for data acquisition speed is 1 kHz \cite{seungmoon_choi_effect_2004}.
-	
-	\item \textbf{\textit{No restriction of motion range of the device}}. The forces should be measured  in three directions independently from each other. At the same time tool should freely rotate and change depth of insertion.	
-	
-	\item \textbf{\textit{Linearity}}. Calibration curve of created sensors should be linear.
+    \item \textbf{\textit{Biocompatibility}}. Z-device is attached to the sterile adapter and does not have to be biocompatible. However, the X-Y device goes inside the patient, it means that it should be sterilized and biocompatible.
+    
+    \item \textbf{\textit{Force range}}. Some studies \cite{mack_interactive_2012, prasad_modular_2003 } have shown that force range applied during surgeries lies in range ($0-11 N$). The designed device need to measure forces in that range, and if the force goes beyond that range it can be used to trigger safety alert.
+    
+    \item \textbf{\textit{Force sensitivity}}. The device should be sensitive enough with resolution at least $0.05 N$ and give accurate readings ($error < 0.1 N$) \cite{mack_interactive_2012}.
+    
+    \item \textbf{\textit{Speed of force reading}}. The device is used for real-time haptic feedback, the minimum requirement for data acquisition speed is 1 kHz \cite{seungmoon_choi_effect_2004}.
+    
+    \item \textbf{\textit{No restriction of motion range of the device}}. The forces should be measured in three directions independently from each other. At the same time tool should freely rotate and change the depth of insertion.    
+    
+    \item \textbf{\textit{Linearity}}. Calibration curve of created sensors should be linear.
 
-	\item \textbf{\textit{Device modularity}}. Force-sensing devices should be designed so they can be easily added to existing system and fit daVinci cannula and sterile adapter.
+    \item \textbf{\textit{Device modularity}}. Force-sensing devices should be designed so they can be easily added to the existing system and fit daVinci cannula and sterile adapter.
 \end{itemize}
 
 \section{Mechanical Design}
@@ -184,11 +184,11 @@ All material properties used for simulations are listed in Table \ref{tab:matPro
 \begin{itemize}
   \item Single grid for unidirectional force measurements;
   \item Isoelastic (D alloy) that has higher gauge factor with E backing;
-  \item Encapsulated with pre attached leads for easier placement;
+  \item Encapsulated with pre-attached leads for easier placement;
   \item STC (self-temperature-compensation) - small temperature dependence;
-\end{itemize}	
-	
-Maximum strain on the created device is $1.5 \cdot 10^{-4}$, in case of 10 N load with maximally opened shaft. From the literature, strain gauges length should be more than 5\% of maximum strain, hence, minimum length of the strain gauge should be 0.0075 mm. 
+\end{itemize}    
+    
+The maximum strain on the created device is $1.5 \cdot 10^{-4}$, in case of 10 N load with the maximally opened shaft. From the literature, strain gauges length should be more than 5\% of maximum strain, hence, the minimum length of the strain gauge should be 0.0075 mm. 
 
 Gauge Factor (GF) for strain gauges usually is 2. According to the formula (\ref{eq:resistance}) strain gauge with resistance 120 $\Omega$ have maximum change in resistance equal to 0.036 $\Omega$, and 350  - 0.105 $\Omega$:
 
@@ -205,19 +205,19 @@ For the device strain gauges with resistance 350 $\Omega$, GF is 2, single grid,
 
 	Application of strain gauges was done following the manual provided by Vishay Micro-Measurements \cite{StrGugeInst}.
 
-	First the working surface (glass) and tweezers were cleaned with Neutralizer 5. 
-	After that shaft surface preparation was started, using solvent degreaser GC-6 Isopropyl Alcohol. 
-	A gauge layout was then applied with a 4H drafting pencil. The surface was then conditioned with Conditioner A and the extra liquid was wiped with gauze. 
-	Finally, the surface was then neutralized with M-Prep Neutralizer 5A \cite{StrGugeInst}.
+    First, the working surface (glass) and tweezers were cleaned with Neutralizer 5. 
+    After that shaft surface preparation was started, using solvent degreaser GC-6 Isopropyl Alcohol. 
+    A gauge layout was then applied with a 4H drafting pencil. The surface was then conditioned with Conditioner A and the extra liquid was wiped with gauze. 
+    Finally, the surface was then neutralized with M-Prep Neutralizer 5A \cite{StrGugeInst}.
 
-	The strain gauges were first placed on the glass and then transported using mylar tape onto the instrument surface. A thin layer of catalyst was applied on the strain gauge and given one minute to dry. Then adhesive M-BOND 200 was applied on the surface, pressure was applied on the tape for one minute, then two more minutes to let it dry before the tape was removed. Then leads soldering was done by application of pats, and soldering them with thin wires \cite{youtube}.
+    The strain gauges were first placed on the glass and then transported using mylar tape onto the instrument surface. A thin layer of catalyst was applied to the strain gauge and given one minute to dry. Then adhesive M-BOND 200 was applied on the surface, the pressure was applied on the tape for one minute, then two more minutes to let it dry before the tape was removed. Then leads soldering was done by application of pats, and soldering them with thin wires \cite{youtube}.
 
-	The methodology of the strain gauge application more specifically described in \cite{StrGugeInst}. In compliance with the application guide the same materials and technique can be used to apply strain gauges on different materials (metals, plastics).
+    The methodology of the strain gauge application more specifically described in \cite{StrGugeInst}. In compliance with the application guide, the same materials and technique can be used to apply strain gauges on different materials (metals, plastics).
 
 \subsection{X-Y Device}
 \label{sec:xyDir}
 
-XY-device consists of one sleeve and one set screw. We manufactured sleeve using Aluminum 6061 Alloy. %First, hole with diameter 9.5 mm should be drilled in the center using the lathe machine. Then on the milling machine all the side slots and inner square should be milled. On the same machine hole for the set screw should be drilled. After that set screw thread was tapped.%
+The XY-device consists of one sleeve and one set screw. We manufactured sleeve using Aluminum 6061 Alloy. %First, a hole with diameter 9.5 mm should be drilled in the center using the lathe machine. Then on the milling machine, all the side slots and inner square should be milled. On the same machine hole for the set screw should be drilled. After that set screw thread was tapped.%
 The manufactured sleeve is placed on the cannula end and is fixed with a set screw on the top.
 
 \begin{figure}[h]
@@ -270,7 +270,7 @@ In order to get accurate readings maximum displacement of the sleeve sides shoul
 \end{figure}
 
 
-Z-device (Figures \ref{fig:Z-direction} - \ref{fig:Z-direction_sec}) consists of attachment to the sterile adapter, 2 thrust ball bearings, three rings, plate, and two cylindrical spacers. Three rings and two ball bearings are used to transfer only z-directional forces further to the plate and keep ability of the shaft to rotate. The ring in the center is in direct contact with the instrument shaft, two outer rings are for the push and pull forces transfer. The plate experience maximum strain and all strain gauge sensors are mounted on it.  Two cylindrical spacers are used to give plate space to move and they are mounted on the attachment plate. the attachment plate consist of three plates, they are press fitted on the sterile adapter and fixed with four set screws.
+Z-device (Figures \ref{fig:Z-direction} - \ref{fig:Z-direction_sec}) consists of attachment to the sterile adapter, 2 thrust ball bearings, three rings, plate, and two cylindrical spacers. Three rings and two ball bearings are used to transfer only z-directional forces further to the plate and keep the ability of the shaft to rotate. The ring in the center is in direct contact with the instrument shaft, two outer rings are for the push and pull forces transfer. The plate experience maximum strain and all strain gauge sensors are mounted on it.  Two cylindrical spacers are used to give plate space to move and they are mounted on the attachment plate. The attachment plate consists of three plates, they are press-fitted on the sterile adapter and fixed with four set screws.
 
 Three rings and plate were manufactured with Aluminum Alloy 6061, attachment parts were 3-D printed, fasteners were used as spacers.
 
@@ -293,7 +293,7 @@ Three rings and plate were manufactured with Aluminum Alloy 6061, attachment par
 	\vspace{-2mm}
 \end{figure}
 
-Four strain gauges are connected to form a wheatstone bridge circuit. On Figures \ref{fig:WB_xy_dev} - \ref{fig:WB_z} placement of strain gauges (1-4) and their wheatstone bridge configurations are shown for both devices. Strain gauges deform due to applied forces, and it causes voltage change on wheatstone bridge. Output signal from the wheatstone bridge goes to the instrumentation amplifier. Since ADC can convert only positive voltage, voltage converter changes voltage range of the output signal from ($-5V$ to $+5V$) to ($0V$ to $+5V$) range. That signal is converted to digital signal with 16-bit ADC, which communicates with the microcontroller via SPI interface. The output signal is transferred to the computer via USB. 
+Four strain gauges are connected to form a Wheatstone bridge circuit. On Figures \ref{fig:WB_xy_dev} - \ref{fig:WB_z} placement of strain gauges (1-4) and their Wheatstone bridge configurations are shown for both devices. Strain gauges deform due to applied forces, and it causes the voltage change on Wheatstone bridge. The output signal from the Wheatstone bridge goes to the instrumentation amplifier. Since ADC can convert only positive voltage, voltage converter changes voltage range of the output signal from ($-5V$ to $+5V$) to ($0V$ to $+5V$) range. That signal is converted to the digital signal with 16-bit ADC, which communicates with the microcontroller via SPI interface. The output signal is transferred to the computer via USB. 
 	
 \begin{figure}[h]
 	\begin{center}
@@ -334,7 +334,7 @@ In the developed PCB (Figure \ref{fig:PCB_real}) trimpots are used for calibrati
 
 Instrumentation amplifier gain change is needed to set up appropriate measuring force range (0-11 N). During calibration, when 11 N applied on the tool end, the output signal (that goes to ADC) should be smaller than 4 V. When the same force applied in the opposite direction, the output signal should be bigger than 1 V.
  
-Reference voltage change is used for the compensation of wheatstone bridge unbalance caused by strain gauge resistance tolerances. During the calibration, it should be tuned until it gives the output signal close to 2.5 V, when no forces applied on the device.
+Reference voltage change is used for the compensation of Wheatstone bridge unbalance caused by strain gauge resistance tolerances. During the calibration, it should be tuned until it gives the output signal close to 2.5 V when no forces applied on the device.
 
 
 	\subsection{Noise Analysis}
@@ -354,11 +354,11 @@ Reference voltage change is used for the compensation of wheatstone bridge unbal
 \label{fig:FFT_res}
 \end{figure}
 	
-	The signal frequency from the force sensor should be in range of (0 to 1 kHz). From the FFT analysis results (Figure \ref{fig:FFT_res}) it can be concluded, that the noise frequency is in range (2.5 kHz and higher) with amplitude (-50 mV to 70 mV) for both channels. That means, low pass filter with cutoff frequency 2 kHz should be applied on the output signal. It was decided to use data averaging due to its simplicity of implementation and small time delays. It is an equivalent of low pass filtering that compensates the high frequency noise \cite{filtering_mov_ave}.
+	The signal frequency from the force sensor should be in the range of (0 to 1 kHz). From the FFT analysis results (Figure \ref{fig:FFT_res}) it can be concluded, that the noise frequency is in range (2.5 kHz and higher) with amplitude (-50 mV to 70 mV) for both channels. That means low pass filter with cutoff frequency 2 kHz should be applied to the output signal. It was decided to use data averaging due to its simplicity of implementation and small time delays. It is an equivalent of low pass filtering that compensates the high-frequency noise \cite{filtering_mov_ave}.
 
 	\subsection{Microcontroller Software}
 	\label{sec:MicrSoft}
-	Microcontroller ATMEGA328P is used in the developed PCB for data acqusition, filtering, and sending to ROS. The microcontroller has open-source packages for serial communication with ROS. The microcontroller is programmed to initialize ros nodes with names "adc\textunderscore xy" for XY-device and "adc\textunderscore zlc" for Z-device. The master-slave communication is created between X-Y and Z- devices for data acquizition synchronization by sending start conversion signals between two PCBs. When one of the devices gets the signal it starts to communicate with ADC though SPI interface (Figure \ref{fig:SPI_com}) \cite{introduction_SPI}. The acquired data is filtered from the high frequency noise by averaging of the 5 most recent readings. And the filtered data is published through the serial port with the baud rate 115200 bits per second. 
+	Microcontroller ATMEGA328P is used in the developed PCB for data acquisition, filtering, and sending to ROS. The microcontroller has open-source packages for serial communication with ROS. The microcontroller is programmed to initialize ros nodes with names "adc\textunderscore xy" for XY-device and "adc\textunderscore zlc" for Z-device. The master-slave communication is created between X-Y and Z- devices for data acquisition synchronization by sending start conversion signals between two PCBs. When one of the devices gets the signal it starts to communicate with ADC though SPI interface (Figure \ref{fig:SPI_com}) \cite{introduction_SPI}. The acquired data is filtered from the high-frequency noise by averaging of the 5 most recent readings. And the filtered data is published through the serial port with the baud rate 115200 bits per second. 
 	
 \begin{figure}[h]
 	\begin{center}
@@ -462,7 +462,7 @@ P_{r} = {T_{c}^{ r}}^{-1} \cdot P_{c}
 	
 	\subsection{Calibration of the Load Cell}
 	\label{sec:CalLoadCell}
-	The calibration of the load cell is a part of the calibration process of the created device. The block diagram of the setup for the load cell calibration is shown on Figure \ref{fig:Calib_setup_LC}. The force $F$ was applied on the load cell using weights, its value: 
+	The calibration of the load cell is a part of the calibration process of the created device. The block diagram of the setup for the load cell calibration is shown in Figure \ref{fig:Calib_setup_LC}. The force $F$ was applied on the load cell using weights, its value: 
 \begin{equation}
 F = mg
 \end{equation}
@@ -498,7 +498,7 @@ F_{m} = adc_{lc}*a_{lc} + b_{lc}
 	\vspace{-2mm}
 \end{figure}
 
-	Calibration resulted in parameters of the linear equation being  $a_{lc} = -4.95 \cdot 10^{-4}$ and $b_{lc} = 16.6$. These values were used to find magnitude of the applied force on the tool end during X-Y and Z devices calibration.
+	Calibration resulted in parameters of the linear equation being  $a_{lc} = -4.95 \cdot 10^{-4}$ and $b_{lc} = 16.6$. These values were used to find the magnitude of the applied force on the tool end during X-Y and Z devices calibration.
 
 \section{Results}
 \label{sec:res}
@@ -506,11 +506,11 @@ F_{m} = adc_{lc}*a_{lc} + b_{lc}
 \subsection{Calibration Results}
 \label{ssec:Cal_Res}
 
-The calibration results are shown on Figures \ref{fig:XY_calib_res} - \ref{fig:Z_calib_res}, where blue dots are sensor readings and the calibration function shown as a red line. The results for the Z device are presented on Figure \ref{fig:Z_calib_sen}. As an alternative method to evaluate forces exerted in a Z-direction we used joint effort readings (Figure \ref{fig:Z_joint_effort}). This method is simple to implement by subscribing to the joint efforts from the daVinci controller and can be used for comparison with created Z-device.
+The calibration results are shown on Figures \ref{fig:XY_calib_res} - \ref{fig:Z_calib_res}, where blue dots are sensor readings and the calibration function shown as a red line. The results for the Z device are presented on Figure \ref{fig:Z_calib_sen}. As an alternative method to evaluate forces exerted in a Z-direction we used joint effort readings (Figure \ref{fig:Z_joint_effort}). This method is simple to implement by subscribing to the joint efforts of the daVinci controller and can be used for comparison with created Z-device.
 
 The performance of the created devices was evaluated using standard sensor characteristics, such as absolute error, signal to noise ratio, root mean square error, sensitivity, hysteresis, and measurement range.
 
-All the following infromation about sensor chracteristics is from \cite{kalantar-zadeh_sensors_2013}.
+All the following information about sensor characteristics is from \cite{kalantar-zadeh_sensors_2013}.
 
 \begin{figure}[h]%
 \centering
@@ -545,7 +545,7 @@ RMSE = \sqrt{\frac{\sum_{i=1}^{n}{{(\hat{y_i} - y_i)}^2}}{n}}
 where $\hat{y_i}$ is predicted with equation (\ref{eq:calib_eq}) force value ; $y_i$ is observed "actual" force value found using load cell and Polaris; $n$ is number of observations.
 RMSE values of all systems are high, meaning low accuracy of the developed system.
 
-Error is the difference between the actual value of the force and the value produced by the system (Equation \ref{eq:error}). Errors are related to accuracy and can be caused by different sources. In our case all errors were higher than 0.05 N, meaning that system does not meet accuracy requirements.
+The error is the difference between the actual value of the force and the value produced by the system (Equation \ref{eq:error}). Errors are related to accuracy and can be caused by different sources. In our case all errors were higher than 0.05 N, meaning that system does not meet accuracy requirements.
 
 \begin{equation}\label{eq:error}
 error = \hat{y_i} - y_i
@@ -556,7 +556,7 @@ One of the measurements of signal quality is signal-to-noise ratio (SNR). A high
 \begin{equation}
 SNR=\frac{\mu}{\sigma}
 \end{equation}
-where $\mu$ is mean value of signal, $\sigma$ is standard deviation of noise. SNR values for all systems are bigger than 1, meaning that all systems have relatively low noise.
+where $\mu$ is the mean value of the signal, $\sigma$ is the standard deviation of the noise. SNR values for all systems are bigger than 1, meaning that all systems have relatively low noise.
 
 The slope of the calibration curve is used for the sensitivity $S$ calculation.
 
@@ -567,13 +567,13 @@ where $Dy$ is the incremental change in the sensor’s output, $Dx$ is the incre
 
 Resolution is the smallest change of the applied force that gives a noticeable change in the sensor output, it is limited by the signal noise. Devices have higher resolution than required 0.3 N.
 
-Linearity of the system is proximity of the calibration curve to the straight line. $R^2$ is used to evaluate linearity by measuring closeness of the measured data to the fitted regression line. Generally, strain gauges have linear response with deformation and all sensors showed high linearity with $R^2$ higher than 90\%.
+The linearity of the system is the proximity of the calibration curve to the straight line. $R^2$ is used to evaluate linearity by measuring the closeness of the measured data to the fitted regression line. Generally, strain gauges have the linear response with deformation and all sensors showed high linearity with $R^2$ higher than 90\%.
 
 Hysteresis is the difference between sensor outputs when the sensor is loaded versus unloaded. All sensors have shown high hysteresis, up to 2.8 N.
 
-The measurement range consists of the maximum and minimum values of the force that can be measured with created systems. For created system it corresponds to force values, when the output signal reaches saturation. However, for Z-directional measurements, when z-component of the applied force was higher than 12 N it caused sliding of the sterile adapter. Meaning physical limitation for Z-direction force measurements. All designed devices measure forces in slightly higher than $\pm 11 N$ range. When the applied force exceeds the specified range, the device readings can be used to trigger safety alert.
+The measurement range consists of the maximum and minimum values of the force that can be measured with created systems. For the created system, it corresponds to force values, when the output signal reaches saturation. However, for Z-directional measurements, when z-component of the applied force was higher than 12 N it caused sliding of the sterile adapter. Meaning physical limitation for Z-direction force measurements. All designed devices measure forces in slightly higher than $\pm 11 N$ range. When the applied force exceeds the specified range, the device readings can be used to trigger safety alert.
 
-Precision represents ability of the system to give the the same output under the same conditions. The precision of the system was assessed by the standard deviation of the sensor outputs, when similar forces were applied.  All sensors have low precision, which is reflected in high absolute errors values.
+Precision represents the ability of the system to give the same output under the same conditions. The precision of the system was assessed by the standard deviation of the sensor outputs when similar forces were applied.  All sensors have low precision, which is reflected in high absolute errors values.
 
 All sensor characteristics were calculated for X-Y device, Z-device, and Z-direction evaluation joint effort method and provided in the Table \ref{tab:SenChar}. For each sensor, the calculated sensor characteristics are average values from the results of 3 trials.
 
@@ -632,7 +632,7 @@ Movement of the sterile adapter joint causes change of the moment arm length ($L
 
 The dependence between position of the sterile adapter and calibration curve constants ($a$ and $b$ from equation \ref{eq:calib_eq}) is linear for X and Y force components (Figures \ref{fig:X_position_dep} - \ref{fig:Y_position_dep}). We ran 3 trials for each position.
 
-The $R^2$ of constant $a$ is 0.9 for X-component of the force, 0.827 for Y-component. Low linear fit is caused by considerable systematic errors of the sensors.
+The $R^2$ of constant $a$ is 0.9 for X-component of the force, 0.827 for Y-component. The low linear fit is caused by considerable systematic errors of the sensors.
 
 Constant $b$ does not depend on the sterile adapter position and changes due to systematic errors and noise in the system.
 
