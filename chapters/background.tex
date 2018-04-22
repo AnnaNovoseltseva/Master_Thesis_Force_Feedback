@@ -86,11 +86,11 @@ Mention
 \section{Current Approaches}
 \label{sec:CurAppr}
 
-In order to implement haptic feedback in the daVinci system, it is necessary to create force sensing method for surgical tools first. Current approaches of incorporating force feedback include placement of force sensors on surgical tools, change of instruments design and some sensorless methods.
+In order to implement haptic feedback in the daVinci system, it is necessary to create force sensing method for surgical tools first. Current approaches of incorporating force sensing include placement of force sensors on surgical tools, change of instruments design and some sensorless methods.
 
 \subsection{Sensor Placement on Instrument}
-\begin{itemize}
-\item In \cite{hong_design_2012}, Hong et al. suggested measuring pulling and grasping forces at the tip of the surgical instrument by mounting strain gauges on top and bottom surfaces of each of the two flexure hinges of the forceps (Figure \ref{fig:integr_sen}). RMS errors were close to 0.1 N. One of the disadvantages of this method is biocompatibility issue due to contact of sensors and wires with patient tissues, another is increased cost of each tool. Taking into account that each instrument has limited lifespan \cite{ho_health_2011}, it will lead to significant increase in surgery cost.
+
+Hong et al. suggested measuring pulling and grasping forces at the tip of the surgical instrument by mounting strain gauges on top and bottom surfaces of each of the two flexure hinges of the forceps (Figure \ref{fig:integr_sen}) \cite{hong_design_2012}. RMS errors were close to 0.1 N. One of the disadvantages of this method is biocompatibility issue due to contact of sensors and wires with patient tissues, another is increased cost of each tool. Taking into account that each instrument has limited lifespan \cite{ho_health_2011}, it will lead to significant increase in surgery cost.
 
 \begin{figure}[h]
 	\begin{center}
@@ -103,7 +103,7 @@ In order to implement haptic feedback in the daVinci system, it is necessary to 
 	\vspace{-2mm}
 \end{figure}
 
-\item  Some researchers use optical methods for force evaluation. These methods are divided by different sensing principles they use: intensity modulation, wavelength modulation, and phase modulation \cite{su_fiber_optic_2017}. In the paper \cite{_micro_2004}, authors developed 3-axial force sensor that uses light intensity modulation principle. It is based on a flexible titanium structure, that deforms with applied forces (Figure \ref{fig:opt_sen}). These deformations are measured through reflective measurements with three optical fibers. The method shows measurement force range 0.01 N to 2.5 N with 0.01 N resolution. The disadvantage of this method is narrow force measurement range.
+Some researchers use optical methods for the force evaluation. These methods are divided by different sensing principles they use: intensity modulation, wavelength modulation, and phase modulation \cite{su_fiber_optic_2017}. Peirs et al. developed 3-axial force sensor that uses light intensity modulation principle \cite{_micro_2004}. It is based on a flexible titanium structure, that deforms with applied forces (Figure \ref{fig:opt_sen}). These deformations are measured through reflective measurements with three optical fibers. The method shows measurement force range 0.01 N to 2.5 N with 0.01 N resolution. The disadvantage of this method is narrow force measurement range.
 
 \begin{figure}[h]
 	\begin{center}
@@ -115,8 +115,6 @@ In order to implement haptic feedback in the daVinci system, it is necessary to 
 	\label{fig:opt_sen}
 	\vspace{-2mm}
 \end{figure}
-
-\end{itemize}
 
 \subsection{New Instrument Designs}
 \begin{figure}[h]
@@ -130,14 +128,13 @@ In order to implement haptic feedback in the daVinci system, it is necessary to 
 	\vspace{-2mm}
 \end{figure}
 
-Making new surgical instrument with implemented force sensors is another way to achieve force feedback \cite{schwalb_forcesensing_2017}. Authors developed the new force-sensing surgical tool, that uses a proximally located force/torque sensor (Figure \ref{fig:force_sen_tool}). This allows avoiding miniaturization and sterilization issues. The method has high sensing accuracy with errors less than 0.09 N. The outer diameter of the developed tool is 12 mm. This method as well requires an increase in the tool cost, leading to higher surgery expenses.
+Making new surgical instrument with implemented force sensors is another way to achieve force feedback. Schwalb et al. developed the new force-sensing surgical tool, that uses a proximally located force/torque sensor (Figure \ref{fig:force_sen_tool}) \cite{schwalb_forcesensing_2017}. This allows avoiding miniaturization and sterilization issues. The method has high sensing accuracy with errors less than 0.09 N. The outer diameter of the developed tool is 12 mm. This method as well requires an increase in the tool cost, leading to higher surgery expenses.
 
 \subsection{Sensorless Methods}
 
 All sensorless estimation methods avoid drawbacks associated with biocompatibility and integration issues. There are 2 methods: vision-based force feedback and motor currents measurement method.
 
-\begin{itemize}
-\item Some researchers proposed to use vision-based solution with supervised learning to estimate the applied forces. After extraction of the motion geometry of the object surface, they use a deep network to learn the relationship between the extracted visual information and the applied force. The evaluated average root-mean-square error of the method is 0.02 N.  The disadvantage of this methods is the necessity to know object’s material properties, and some materials such as bones would not visually deform. Additionally, the method has significant time delays due to computation time and is not suitable for real-time force feedback \cite{aviles_towards_2017}. 
+Aviles et al. proposed to use vision-based solution with supervised learning to estimate the applied forces \cite{aviles_towards_2017}. After extraction of the motion geometry of the object surface, they use a deep network to learn the relationship between the extracted visual information and the applied force (Figure \ref{fig:visual_appr}). The evaluated average root-mean-square error of the method is 0.02 N.  The disadvantage of this methods is the necessity to know object’s material properties, and some materials such as bones would not visually deform. Additionally, the method has significant time delays due to computation time and is not suitable for real-time force feedback. 
 
 \begin{figure}[h]
 	\begin{center}
@@ -150,8 +147,8 @@ All sensorless estimation methods avoid drawbacks associated with biocompatibili
 	\vspace{-2mm}
 \end{figure}
 
-\item In the papers \cite{sang_hongqiang_external_2017, yoon_design_2015}, authors estimate external forces using dynamics models and motor currents from the robot. They linearly parameterized PSM dynamics model and used it to derive forces values. As a result, they implemented sensorless force estimation method and they concluded that it was feasible. Even though, the proposed method does not show sufficient repeatability and accuracy.
-\end{itemize}
+In \cite{sang_hongqiang_external_2017, yoon_design_2015}, authors estimate external forces using dynamics models and motor currents from the robot. They linearly parameterized PSM dynamics model and used it to derive forces values. As a result, they implemented sensorless force estimation method and they concluded that it was feasible. Even though, the proposed method does not show sufficient repeatability and accuracy.
+
 
 \section{Force Sensing Technologies}
 \label{sec:ForceSensors}
@@ -161,9 +158,9 @@ For the force sensing depending on their operating principle following types of 
 \begin{itemize}
 \item Piezoelectric sensors consist of two crystal disks with an electrode foil in between. When force is applied, an electric charge, proportional to the applied force, is obtained and can be measured. Piezoelectric sensors show small deformation when force is applied, this results in a high resonance frequency. Also, piezoelectric sensors due to their principle of operation have significant linearity error and drift \cite{SGandP2}.
 
-\item QTC Pills are flexible polymers, that have exceptional electrical properties. They are made of a nonconducting material that contains small nickel particles.  In the resting state, it acts as an insulator, because metal particles are too far from each other. But when it is compressed, its conductivity increases and current can pass through it \cite{azaman_characteristic_2016}. QTC Pills are very sensitive and can work in wide ranged o forces. However, they have an exponential relationship between force and resistance, they are temperature sensitive and depend on charge application time. Meaning they have low accuracy and not suitable for dynamic force measurements \cite{_quantum_2010}.
+\item QTC Pills are flexible polymers, that have exceptional electrical properties. They are made of a nonconducting material that contains small nickel particles.  In the resting state, it acts as an insulator, because metal particles are too far from each other. When it is compressed, its conductivity increases and current can pass through it \cite{azaman_characteristic_2016}. QTC Pills are very sensitive and can work in wide ranged o forces. However, they have an exponential relationship between force and resistance, they are temperature sensitive and depend on charge application time. Meaning they have low accuracy and not suitable for dynamic force measurements \cite{_quantum_2010}.
 
-\item In the strain gauge based force transducers the force causes deformation and subsequent linear change in resistance. Strain gauges are usually connected to a Wheatstone bridge circuit, where the output voltage is proportional to the applied force. Strain gauge based transducers provide small individual errors (200 ppm), show no drift, and are therefore appropriate for long-term monitoring tasks. However, they are relatively big, temperature dependent, and have a lower resonance frequency in comparison to piezoelectric sensors \cite{SGandP1,SGandP2}.
+\item In the strain gauge based force transducers, the force causes deformation and subsequent linear change in resistance. Strain gauges are usually connected to a Wheatstone bridge circuit, where the output voltage is proportional to the applied force. Strain gauge based transducers provide small individual errors (200 ppm), show no drift, and are therefore appropriate for long-term monitoring tasks. However, they are relatively big, temperature dependent, and have a lower resonance frequency in comparison to piezoelectric sensors \cite{SGandP1,SGandP2}.
 
 \item Optical retro-reflective sensors can be used for the force measurements. Emitter and receiver of these sensors are located at the same host. The light from the emitter goes through optical fibers reaches reflector and the reflected light goes back to the receiver. An interruption of the light beam due to bending can initiate a change of the signal output. Optical sensors are rarely used for force sensing applications because measurement range and sensing accuracy of such sensors are limited \cite{su_fiber_optic_2017}.
 \end{itemize}
@@ -172,4 +169,4 @@ On the basis of the above mentioned, piezoelectric sensors are preferable for dy
 
 \section{Contributions}
 \label{sec:MyAppr}
-Force sensing devices for measuring forces in X-Y direction and one for Z-direction measurement were created. They allow getting force readings from the daVinci tools of the PSM.  These devices can be easily added to the existing daVinci system. Since we have to add created device on each robot arm only, it is cheaper than placement of sensors on each separate surgical tool.  Moreover, created devices allow getting force data faster than through visual data processing method. And it has a chance to show better precision than motor current method.
+Force sensing devices for measuring forces in X-Y direction and one for Z-direction measurement were created. They allow getting force readings from the daVinci tools of the PSM.  These devices can be easily added to the existing daVinci system. Since we have to add created device on each robot arm only, it is cheaper than placement of sensors on each separate surgical tool.  Moreover, the created devices allow measuring forces faster than through the visual data processing method and could show better precision than the motor current method.

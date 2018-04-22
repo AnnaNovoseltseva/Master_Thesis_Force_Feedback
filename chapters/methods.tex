@@ -1,5 +1,5 @@
-\chapter{Methods and Results}
-\label{methods} % Always give a unique label
+\chapter{Force Sensor Design and Characterization}
+\label{sen_des_char} % Always give a unique label
 %use
 % to alter or adjust the chapter heading in the running head
 This chapter sets the requirements for the force sensing system, explains the methodology of the force-sensing devices creation, including mechanical, electrical, and software design, and finally describes the calibration process of the created system and shows the calibration results. 
@@ -7,7 +7,7 @@ This chapter sets the requirements for the force sensing system, explains the me
 \section{Requirements for the System}
 	\label{sec:DevReq}
 		
-	First, from the literature review following requirements for the device were outlined:
+	First, from the literature review following requirements for the force sensing device were outlined:
 \begin{itemize}
     \item \textbf{\textit{Biocompatibility}}. Z-device is attached to the sterile adapter and does not have to be biocompatible. However, the X-Y device goes inside the patient, it means that it should be sterilized and biocompatible.
     
@@ -39,7 +39,7 @@ This chapter sets the requirements for the force sensing system, explains the me
 	\vspace{-2mm}
 \end{figure}
 
-Block diagram of the created system for 3-DOF force measurement is shown in Figure \ref{fig:BlockDiag}. Forces that applied on the end of the surgical tool are measured using strain gauges, which change their resistance with force. Using created printed circuit boards (PCBs), these resistance changes are measured and published within ROS. At the same time, we measure a current joint position of the tool, which is needed for the force calibration. The position data and data from PCBs are used to find values of the force in X, Y, Z directions (Figure \ref{fig:PSM_with_FF}).
+A block diagram of the created system for 3-DOF force measurement is shown in Figure \ref{fig:BlockDiag}. Forces that applied on the end of the surgical tool are measured using strain gauges, which change their resistance with force. Using created printed circuit boards (PCBs), these resistance changes are measured and published within ROS. At the same time, we measure a current joint position of the tool, which is needed for the force calibration. The position data and data from PCBs are used to find values of the force in X, Y, Z directions (Figure \ref{fig:PSM_with_FF}).
 
 \begin{figure}[h]
 	\begin{center}
@@ -56,6 +56,7 @@ Block diagram of the created system for 3-DOF force measurement is shown in Figu
 \section{Mechanical Design}
 \label{sec:mechDes}
 
+This chapter describes mechanical design of two sensors, one for measurement X-Y component of the forces, another for Z-component of the forces. 
 
 \subsection{X-Y Device}
 \label{sec:xyDir}
