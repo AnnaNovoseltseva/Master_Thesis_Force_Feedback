@@ -13,11 +13,33 @@ Augmenting devices are used to extend surgeon's ability in performing an operati
 
 Use of teleoperated robots in surgeries can solve many of the conventional surgery problems in terms of more precise manipulation capability, ergonomics, dexterity, and haptic feedback capability for the surgeon. They enhance dexterity by an increase of instrument degrees of freedom, hand tremor compensation, and movements scaling that allows transformation of the control grips large movements into small motions inside the patient. 3-D view with depth perception gives surgeons ability to directly control a stable visual field with increased magnification and maneuverability. All of these enhances the surgeon's performance. However, robot-assisted surgeries are high cost, need large operational room space, do not have established efficacy, and have a need for tableside assistants. For these reasons ability of hospitals to use surgical robots is low, making their use for routine surgeries improbable \cite{tavakoli_haptics_2008}.
 
-Today, many surgical robotic systems have been commercially developed and approved by the FDA, such as the daVinci surgical system (Intuitive Surgical, Inc., Sunnyvale, CA), Sensei X robotic catheter system (Hansen Medical Inc., Mountain View, CA), FreeHand v1.2 (FreeHand 2010 Ltd., Cardiff, UK), Invendoscopy E200 system (Invendo Medical GmbH, Germany), Flex® robotic system (Medrobotics Corp., Raynham, MA), Senhance (TransEnterix, Morrisville, NC), Auris robotic endoscopy system (ARES; Auris Surgical Robotics, Silicon Valley, CA, USA), The NeoGuide Endoscopy System (NeoGuide Endoscopy System Inc, Los Gatos, CA) \cite{lanfranco_robotic_2004,peters_review_2018}.
+Today, many surgical robotic systems have been commercially developed and approved by the FDA, such as the daVinci surgical system (Intuitive Surgical, Inc., Sunnyvale, CA) (Figure \ref{fig:daVinci}), Sensei X robotic catheter system (Hansen Medical Inc., Mountain View, CA), FreeHand v1.2 (FreeHand 2010 Ltd., Cardiff, UK), Invendoscopy E200 system (Invendo Medical GmbH, Germany), Flex® robotic system (Medrobotics Corp., Raynham, MA), Senhance (TransEnterix, Morrisville, NC) (Figure \ref{fig:Senhance}), Auris robotic endoscopy system (ARES; Auris Surgical Robotics, Silicon Valley, CA, USA), The NeoGuide Endoscopy System (NeoGuide Endoscopy System Inc, Los Gatos, CA) \cite{lanfranco_robotic_2004,peters_review_2018}.
+
+\begin{figure}[h]
+	\begin{center}
+	\includegraphics[width=100mm]{fig/background/daVinciRobotPic.jpg}
+	\end{center}
+	\vspace{-4mm}
+	\caption[The daVinci Xi Surgical System]
+	{The daVinci Xi Surgical System}
+	\label{fig:daVinci}
+	\vspace{-2mm}
+\end{figure}
 
 There is also a number of NON-FDA-approved platforms that currently under development or going through clinical trials. For example, MiroSurge (RMC, DLR, German Aerospace Center, Oberpfaffenhofen-Weßling), The ViaCath system (BIOTRONIK, Berlin, Germany), SPORT™ surgical system (Titan Medical Inc., Toronto, Ontario), The SurgiBot™ (TransEnterix, Morrisville, NC), The Versius Robotic System (Cambridge Medical Robotics Ltd., Cambridge, UK), MASTER (Nanyang Technological University and National University Health System), Verb Surgical (Verb Surgical Inc., J \& J/Alphabet, Mountain View, CA, USA), Miniature in vivo robot (MIVR) (MIVR, Virtual Incision, CAST, University of Nebraska Medical Center, Omaha, Nebraska, USA), the Einstein surgical robot (Medtronic, Minneapolis, MN) \cite{peters_review_2018}.
 
-The daVinci® surgical system is one of the most commonly used robotic surgical systems. In 2015, over 3400 systems were in use around the world. More than 3 million surgeries were performed worldwide using daVinci system \cite{_intuitive_2018}. The system has been approved for various types of surgeries such as cardiac, colorectal, thoracic, urological and gynecologic. However, new systems are emerging on the market, providing features that are absent currently in the daVinci System. For example, the Flex Robotic System, which consists of the flexible endoscope for laparoendoscopic surgeries. This system is able to define a non-linear path to surgical target by advancing a flexible telescopic inner-outer mechanism with instruments inside it, whereas instruments in the daVinci system can follow only non-flexible straight path. Another example, in 2017 FDA approved Senhance robotic platform that provides actual haptic force feedback, allowing the surgeon to feel forces generated at the instruments end. In addition, the system uses eye-tracking technology to move the camera at the point the surgeon is looking at, while the daVinci uses a footswitch panel to control the camera movement \cite{peters_review_2018}.
+\begin{figure}[h]
+	\begin{center}
+	\includegraphics[width=100mm]{fig/background/senhance.jpg}
+	\end{center}
+	\vspace{-4mm}
+	\caption[The Senhance Surgical System]
+	{The Senhance Surgical System}
+	\label{fig:Senhance}
+	\vspace{-2mm}
+\end{figure}
+
+The daVinci® surgical system is one of the most commonly used robotic surgical systems. In 2015, over 3400 systems were in use around the world. More than 3 million surgeries were performed worldwide using daVinci system \cite{_intuitive_2018}. The system has been approved for various types of surgeries such as cardiac, colorectal, thoracic, urological and gynecologic. However, new systems are emerging on the market, providing features that are absent currently in the daVinci System. For example, the Flex Robotic System, which consists of the flexible endoscope for laparoendoscopic surgeries. This system is able to define a non-linear path to surgical target by advancing a flexible telescopic inner-outer mechanism with instruments inside it, whereas instruments in the daVinci system can follow only non-flexible straight path. Another example is the Senhance robotic platform, which was cleared by the FDA in 2017, that provides actual haptic force feedback, allowing the surgeon to feel forces generated at the instruments end. In addition, the system uses eye-tracking technology to move the camera at the point the surgeon is looking at, while the daVinci uses a footswitch panel to control the camera movement \cite{peters_review_2018}.
 
 %Effectiveness of daVinci system in comparison to opened surgery and other systems \cite{yu_safety_2014}
 
@@ -25,22 +47,90 @@ The daVinci® surgical system is one of the most commonly used robotic surgical 
 \section{Importance of Haptic Feedback}
 \label{sec:hapticFeedbackImportance}
 
-In several studies \cite{lim_role_2015, alleblas_effects_2017, currie_role_2017}, it has been shown that implementation of force feedback into teleoperated robotic systems can reduce root-mean-square (RMS) and peak values of contact forces, energy consumption, a time required for task completion and the surgical errors rate \cite{tavakoli_haptics_2008}. The current version of daVinci robot does not provide haptic feedback, an addition of one would be beneficial for both patients and surgeons.
+Several studies \cite{lim_role_2015, alleblas_effects_2017, currie_role_2017} have shown that implementation of force feedback into teleoperated robotic systems can reduce root-mean-square (RMS) and peak values of contact forces, energy consumption, a time required for task completion and the surgical errors rate \cite{tavakoli_haptics_2008}. The current version of daVinci robot does not provide haptic feedback, an addition of one would be beneficial for both patients and surgeons.
+
+The addition of visual (2.16 ± 1.67), direct (1.62 ± 0.86), or both visual and direct force
+feedback (2.15 ± 1.08) resulted in lower mean maximum force applied to mitral valve tissue while
+suturing compared with no force feedback (3.34 ± 1.93 N; P < 0.05).
+Conclusions To achieve better control of interaction forces on cardiac tissue during robotics assisted
+mitral valve annuloplasty suturing, force feedback may be required. \cite{currie_role_2017}
+
+The experimental results reveal reductions in force error (39.1% and
+40.9%) when using haptic feedback during 1N and 2N pulling tasks. Moreover,
+survey analyses showthe effectiveness of the haptic feedback during teleoperation.
+Conclusions The combined tactile and kinesthetic feedback of the master
+device in robotic surgery improves the surgeon’s ability to control the interaction
+force applied to the tissue. \cite{lim_role_2015}
+
+As reported by Cundy et al. [7], the experience of the each
+single surgeon may probably explain these results. In fact
+the personal expertise seems to overcome the lack of a
+feedback haptic sensor, thus making feedback sensors
+introduction desirable only if technologically and economically
+feasible.
+
+Mention 
+
+
+\begin{figure}[h]
+	\begin{center}
+	\includegraphics[width=100mm]{fig/background/importance_haptics.png}
+	\end{center}
+	\vspace{-4mm}
+	\caption[The Senhance Surgical System]
+	{The Senhance Surgical System}
+	\label{fig:Senhance}
+	\vspace{-2mm}
+\end{figure}
 
 \section{Current Approaches}
 \label{sec:CurAppr}
 
-In order to implement haptic feedback in the daVinci system, it is necessary to create force feedback estimation method for surgical tools first. Current approaches of incorporating force feedback include placement of force sensors on surgical tools, change of instruments design and some sensorless methods.
+In order to implement haptic feedback in the daVinci system, it is necessary to create force sensing method for surgical tools first. Current approaches of incorporating force feedback include placement of force sensors on surgical tools, change of instruments design and some sensorless methods.
 
 \subsection{Sensor Placement on Instrument}
 \begin{itemize}
-\item In the paper \cite{hong_design_2012}, authors suggested measuring pulling and grasping forces at the tip of the surgical instrument by mounting strain gauges on top and bottom surfaces of each of the two flexure hinges of the forceps. RMS errors were close to 0.1 N, meaning good accuracy of the method. One of the disadvantages of this method is biocompatibility problem, another is increased cost of each tool. Taking into account that each instrument has limited lifespan  \cite{ho_health_2011}, it will lead to significant increase in surgery cost.
+\item In \cite{hong_design_2012}, Hong et al. suggested measuring pulling and grasping forces at the tip of the surgical instrument by mounting strain gauges on top and bottom surfaces of each of the two flexure hinges of the forceps (Figure \ref{fig:integr_sen}). RMS errors were close to 0.1 N. One of the disadvantages of this method is biocompatibility issue due to contact of sensors and wires with patient tissues, another is increased cost of each tool. Taking into account that each instrument has limited lifespan \cite{ho_health_2011}, it will lead to significant increase in surgery cost.
 
-\item  Some researchers use optical methods for force evaluation. These methods are divided by different sensing principles they use: intensity modulation, wavelength modulation, and phase modulation \cite{su_fiber_optic_2017}. In the paper \cite{_micro_2004}, authors developed 3-axial force sensor that uses intensity principle. It is based on a flexible titanium structure, that deforms with applied forces. These deformations are measured through reflective measurements with three optical fibers. The method shows measurement force range 0.01 N to 2.5 N with 0.01 N resolution. The disadvantage of this method is narrow force measurement range.
+\begin{figure}[h]
+	\begin{center}
+	\includegraphics[width=80mm]{fig/background/Sensor_on_instrument.pdf}
+	\end{center}
+	\vspace{-4mm}
+	\caption[Prototype of the 2-DOF Compliant Forceps]
+	{Prototype of the 2-DOF Compliant Forceps \cite{hong_design_2012}}
+	\label{fig:integr_sen}
+	\vspace{-2mm}
+\end{figure}
+
+\item  Some researchers use optical methods for force evaluation. These methods are divided by different sensing principles they use: intensity modulation, wavelength modulation, and phase modulation \cite{su_fiber_optic_2017}. In the paper \cite{_micro_2004}, authors developed 3-axial force sensor that uses light intensity modulation principle. It is based on a flexible titanium structure, that deforms with applied forces (Figure \ref{fig:opt_sen}). These deformations are measured through reflective measurements with three optical fibers. The method shows measurement force range 0.01 N to 2.5 N with 0.01 N resolution. The disadvantage of this method is narrow force measurement range.
+
+\begin{figure}[h]
+	\begin{center}
+	\includegraphics[width=80mm]{fig/background/optic_meth.png}
+	\end{center}
+	\vspace{-4mm}
+	\caption[Optical Force Sensor]
+	{Optical Force Sensor \cite{_micro_2004}}
+	\label{fig:opt_sen}
+	\vspace{-2mm}
+\end{figure}
+
 \end{itemize}
 
 \subsection{New Instrument Designs}
-Making new surgical instrument with implemented force sensors is another way to achieve force feedback \cite{schwalb_forcesensing_2017}. Authors developed the new force-sensing surgical tool, that uses a proximally located force/torque sensor. This allows avoiding miniaturization and sterilization issues. The method has high sensing accuracy with errors less than 0.09 N. The outer diameter of the developed tool is 12 mm. This method as well requires an increase in the tool cost, leading to higher surgery expenses.
+\begin{figure}[h]
+	\begin{center}
+	\includegraphics[width=100mm]{fig/background/new_instr_des.pdf}
+	\end{center}
+	\vspace{-4mm}
+	\caption[Force-Sensing Surgical Tool]
+	{ Force-Sensing Surgical Tool \cite{schwalb_forcesensing_2017}}
+	\label{fig:force_sen_tool}
+	\vspace{-2mm}
+\end{figure}
+
+Making new surgical instrument with implemented force sensors is another way to achieve force feedback \cite{schwalb_forcesensing_2017}. Authors developed the new force-sensing surgical tool, that uses a proximally located force/torque sensor (Figure \ref{fig:force_sen_tool}). This allows avoiding miniaturization and sterilization issues. The method has high sensing accuracy with errors less than 0.09 N. The outer diameter of the developed tool is 12 mm. This method as well requires an increase in the tool cost, leading to higher surgery expenses.
 
 \subsection{Sensorless Methods}
 
@@ -49,10 +139,21 @@ All sensorless estimation methods avoid drawbacks associated with biocompatibili
 \begin{itemize}
 \item Some researchers proposed to use vision-based solution with supervised learning to estimate the applied forces. After extraction of the motion geometry of the object surface, they use a deep network to learn the relationship between the extracted visual information and the applied force. The evaluated average root-mean-square error of the method is 0.02 N.  The disadvantage of this methods is the necessity to know object’s material properties, and some materials such as bones would not visually deform. Additionally, the method has significant time delays due to computation time and is not suitable for real-time force feedback \cite{aviles_towards_2017}. 
 
+\begin{figure}[h]
+	\begin{center}
+	\includegraphics[width=140mm]{fig/background/vision_based.png}
+	\end{center}
+	\vspace{-4mm}
+	\caption[Flowchart of Vision-Based Force Estimation Approach]
+	{Flowchart of Vision-Based Force Estimation Approach \cite{aviles_towards_2017}}
+	\label{fig:visual_appr}
+	\vspace{-2mm}
+\end{figure}
+
 \item In the papers \cite{sang_hongqiang_external_2017, yoon_design_2015}, authors estimate external forces using dynamics models and motor currents from the robot. They linearly parameterized PSM dynamics model and used it to derive forces values. As a result, they implemented sensorless force estimation method and they concluded that it was feasible. Even though, the proposed method does not show sufficient repeatability and accuracy.
 \end{itemize}
 
-\section{Force Sensors}
+\section{Force Sensing Technologies}
 \label{sec:ForceSensors}
 
 For the force sensing depending on their operating principle following types of sensors can be used: piezoelectric, strain-gauges, quantum tunneling composite pills (QTC Pills) or optical sensors \cite{SGandP1}.

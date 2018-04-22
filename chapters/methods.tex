@@ -2,22 +2,44 @@
 \label{methods} % Always give a unique label
 %use
 % to alter or adjust the chapter heading in the running head
+This chapter sets the requirements for the force sensing system, explains the methodology of the force-sensing devices creation, including mechanical, electrical, and software design, and finally describes the calibration process of the created system and shows the calibration results. 
+
+\section{Requirements for the System}
+	\label{sec:DevReq}
+		
+	First, from the literature review following requirements for the device were outlined:
+\begin{itemize}
+    \item \textbf{\textit{Biocompatibility}}. Z-device is attached to the sterile adapter and does not have to be biocompatible. However, the X-Y device goes inside the patient, it means that it should be sterilized and biocompatible.
+    
+    \item \textbf{\textit{Force range}}. Some studies \cite{mack_interactive_2012, prasad_modular_2003 } have shown that force range applied during surgeries lies in range ($0-11 N$). The designed device need to measure forces in that range, and if the force goes beyond that range it can be used to trigger safety alert.
+    
+    \item \textbf{\textit{Force sensitivity}}. The device should be sensitive enough with resolution at least $0.05 N$ and give accurate readings ($error < 0.1 N$) \cite{mack_interactive_2012}.
+    
+    \item \textbf{\textit{Speed of force reading}}. The device is used for real-time haptic feedback, the minimum requirement for data acquisition speed is 1 kHz \cite{seungmoon_choi_effect_2004}.
+    
+    \item \textbf{\textit{No restriction of motion range of the device}}. The forces should be measured in three directions independently from each other. At the same time tool should freely rotate and change the depth of insertion.    
+    
+    \item \textbf{\textit{Linearity}}. Calibration curve of created sensors should be linear.
+
+    \item \textbf{\textit{Device modularity}}. Force-sensing devices should be designed so they can be easily added to the existing system and fit daVinci cannula and sterile adapter.
+\end{itemize}
+
 
 \section{Force Measurement}
 \label{sec:sysArch}
 
 \begin{figure}[h]
 	\begin{center}
-	\includegraphics[width=100mm]{fig/methods/the_device.png}
+	\includegraphics[width=100mm]{fig/methods/the_device_annotated.png}
 	\end{center}
 	\vspace{-4mm}
 	\caption[Developed Force Measuring System Attached to the PSM]
-	{Developed Force Measuring System Attached to the PSM}
+	{Developed Force Measuring System Attached to the PSM. The daVinci instrument is inserted in the sterile adapter of the PSM arm. Z Device is attached to the sterile adapter. XY Device is press-fitted on the cannula end.}
 	\label{fig:PSM_with_FF}
 	\vspace{-2mm}
 \end{figure}
 
-Block diagram of the created system for 3-DOF force measurement is shown in Figure \ref{fig:BlockDiag}. Forces that applied on the end of the surgical tool are measured using strain gauges, which change their resistance with force. Using created printed circuit boards (PCBs), these resistance changes are measured and published within ROS. At the same time, we measure a current joint position of the tool, which is needed for the force calibration. The position data and data from PCBs are used to find values of the force in X, Y, Z directions.
+Block diagram of the created system for 3-DOF force measurement is shown in Figure \ref{fig:BlockDiag}. Forces that applied on the end of the surgical tool are measured using strain gauges, which change their resistance with force. Using created printed circuit boards (PCBs), these resistance changes are measured and published within ROS. At the same time, we measure a current joint position of the tool, which is needed for the force calibration. The position data and data from PCBs are used to find values of the force in X, Y, Z directions (Figure \ref{fig:PSM_with_FF}).
 
 \begin{figure}[h]
 	\begin{center}
@@ -30,9 +52,96 @@ Block diagram of the created system for 3-DOF force measurement is shown in Figu
 	\vspace{-2mm}
 \end{figure}
 
+
+\section{Mechanical Design}
+\label{sec:mechDes}
+
+
+\subsection{X-Y Device}
+\label{sec:xyDir}
+
+The XY-device consists of one sleeve and one set screw. We manufactured sleeve using Aluminum 6061 Alloy. %First, a hole with diameter 9.5 mm should be drilled in the center using the lathe machine. Then on the milling machine, all the side slots and inner square should be milled. On the same machine hole for the set screw should be drilled. After that set screw thread was tapped.%
+The manufactured sleeve is placed on the cannula end and is fixed with a set screw on the top (Figures \ref{fig:xy_photo} - \ref{fig:xy-direction}).
+
+\begin{figure}[h]
+	\begin{center}
+		\includegraphics[width=80mm]{fig/methods/xy_device_photo.png}
+	\end{center}
+	\vspace{-4mm}
+	\caption[X-Y Device]
+	{X-Y Device Photo}
+	\label{fig:xy_photo}
+	\vspace{-2mm}
+\end{figure}
+
+\begin{figure}[h]
+	\begin{center}
+		\includegraphics[width=80mm]{fig/methods/xy_dev_cl.png}
+	\end{center}
+	\vspace{-4mm}
+	\caption[XY-direction Force Feedback Sensor]
+	{XY-direction Force Feedback Sensor}
+	\label{fig:xy-direction}
+	\vspace{-2mm}
+\end{figure}
+
+\begin{figure}[h]
+	\begin{center}
+		\includegraphics[width=80mm]{fig/methods/old_sleeve_displ.png}
+	\end{center}
+	\vspace{-4mm}
+	\caption[Displacement of the XY Device]
+	{Displacement of the XY Device}
+	\label{fig:xy-displ}
+	\vspace{-2mm}
+\end{figure}
+
+In order to get accurate readings maximum displacement of the sleeve sides should prevent shaft from hitting the cannula. It means that it should be less than $d=(d_{can_in} - d_{shaft_out})/2 = (8.75 - 8.4)/2 = 0.175$ mm. From the Solidworks simulation (Figure \ref{fig:xy-displ}), maximum displacement is 0.037 mm, which is in appropriate range.
+
+\subsection{Z Device}
+\label{sec:zDir}
+
+\begin{figure}[h]
+	\begin{center}
+		\includegraphics[width=80mm]{fig/methods/z_device_photo.png}
+	\end{center}
+	\vspace{-4mm}
+	\caption[Z Device]
+	{Z Device Photo}
+	\label{fig:z_photo}
+	\vspace{-2mm}
+\end{figure}
+
+\begin{figure}[h]
+	\begin{center}
+		\includegraphics[width=100mm]{fig/methods/z_dir_color.png}
+	\end{center}
+	\vspace{-4mm}
+	\caption[Z-direction Force Feedback Sensor]
+	{Z-direction Force Feedback Sensor}
+	\label{fig:Z-direction}
+	\vspace{-2mm}
+\end{figure}
+
+\begin{figure}[h]
+	\begin{center}
+		\includegraphics[width=140mm]{fig/methods/z_dir_color_sec.png}
+	\end{center}
+	\vspace{-4mm}
+	\caption[Z-direction Force Feedback Sensor (Section View)]
+	{Z-direction Force Feedback Sensor (Section View). Center ring in direct contact with instrument shaft, the contact was created using set screw. Thrust ball bearings are used to transfer only Z-component of the force. Top and bottom rings transfer push and pull forces to the plate. Spacers are used to give a space for plate to move. Set screws are used to fit attachment plates on the sterile adapter}
+	\label{fig:Z-direction_sec}
+	\vspace{-2mm}
+\end{figure}
+
+
+Z-device (Figures \ref{fig:z_photo} - \ref{fig:Z-direction_sec}) consists of attachment to the sterile adapter, 2 thrust ball bearings, three rings, plate, and two cylindrical spacers. Three rings and two ball bearings are used to transfer only z-directional forces further to the plate and keep the ability of the shaft to rotate. The ring in the center is in direct contact with the instrument shaft, two outer rings are for the push and pull forces transfer. The plate experience maximum strain and all strain gauge sensors are mounted on it.  Two cylindrical spacers are used to give plate space to move and they are mounted on the attachment plate. The attachment plate consists of three plates, they are press-fitted on the sterile adapter and fixed with four set screws.
+
+Three rings and plate were manufactured with Aluminum Alloy 6061, attachment parts were 3-D printed, fasteners were used as spacers.
+
 \section{Sensor Placement Optimization}
 \label{sec:SimMod}
-A finite element analysis was done in Solidworks to assess better placement of the strain gauges on the created device. In order to run finite element analysis material properties, such as elastic modulus, Poisson's ratio, and density are necessary to know. Devices material is aluminum 6061, that has elastic modulus 68.9 GPa, Poisson's ratio 0.33, and density 2700 kg/m\textsuperscript{3} \cite{aluminum_properties}. Since the shaft and cannula materials are unknown, in order to run finite element analysis their elasticity modulus and density were found experimentally.
+A finite element analysis was done in Solidworks to assess better placement of the strain gauges on the created devices. In order to run finite element analysis material properties, such as elastic modulus, Poisson's ratio, and density are necessary to know. Devices material is aluminum 6061, that has elastic modulus 68.9 GPa, Poisson's ratio 0.33, and density 2700 kg/m\textsuperscript{3} \cite{aluminum_properties}. Since the shaft and cannula materials are unknown, in order to run finite element analysis their elasticity modulus and density were found experimentally.
 	
 	\subsection{Elastic Modulus Measurements}
 	\label{sec:ElasMod}
@@ -156,29 +265,7 @@ Sleeve & 68.9 & 2700  \\
 
 All material properties used for simulations are listed in Table \ref{tab:matProp}.
 
-\section{Requirements for the Device}
-	\label{sec:DevReq}
-	From the literature review, following requirements for the device were outlined:
-\begin{itemize}
-    \item \textbf{\textit{Biocompatibility}}. Z-device is attached to the sterile adapter and does not have to be biocompatible. However, the X-Y device goes inside the patient, it means that it should be sterilized and biocompatible.
-    
-    \item \textbf{\textit{Force range}}. Some studies \cite{mack_interactive_2012, prasad_modular_2003 } have shown that force range applied during surgeries lies in range ($0-11 N$). The designed device need to measure forces in that range, and if the force goes beyond that range it can be used to trigger safety alert.
-    
-    \item \textbf{\textit{Force sensitivity}}. The device should be sensitive enough with resolution at least $0.05 N$ and give accurate readings ($error < 0.1 N$) \cite{mack_interactive_2012}.
-    
-    \item \textbf{\textit{Speed of force reading}}. The device is used for real-time haptic feedback, the minimum requirement for data acquisition speed is 1 kHz \cite{seungmoon_choi_effect_2004}.
-    
-    \item \textbf{\textit{No restriction of motion range of the device}}. The forces should be measured in three directions independently from each other. At the same time tool should freely rotate and change the depth of insertion.    
-    
-    \item \textbf{\textit{Linearity}}. Calibration curve of created sensors should be linear.
-
-    \item \textbf{\textit{Device modularity}}. Force-sensing devices should be designed so they can be easily added to the existing system and fit daVinci cannula and sterile adapter.
-\end{itemize}
-
-\section{Mechanical Design}
-\label{sec:mechDes}
-
-	\subsection{Strain Gauge}
+\subsection{Strain Gauge}
 	\label{sec:SGReq}
 	According to the manual for strain gauge selection provided by Vishay Micro-Measurements, the strain gauge should have following parameters:
 \begin{itemize}
@@ -188,7 +275,7 @@ All material properties used for simulations are listed in Table \ref{tab:matPro
   \item STC (self-temperature-compensation) - small temperature dependence;
 \end{itemize}    
     
-The maximum strain on the created device is $1.5 \cdot 10^{-4}$, in case of 10 N load with the maximally opened shaft. From the literature, strain gauges length should be more than 5\% of maximum strain, hence, the minimum length of the strain gauge should be 0.0075 mm. 
+From the FEM analysis, the maximum strain on the created device is $1.5 \cdot 10^{-4}$, in case of 10 N load with the maximally opened shaft. From the literature, strain gauges length should be more than 5\% of maximum strain, hence, the minimum length of the strain gauge should be 0.0075 mm. 
 
 Gauge Factor (GF) for strain gauges usually is 2. According to the formula (\ref{eq:resistance}) strain gauge with resistance 120 $\Omega$ have maximum change in resistance equal to 0.036 $\Omega$, and 350  - 0.105 $\Omega$:
 
@@ -198,7 +285,8 @@ Gauge Factor (GF) for strain gauges usually is 2. According to the formula (\ref
 
 where $GF$ - gauge factor, $R$ - resistance, $\varepsilon$- strain.
 
-For the device strain gauges with resistance 350 $\Omega$, GF is 2, single grid, encapsulated with pre-attached leads were used.
+For the device strain gauges with resistance 350 $\Omega$, GF is 2, single grid, encapsulated with pre-attached leads were used.	
+
 
 	\subsection{Installation of Strain Gauges}
 	\label{sec:instSG}
@@ -210,70 +298,9 @@ For the device strain gauges with resistance 350 $\Omega$, GF is 2, single grid,
     A gauge layout was then applied with a 4H drafting pencil. The surface was then conditioned with Conditioner A and the extra liquid was wiped with gauze. 
     Finally, the surface was then neutralized with M-Prep Neutralizer 5A \cite{StrGugeInst}.
 
-    The strain gauges were first placed on the glass and then transported using mylar tape onto the instrument surface. A thin layer of catalyst was applied to the strain gauge and given one minute to dry. Then adhesive M-BOND 200 was applied on the surface, the pressure was applied on the tape for one minute, then two more minutes to let it dry before the tape was removed. Then leads soldering was done by application of pats, and soldering them with thin wires \cite{youtube}.
+    The strain gauges were first placed on the glass and then transported using mylar tape onto the instrument surface. A thin layer of catalyst was applied to the strain gauge and given one minute to dry. Then adhesive M-BOND 200 was applied on the surface, the pressure was applied on the tape for one minute, then two more minutes to let it dry before the tape was removed. Then leads soldering was done by application of pads, and soldering them with thin wires \cite{youtube}.
 
     The methodology of the strain gauge application more specifically described in \cite{StrGugeInst}. In compliance with the application guide, the same materials and technique can be used to apply strain gauges on different materials (metals, plastics).
-
-\subsection{X-Y Device}
-\label{sec:xyDir}
-
-The XY-device consists of one sleeve and one set screw. We manufactured sleeve using Aluminum 6061 Alloy. %First, a hole with diameter 9.5 mm should be drilled in the center using the lathe machine. Then on the milling machine, all the side slots and inner square should be milled. On the same machine hole for the set screw should be drilled. After that set screw thread was tapped.%
-The manufactured sleeve is placed on the cannula end and is fixed with a set screw on the top.
-
-\begin{figure}[h]
-	\begin{center}
-		\includegraphics[width=80mm]{fig/methods/xy_dev_cl.png}
-	\end{center}
-	\vspace{-4mm}
-	\caption[XY-direction Force Feedback Sensor]
-	{XY-direction Force Feedback Sensor}
-	\label{fig:xy-direction}
-	\vspace{-2mm}
-\end{figure}
-
-\begin{figure}[h]
-	\begin{center}
-		\includegraphics[width=80mm]{fig/methods/old_sleeve_displ.png}
-	\end{center}
-	\vspace{-4mm}
-	\caption[Displacement of the XY Device]
-	{Displacement of the XY Device}
-	\label{fig:xy-displ}
-	\vspace{-2mm}
-\end{figure}
-
-In order to get accurate readings maximum displacement of the sleeve sides should prevent shaft from hitting the cannula. It means that it should be less than $d=(d_{can_in} - d_{shaft_out})/2 = (8.75 - 8.4)/2 = 0.175$ mm. From the Solidworks simulation (Figure \ref{fig:xy-displ}), maximum displacement is 0.037 mm, which is in appropriate range.
-
-\subsection{Z Device}
-\label{sec:zDir}
-
-\begin{figure}[h]
-	\begin{center}
-		\includegraphics[width=80mm]{fig/methods/z_dir_design.png}
-	\end{center}
-	\vspace{-4mm}
-	\caption[Z-direction Force Feedback Sensor]
-	{Z-direction Force Feedback Sensor}
-	\label{fig:Z-direction}
-	\vspace{-2mm}
-\end{figure}
-
-\begin{figure}[h]
-	\begin{center}
-		\includegraphics[width=80mm]{fig/methods/z_dir_sec.png}
-	\end{center}
-	\vspace{-4mm}
-	\caption[Z-direction Force Feedback Sensor (Section View)]
-	{Z-direction Force Feedback Sensor (Section View)}
-	\label{fig:Z-direction_sec}
-	\vspace{-2mm}
-\end{figure}
-
-
-Z-device (Figures \ref{fig:Z-direction} - \ref{fig:Z-direction_sec}) consists of attachment to the sterile adapter, 2 thrust ball bearings, three rings, plate, and two cylindrical spacers. Three rings and two ball bearings are used to transfer only z-directional forces further to the plate and keep the ability of the shaft to rotate. The ring in the center is in direct contact with the instrument shaft, two outer rings are for the push and pull forces transfer. The plate experience maximum strain and all strain gauge sensors are mounted on it.  Two cylindrical spacers are used to give plate space to move and they are mounted on the attachment plate. The attachment plate consists of three plates, they are press-fitted on the sterile adapter and fixed with four set screws.
-
-Three rings and plate were manufactured with Aluminum Alloy 6061, attachment parts were 3-D printed, fasteners were used as spacers.
-
 
 \section{Electrical and Software Design}
 \label{sec:elecDes}
@@ -516,12 +543,12 @@ All the following information about sensor characteristics is from \cite{kalanta
 \centering
 \subfigure[X-direction]{%
 \label{fig:X_calib_res}%
-\includegraphics[width=90mm]{fig/results/force_pred_x.pdf}}%
+\includegraphics[width=80mm]{fig/results/x_dir_all.png}}%
 \qquad
 \subfigure[Y-direction]{%
 \label{fig:Y_calib_res}%
-\includegraphics[width=90mm]{fig/results/force_pred_y.pdf}}%
-\caption{Calibration Results of XY Device}
+\includegraphics[width=80mm]{fig/results/y_dir_all.png}}%
+\caption{Calibration Results of XY Device (n=3)}
 \label{fig:XY_calib_res}%
 \end{figure}
 
@@ -529,12 +556,12 @@ All the following information about sensor characteristics is from \cite{kalanta
 \centering
 \subfigure[Z Device]{%
 \label{fig:Z_calib_sen}%
-\includegraphics[width=90mm]{fig/results/force_pred_z.pdf}}%
+\includegraphics[width=80mm]{fig/results/z_dir_all.png}}%
 \qquad
 \subfigure[Joint Effort]{%
 \label{fig:Z_joint_effort}%
-\includegraphics[width=90mm]{fig/results/force_pred_z_effort.pdf}}%
-\caption{Calibration Results in Z-direction}
+\includegraphics[width=80mm]{fig/results/joint_z.png}}%
+\caption{Calibration Results in Z-direction (n=3)}
 \label{fig:Z_calib_res}%
 \end{figure}
 
