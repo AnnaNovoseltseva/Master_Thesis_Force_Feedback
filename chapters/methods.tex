@@ -56,35 +56,26 @@ A block diagram of the created system for 3-DOF force measurement is shown in Fi
 \section{Mechanical Design}
 \label{sec:mechDes}
 
-This chapter describes mechanical design of two sensors, one for measurement X-Y component of the forces, another for Z-component of the forces. 
+This chapter describes mechanical design of two sensors, one for measurement X-Y component of the force, another for Z-component of the force. 
 
 \subsection{X-Y Device}
 \label{sec:xyDir}
 
+\begin{figure}[h]%
+\centering
+\subfigure[Photo]{%
+\label{fig:Z_dev_photo}%
+\includegraphics[width=70mm]{fig/methods/xy_device_photo.png}}%
+\qquad
+\subfigure[3D Model]{%
+\label{fig:Z_dev_model}%
+\includegraphics[width=70mm]{fig/methods/xy_dev_cl.png}}%
+\caption{XY-direction Force Feedback Sensor}
+\label{fig:XY_device_design}%
+\end{figure}
+
 The XY-device consists of one sleeve and one set screw. We manufactured sleeve using Aluminum 6061 Alloy. %First, a hole with diameter 9.5 mm should be drilled in the center using the lathe machine. Then on the milling machine, all the side slots and inner square should be milled. On the same machine hole for the set screw should be drilled. After that set screw thread was tapped.%
-The manufactured sleeve is placed on the cannula end and is fixed with a set screw on the top (Figures \ref{fig:xy_photo} - \ref{fig:xy-direction}).
-
-\begin{figure}[h]
-	\begin{center}
-		\includegraphics[width=80mm]{fig/methods/xy_device_photo.png}
-	\end{center}
-	\vspace{-4mm}
-	\caption[X-Y Device]
-	{X-Y Device Photo}
-	\label{fig:xy_photo}
-	\vspace{-2mm}
-\end{figure}
-
-\begin{figure}[h]
-	\begin{center}
-		\includegraphics[width=80mm]{fig/methods/xy_dev_cl.png}
-	\end{center}
-	\vspace{-4mm}
-	\caption[XY-direction Force Feedback Sensor]
-	{XY-direction Force Feedback Sensor}
-	\label{fig:xy-direction}
-	\vspace{-2mm}
-\end{figure}
+The manufactured sleeve is placed on the cannula end and is fixed with a set screw on the top (Figure \ref{fig:XY_device_design}). The sleeve was manufactured slightly wider than the cannula to compensate tolerances in cannula sizes.
 
 \begin{figure}[h]
 	\begin{center}
@@ -97,31 +88,22 @@ The manufactured sleeve is placed on the cannula end and is fixed with a set scr
 	\vspace{-2mm}
 \end{figure}
 
-In order to get accurate readings maximum displacement of the sleeve sides should prevent shaft from hitting the cannula. It means that it should be less than $d=(d_{can_in} - d_{shaft_out})/2 = (8.75 - 8.4)/2 = 0.175$ mm. From the Solidworks simulation (Figure \ref{fig:xy-displ}), maximum displacement is 0.037 mm, which is in appropriate range.
+In order to get accurate readings maximum displacement of the sleeve sides should prevent shaft from hitting the cannula. It means that it should be less than distance between the cannula and the instrument shaft $d=(d_{can} - d_{shaft})/2 = (8.75 - 8.4)/2 = 0.175$ mm, where $d_{can}$ is inner diameter of the cannula and $d_{shaft}$ is outer diameter of the shaft. From the Solidworks simulation (Figure \ref{fig:xy-displ}), maximum displacement is 0.037 mm, which is in appropriate range.
 
 \subsection{Z Device}
 \label{sec:zDir}
 
-\begin{figure}[h]
-	\begin{center}
-		\includegraphics[width=80mm]{fig/methods/z_device_photo.png}
-	\end{center}
-	\vspace{-4mm}
-	\caption[Z Device]
-	{Z Device Photo}
-	\label{fig:z_photo}
-	\vspace{-2mm}
-\end{figure}
-
-\begin{figure}[h]
-	\begin{center}
-		\includegraphics[width=100mm]{fig/methods/z_dir_color.png}
-	\end{center}
-	\vspace{-4mm}
-	\caption[Z-direction Force Feedback Sensor]
-	{Z-direction Force Feedback Sensor}
-	\label{fig:Z-direction}
-	\vspace{-2mm}
+\begin{figure}[h]%
+\centering
+\subfigure[Photo]{%
+\label{fig:Z_dev_photo}%
+\includegraphics[width=70mm]{fig/methods/z_device_photo.png}}%
+\qquad
+\subfigure[3D Model]{%
+\label{fig:Z_dev_model}%
+\includegraphics[width=70mm]{fig/methods/z_dir_color.png}}%
+\caption{Z-direction Force Feedback Sensor}
+\label{fig:Z_device_design}%
 \end{figure}
 
 \begin{figure}[h]
@@ -135,18 +117,19 @@ In order to get accurate readings maximum displacement of the sleeve sides shoul
 	\vspace{-2mm}
 \end{figure}
 
+Z-device principle of work based on the manufacturing imperfections of the connection between the sterile adapter and the surgical instrument, that resulted in movement of the instrument for approximately 0.3 mm.
 
-Z-device (Figures \ref{fig:z_photo} - \ref{fig:Z-direction_sec}) consists of attachment to the sterile adapter, 2 thrust ball bearings, three rings, plate, and two cylindrical spacers. Three rings and two ball bearings are used to transfer only z-directional forces further to the plate and keep the ability of the shaft to rotate. The ring in the center is in direct contact with the instrument shaft, two outer rings are for the push and pull forces transfer. The plate experience maximum strain and all strain gauge sensors are mounted on it.  Two cylindrical spacers are used to give plate space to move and they are mounted on the attachment plate. The attachment plate consists of three plates, they are press-fitted on the sterile adapter and fixed with four set screws.
+Z-device (Figures \ref{fig:Z_device_design} - \ref{fig:Z-direction_sec}) consists of attachment to the sterile adapter, 2 thrust ball bearings, three rings, plate, and two cylindrical spacers. Three rings and two ball bearings are used to transfer only z-directional forces further to the plate and keep the ability of the shaft to rotate. The ring in the center is in direct contact with the instrument shaft, two outer rings are for the push and pull forces transfer. The plate experience maximum strain and all strain gauge sensors are mounted on it.  Two cylindrical spacers are used to give plate space to move and they are mounted on the attachment plate. The attachment plate consists of three plates, they are press-fitted on the sterile adapter and fixed with four set screws.
 
 Three rings and plate were manufactured with Aluminum Alloy 6061, attachment parts were 3-D printed, fasteners were used as spacers.
 
 \section{Sensor Placement Optimization}
 \label{sec:SimMod}
-A finite element analysis was done in Solidworks to assess better placement of the strain gauges on the created devices. In order to run finite element analysis material properties, such as elastic modulus, Poisson's ratio, and density are necessary to know. Devices material is aluminum 6061, that has elastic modulus 68.9 GPa, Poisson's ratio 0.33, and density 2700 kg/m\textsuperscript{3} \cite{aluminum_properties}. Since the shaft and cannula materials are unknown, in order to run finite element analysis their elasticity modulus and density were found experimentally.
+In order to accurately measure forces, the strain gauges should be placed in the area with the highest strain. A finite element analysis was done in Solidworks to find strain distribution and assess the better mounting location of the strain gauges on the created devices. In order to run finite element analysis material properties, such as elastic modulus, Poisson's ratio, and density are necessary to know. Devices material is aluminum 6061, which has elastic modulus 68.9 GPa, Poisson's ratio 0.33, and density 2700 kg/m\textsuperscript{3} \cite{aluminum_properties}. Since the shaft and cannula materials are unknown, in order to run finite element analysis their elasticity modulus and density were found experimentally.
 	
 	\subsection{Elastic Modulus Measurements}
 	\label{sec:ElasMod}
-	Elastic Modulus of the shaft and the cannula were found experimentally (Figure \ref{fig:ElasModSet}). One end of the observing sample (shaft/cannula) was fixed and the force was applied to the other end. We used weights 250g for the shaft and 555g for the cannula to apply forces. The deformation caused by forces was detected with a dial indicator. The experiment was done 5 times, average displacement value was used to calculate elastic modulus. Results are shown in Table \ref{tab:elasMod}.
+	Elastic Modulus of the shaft and the cannula were found experimentally (Figure \ref{fig:ElasModSet}). One end of the observing sample (shaft/cannula) was fixed and the force was applied to the other end. We used weights 250g for the shaft and 555g for the cannula to apply forces. The deformation caused by forces was detected with a dial indicator. The experiment was repeated 5 times, average displacement value was used to calculate elastic modulus. Results are shown in Table \ref{tab:elasMod}.
 	
 \begin{figure}[h]
 	\begin{center}
@@ -158,29 +141,6 @@ A finite element analysis was done in Solidworks to assess better placement of t
 	\label{fig:ElasModSet}
 	\vspace{-2mm}
 \end{figure}
-
-\begin{table}[h]
-\caption {Elasticity Modulus Measurement Data} \label{tab:elasMod} 
-\begin{tabular}{ | c | c | c | c | c | c | c | c | } 
-\hline
-Component & $d_o$, mm & $d_i$, mm & $I$, mm\textsuperscript{4} & $m$, g & $F$, N & $L$, mm & $L_{tot}$, mm \\ 
-\hline
-Shaft & 8.4 & 6 & $1.808 \cdot 10^{-10}$ & 250 & 3.25 & 276.2 & 366.8\\ 
-\hline
-Cannula & 10.54 & 8.75 & $3.181 \cdot 10^{-10}$ & 555 & 6.011 & 95.5 & 105.55 \\ 
-\hline
-\end{tabular}
-
-\begin{tabular}{ | c | c | c | } 
-\hline
-Component & $\delta \pm SD$, mm & $E \pm SD$, GPa \\ 
-\hline
-Shaft & $2.856 \pm 0.123$ & $44.31 \pm 1.86$ \\ 
-\hline
-Cannula & $0.086 \pm 0.004$ & $63.92 \pm 2.97$ \\ 
-\hline
-\end{tabular}
-\end{table}
 
 Elastic Modulus was found using the following equation:
 
@@ -205,6 +165,29 @@ F = \frac{L_{tot}}{L}mg
 where $L_{tot}$ - total length of the object, $m$ - mass of the weight, $g$ - gravitational constant.
 
 Experimentally found the mean value of elastic modulus of the shaft is equal to 44.31 GPa with standard deviation (SD) 1.86 GPa, an elastic modulus of the cannula is 63.92 GPa with SD 2.97 GPa.
+
+\begin{table}[h]
+\caption {Elasticity Modulus Measurement Data} \label{tab:elasMod} 
+\begin{tabular}{ | c | c | c | c | c | c | c | c | } 
+\hline
+Component & $d_o$, mm & $d_i$, mm & $I$, mm\textsuperscript{4} & $m$, g & $F$, N & $L$, mm & $L_{tot}$, mm \\ 
+\hline
+Shaft & 8.4 & 6 & $1.808 \cdot 10^{-10}$ & 250 & 3.25 & 276.2 & 366.8\\ 
+\hline
+Cannula & 10.54 & 8.75 & $3.181 \cdot 10^{-10}$ & 555 & 6.011 & 95.5 & 105.55 \\ 
+\hline
+\end{tabular}
+
+\begin{tabular}{ | c | c | c | } 
+\hline
+Component & $\delta \pm SD$, mm & $E \pm SD$, GPa \\ 
+\hline
+Shaft & $2.856 \pm 0.123$ & $44.31 \pm 1.86$ \\ 
+\hline
+Cannula & $0.086 \pm 0.004$ & $63.92 \pm 2.97$ \\ 
+\hline
+\end{tabular}
+\end{table}
 
 	\subsection{Density Measurements}
 	\label{sec:DenMeas}
