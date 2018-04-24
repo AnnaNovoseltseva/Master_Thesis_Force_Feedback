@@ -1,13 +1,12 @@
 % Appendix Template
 
-\chapter{Appendices}
-\label{ch:app}
+\chapter*{Appendix A}
+\label{AppendixA} % Change X to a consecutive letter; for referencing this appendix elsewhere, use \ref{AppendixX}
 
-\label{Appendix A} % Change X to a consecutive letter; for referencing this appendix elsewhere, use \ref{AppendixX}
-
-\fancyhead[L]{Appendix A. \emph{Circuit}} % Change X to a consecutive letter; this is for the header on each page - perhaps a shortened title
+\lhead{Appendix A. \emph{Circuit}} % Change X to a consecutive letter; this is for the header on each page - perhaps a shortened title
 
 \begin{figure}[h]
+
 	\begin{center}
 	\includegraphics[width=150mm]{fig/app/1.pdf}
 	\end{center}
@@ -74,3 +73,39 @@
 \end{figure}
 %\includepdf[scale=0.8,pages=-]{./appendices/pcb.pdf}
 
+\chapter*{Appendix B}
+\label{AppendixB} % Change X to a consecutive letter; for referencing this appendix elsewhere, use \ref{AppendixX}
+
+\lhead{Appendix B. \emph{Bill of Materials}} % Change X to a consecutive letter; this is for the header on each page - perhaps a shortened title
+\begin{figure}[h]
+	\begin{center}
+	\includegraphics[width=160mm]{fig/app/bill1.pdf}
+	\end{center}
+	\vspace{-4mm}
+	\caption[PCB Materials Bill (1)]
+	{PCB Materials Bill (1)}
+	\label{fig:billPCB1}
+	\vspace{-2mm}
+\end{figure}
+
+\begin{figure}[h]
+	\begin{center}
+	\includegraphics[width=160mm]{fig/app/bill2.pdf}
+	\end{center}
+	\vspace{-4mm}
+	\caption[PCB Materials Bill (2)]
+	{PCB Materials Bill (2)}
+	\label{fig:billPCB2}
+	\vspace{-2mm}
+\end{figure}
+
+\begin{figure}[h]
+	\begin{center}
+	\includegraphics[width=160mm]{fig/app/billSG.pdf}
+	\end{center}
+	\vspace{-4mm}
+	\caption[Mechanical and Strain Gauge Materials Bill]
+	{Mechanical and Strain Gauge Materials Bill}
+	\label{fig:billSG}
+	\vspace{-2mm}
+\end{figure}

@@ -1,5 +1,6 @@
 \chapter{Discussion and Conclusion}
 \label{discuss} % Always give a unique label
+Previous chapter discussed all aspects of the force sensor design for the daVinci robot, finishing up with calibration results of the created sensors. 
 
 The results have shown that the developed system is linear and has high sensitivity, appropriate measuring range, high resolution, and low noise. In addition, the results from FFT analysis have shown that the developed PCB gives low noise output. The noise is outside frequency range of the original signal and can be easily filtered out using digital low pass filter.
 
@@ -53,7 +54,7 @@ The system has separate Wheatstone bridges for each direction, giving the abilit
 	Both devices should undergo sterilization. XY device goes inside the patient, meaning that it should be created using biocompatible materials. The current version of the device is not biocompatible. The biocompatibility can be achieved using stainless steel as a device material and biocompatible epoxy to cover strain gauges, also Teflon coated wires should be used for all electrical connections. Use of stainless steel will require the change of the device dimensions since the material has different elasticity.
 	
 \section{Electrical Design Issues}
-	The real-time haptic feedback requires minimum data acquisition speed to be 1 kHz \cite{seungmoon_choi_effect_2004}. However, the current maximum speed is 588 Hz due to the limitation of data transfer speed of serial communication (115.2 Kbps). In order to increase the speed, the communication channel can be changed to SPI (up to 10 Mbps) \cite{_uart_porotocol} or one of the wireless protocols, such as Bluetooth (up to 1 Mbps) or wifi (up to 100 Mbps) \cite{_wireless_protocols}. Also, the communication protocol between microcontroller and ADC can be changed from SPI to faster parallel communication. Additionally, the microcontroller can be changed to faster one, so it can support wireless communication. All these changes require the change of the PCB design and microcontroller software. 
+	The real-time haptic feedback requires minimum data acquisition speed to be 1 kHz \cite{seungmoon_choi_effect_2004}. However, the current maximum speed is 588 Hz due to the limitation of data transfer speed of serial communication (115.2 Kbps). In order to increase the speed, the communication channel can be changed to SPI (up to 10 Mbps) \cite{_uart_porotocol} or one of the wireless protocols, such as Bluetooth (up to 1 Mbps) or wifi (up to 100 Mbps) \cite{_wireless_protocols}. Also, the communication protocol between microcontroller and ADC can be changed from SPI (5.8 kHz) to the faster parallel communication. Additionally, the microcontroller can be changed to faster one, so it can support wireless communication. All these changes require the change of the PCB design and microcontroller software. 
     
     Also, in the PCB the amount of Wheatstone bridges and ADCs should be increased from 2 to 4 to reduce the overall size of the system by removing second PCB and master-slave communication.
 	
