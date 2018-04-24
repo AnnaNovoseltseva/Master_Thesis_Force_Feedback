@@ -1,8 +1,6 @@
 \chapter{Discussion and Conclusion}
 \label{discuss} % Always give a unique label
-Previous chapter discussed all aspects of the force sensor design for the daVinci robot, finishing up with calibration results of the created sensors. 
-
-The results have shown that the developed system is linear and has high sensitivity, appropriate measuring range, high resolution, and low noise. In addition, the results from FFT analysis have shown that the developed PCB gives low noise output. The noise is outside frequency range of the original signal and can be easily filtered out using digital low pass filter.
+The previous chapter discussed all aspects of the force sensor design for the daVinci robot, concluding with calibration results of the created sensors. The results have shown that the developed system is linear and has high sensitivity, appropriate measuring range, high resolution, and low noise. In addition, the results from FFT analysis have shown that the developed PCB gives low noise output. The noise is outside frequency range of the original signal and can be easily filtered out using digital low pass filter.
 
 At the same time, the sensory system has high absolute errors, high RMSE, low precision, and significant hysteresis. Figure \ref{fig:Syst_err} shows X-component of the force measured at the same time using the X-Y device and using "actual force" data from the load cell. The error value changes simultaneously with rapid changes of the force applied. Taking into account, the low noisiness of the system, plausible explanation of the fluctuations in the output signal is systematic errors. Important to note, that the errors could be related to the high hysteresis of the sensors.
 
@@ -55,9 +53,11 @@ The system has separate Wheatstone bridges for each direction, giving the abilit
 	
 \section{Electrical Design Issues}
 	The real-time haptic feedback requires minimum data acquisition speed to be 1 kHz \cite{seungmoon_choi_effect_2004}. However, the current maximum speed is 588 Hz due to the limitation of data transfer speed of serial communication (115.2 Kbps). In order to increase the speed, the communication channel can be changed to SPI (up to 10 Mbps) \cite{_uart_porotocol} or one of the wireless protocols, such as Bluetooth (up to 1 Mbps) or wifi (up to 100 Mbps) \cite{_wireless_protocols}. Also, the communication protocol between microcontroller and ADC can be changed from SPI (5.8 kHz) to the faster parallel communication. Additionally, the microcontroller can be changed to faster one, so it can support wireless communication. All these changes require the change of the PCB design and microcontroller software. 
+	
+	Bandwidth of the noise signal is in range 2.5 kHz and higher, meaning the need in low pass filter with cutoff frequency 2 kHz. It can be integrated in the system using digital or analog filtering. 
     
     Also, in the PCB the amount of Wheatstone bridges and ADCs should be increased from 2 to 4 to reduce the overall size of the system by removing second PCB and master-slave communication.
 	
 \section{Conclusion}
 
-The created sensor gives 3-DOF force feedback by using lateral force sensing in a compact modular approach, the novel axial force sensing approach, and a custom ros-enabled sensor interface. New calibration approach of the force sensing devices was created. The contributions show that it is possible to add force-feedback in the daVinci robot without major changes of the existing system. However, not all of the requirements for the force measuring system were satisfied, meaning that the sensors need further improvements in both electrical and mechanical designs.
+The created sensor gives 3-DOF force feedback by using lateral force sensing in a compact modular approach, a novel axial force sensing approach, and a custom ROS-enabled sensor interface. A new calibration approach of the force sensing devices was created. The contributions show that it is possible to add force-feedback in the daVinci robot without major changes of the existing system. However, not all of the requirements for the force measuring system were satisfied, meaning that the sensors need further improvements in both electrical and mechanical designs.

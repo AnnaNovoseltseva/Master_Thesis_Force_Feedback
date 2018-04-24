@@ -2,7 +2,7 @@
 \label{sen_des_char} % Always give a unique label
 %use
 % to alter or adjust the chapter heading in the running head
-This chapter sets the requirements for the force sensing system, explains the methodology of the force-sensing devices creation, including mechanical, electrical, and software design, and finally describes the calibration process of the created system and shows the calibration results. 
+This chapter sets the requirements for the force sensing system, explains the methodology behind the design of the force-sensing devices, including mechanical, electrical, and software design, and finally describes the calibration process of the created system and shows the calibration results. 
 
 \section{Requirements for the System}
 	\label{sec:DevReq}
@@ -67,7 +67,7 @@ A block diagram of the created system for 3-DOF force measurement is shown in Fi
 \section{Mechanical Design}
 \label{sec:mechDes}
 
-This chapter describes mechanical design of two sensors, one for measurement X-Y component of the force, another for Z-component of the force. 
+This chapter describes mechanical design of two sensors, one for measurement of the X-Y component of the force, and another for the measurement of the Z-component of the force. 
 
 \subsection{X-Y Device}
 \label{sec:xyDir}
@@ -117,6 +117,12 @@ In order to get accurate readings maximum displacement of the sleeve sides shoul
 \label{fig:Z_device_design}%
 \end{figure}
 
+Z-device principle of work based on low rigidity in the connection between the sterile adapter and the surgical instrument, which allows movement of the instrument for approximately 0.3 mm in Z-direction. By designing the Z-Device to be more rigid than this connection, we can support the force in Z-Device rather than the sterile adapter. 
+
+Z-device (Figures \ref{fig:Z_device_design} - \ref{fig:Z-direction_sec}) consists of attachment to the sterile adapter, 2 thrust ball bearings, three rings, plate, and two cylindrical spacers. Three rings and two ball bearings are used to transfer only z-directional forces further to the plate and keep the ability of the shaft to rotate. The ring in the center is in direct contact with the instrument shaft, two outer rings are for the push and pull forces transfer. The plate experience maximum strain and all strain gauge sensors are mounted on it.  Two cylindrical spacers are used to give plate space to move and they are mounted on the attachment plate. The attachment plate consists of three plates, they are press-fitted on the sterile adapter and fixed with four set screws.
+
+Three rings and plate were manufactured with Aluminum Alloy 6061, attachment parts were 3-D printed, fasteners were used as spacers.
+
 \begin{figure}[h]
 	\begin{center}
 		\includegraphics[width=140mm]{fig/methods/z_dir_color_sec.png}
@@ -128,37 +134,9 @@ In order to get accurate readings maximum displacement of the sleeve sides shoul
 	\vspace{-2mm}
 \end{figure}
 
-Z-device principle of work based on low rigidity in the connection between the sterile adapter and the surgical instrument, which allows movement of the instrument for approximately 0.3 mm in Z-direction. By designing the Z-Device to be more rigid than this connection, we can support the force in Z-Device rather than the sterile adapter. 
-
-Z-device (Figures \ref{fig:Z_device_design} - \ref{fig:Z-direction_sec}) consists of attachment to the sterile adapter, 2 thrust ball bearings, three rings, plate, and two cylindrical spacers. Three rings and two ball bearings are used to transfer only z-directional forces further to the plate and keep the ability of the shaft to rotate. The ring in the center is in direct contact with the instrument shaft, two outer rings are for the push and pull forces transfer. The plate experience maximum strain and all strain gauge sensors are mounted on it.  Two cylindrical spacers are used to give plate space to move and they are mounted on the attachment plate. The attachment plate consists of three plates, they are press-fitted on the sterile adapter and fixed with four set screws.
-
-Three rings and plate were manufactured with Aluminum Alloy 6061, attachment parts were 3-D printed, fasteners were used as spacers.
-
 \section{Sensor Selection and Placement Optimization}
 \label{sec:SimMod}
-This section describes the selection of strain gauges and their mounting locations, and the process of their attachment.
-
-
-\subsection{Strain Gauge}
-	\label{sec:SGReq}
-In this section, selection criteria of the strain gauges is described.	
-
-According to the manual for strain gauge selection provided by Vishay Micro-Measurements, in the created sensors the strain gauge needs to have following parameters:
-\begin{itemize}
-  \item One of the requirements for the system is unidirectional force measurements. Single grid sensors are used for these purposes.
-  \item Sensors need to be encapsulated with pre-attached leads, since they are easier to mount.
-  \item Sensors with STC (self-temperature-compensation) show smaller temperature dependence.
-\item Length of the strain gauge depends on the maximum strain in the system. From the FEM analysis, the maximum strain on the created device is $1.5 \cdot 10^{-4}$, in case of 11 N load with the maximally opened shaft. From the literature, strain gauges length should be more than 5\% of maximum strain, hence, the minimum length of the strain gauge should be 0.0075 mm. 
-\item Gauge Factor (GF) for strain gauges usually is 2. According to the formula (\ref{eq:resistance}) strain gauge with resistance 120 $\Omega$ have maximum change in resistance equal to 0.036 $\Omega$, and 350  - 0.105 $\Omega$:
-
-\begin{equation}\label{eq:resistance}
-\Delta R=GF \cdot R \cdot \varepsilon
-\end{equation}
-
-where $GF$ - gauge factor, $R$ - resistance, $\varepsilon$- strain.
-\end{itemize}    
-
-The selected strain gauges, used in the device, are BF350-3AA High-Precision Strain Gauges with resistance $350 \pm 0.1 \Omega$, GF is 2, single grid, encapsulated with pre-attached leads.
+This section describes the selection of strain gauges and their mounting locations, and the process of their attachment to the devices described in the Section \ref{sec:mechDes}.
 
 \subsection{Sensor Placement Optimization}
 
@@ -286,11 +264,31 @@ Sleeve & 68.9 & 2700  \\
 
 All material properties used for simulations are listed in Table \ref{tab:matProp}.
 
+\subsection{Strain Gauge}
+	\label{sec:SGReq}
+This section describes the selection criteria of the strain gauges.	
+
+According to the manual for strain gauge selection provided by Vishay Micro-Measurements, in the created sensors the strain gauge needs to have following parameters:
+\begin{itemize}
+  \item One of the requirements for the system is unidirectional force measurements. Single grid sensors are used for these purposes.
+  \item Sensors need to be encapsulated with pre-attached leads, since they are easier to mount.
+  \item Sensors with STC (self-temperature-compensation) show smaller temperature dependence.
+\item Length of the strain gauge depends on the maximum strain in the system. From the FEM analysis, the maximum strain on the created device is $1.5 \cdot 10^{-4}$, in case of 11 N load with the maximally opened shaft. From the literature, strain gauges length should be more than 5\% of maximum strain, hence, the minimum length of the strain gauge should be 0.0075 mm. 
+\item Gauge Factor (GF) for strain gauges usually is 2. According to the formula (\ref{eq:resistance}) strain gauge with resistance 120 $\Omega$ have maximum change in resistance equal to 0.036 $\Omega$, and 350  - 0.105 $\Omega$:
+
+\begin{equation}\label{eq:resistance}
+\Delta R=GF \cdot R \cdot \varepsilon
+\end{equation}
+
+where $GF$ - gauge factor, $R$ - resistance, $\varepsilon$- strain.
+\end{itemize}    
+
+The selected strain gauges, used in the device, are BF350-3AA High-Precision Strain Gauges with resistance $350 \pm 0.1 \Omega$, GF is 2, single grid, encapsulated with pre-attached leads. Bill for strain gauges is provided in Appendix B.
 
 \subsection{Installation of Strain Gauges}
 \label{sec:instSG}
 
-	Application of strain gauges was done following the manual provided by Vishay Micro-Measurements \cite{StrGugeInst} .
+	Application of strain gauges was done following the manual provided by Vishay Micro-Measurements \cite{StrGugeInst}.
 
 \begin{figure}[h]
 	\begin{center}
@@ -310,16 +308,17 @@ All material properties used for simulations are listed in Table \ref{tab:matPro
 
     The strain gauges were first placed on the glass and then transported using mylar tape onto the instrument surface. A thin layer of catalyst was applied to the strain gauge and given one minute to dry. Then adhesive M-BOND 200 was applied on the surface, the pressure was applied on the tape for one minute, then two more minutes to let it dry before the tape was removed. Then leads soldering was done by application of pads, and soldering them with thin wires \cite{youtube}.
 
-    The methodology of the strain gauge application is more specifically described in \cite{StrGugeInst}. In compliance with the application guide, the same materials and technique can be used to apply strain gauges on different materials (metals, plastics).
+    The methodology of the strain gauge application is more specifically described in \cite{StrGugeInst}. In compliance with the application guide, the same materials and technique can be used to apply strain gauges on different materials (metals, plastics). 
+    Bill of materials for strain gauge application is provided in Appendix B.
 
 \section{Electrical and Software Design}
 \label{sec:elecDes}
-This section describes printed circuit board (PCB) with embedded microcontroller created to detect and amplify changes in sensor readings, microcontroller software to sent sensor readings within ROS, and ROS architecture that is used to find forces from sensor readings.
+This section describes the printed circuit board (PCB) created to detect and amplify changes in sensor readings, the microcontroller software to sent sensor readings within ROS, and the ROS architecture used to find forces from sensor readings.
 
 	\subsection{Circuit design}
 	\label{sec:cirDes}
 	
-	PCB was developed to amplify sensor readings, digitize them and sent within ROS. Signal waveforms and the block diagram of the developed PCB are shown on Figure \ref{fig:PCB_bd}.
+	PCB was developed to amplify sensor readings, digitize them and sent within ROS. Signal waveforms and the block diagram of this PCB are shown in Figure \ref{fig:PCB_bd}.
 
 \begin{figure}[h]
 	\begin{center}
@@ -331,7 +330,7 @@ This section describes printed circuit board (PCB) with embedded microcontroller
 	\label{fig:PCB_bd}
 	\vspace{-2mm}
 \end{figure}
-Generally Wheatstone bridge circuit is used to detect small resistance changes in the strain gauges. Full-bridge configuration of the circuit was used, because it gives temperature insensitivity (all sensors will change their output with temperature change) and high strain sensitivity. Four strain gauges are connected to form a Wheatstone bridge circuit. On Figures \ref{fig:WB_xy_dev} - \ref{fig:WB_z} placement of strain gauges (1-4) and their Wheatstone bridge configurations are shown for both devices. Strain gauges deform due to applied forces (1) on Figure \ref{fig:PCB_bd}, and it causes the voltage change on Wheatstone bridge. The output signal from the Wheatstone bridge goes to the instrumentation amplifier (2). Since ADC can convert only positive voltage, voltage converter changes voltage range of the output signal from ($-5V$ to $+5V$) to ($0V$ to $+5V$) range (3). That signal is converted to the digital signal with 16-bit ADC, which communicates with the microcontroller via SPI interface. The output signal is transferred to the computer via USB. 
+Wheatstone bridge circuit is used to detect small resistance changes in the strain gauges. Full-bridge configuration of the circuit was used, because it gives temperature insensitivity (all sensors will change their output with temperature change) and high strain sensitivity. Four strain gauges are connected to form a Wheatstone bridge circuit. In Figures \ref{fig:WB_xy_dev} - \ref{fig:WB_z} placement of strain gauges (1-4) and their Wheatstone bridge configurations are shown for both devices. Strain gauges deform due to applied forces (1) in Figure \ref{fig:PCB_bd}, and it causes the voltage change on Wheatstone bridge. The output signal from the Wheatstone bridge goes to the instrumentation amplifier (2). Since ADC can convert only positive voltage, voltage converter changes voltage range of the output signal from ($-5V$ to $+5V$) to ($0V$ to $+5V$) range (3). That signal is converted to the digital signal with 16-bit ADC, which communicates with the microcontroller via SPI interface. The output signal is transferred to the computer via USB. 
 	
 \begin{figure}[h]
 	\begin{center}
@@ -366,7 +365,7 @@ Generally Wheatstone bridge circuit is used to detect small resistance changes i
 	\vspace{-2mm}
 \end{figure}
 	
-Using Altium Designer 15.1 the PCB design was developed and manufactured at Advanced Circuits \cite{PCB_manufacturer}. 
+Using Altium Designer 15.1 the PCB design was developed and manufactured at Advanced Circuits \cite{PCB_manufacturer} (see more design details in Appendix A, bill of materials is in Appendix B). 
 
 In the developed PCB (Figure \ref{fig:PCB_real}) trimpots are used for calibration of the instrumentation amplifier gain (shown yellow) and change of reference voltage (shown red).
 
@@ -434,7 +433,7 @@ where $b$ is the constant equal to ADC reading when $F = 0$, $adc_{data}$ is cur
 a = c \cdot position + d
 \end{equation}
 
-where $c$ and $d$ are constants found during calibration and $position$ is the position of the sterile adapter (discussed in the Section \ref{sec:DisExp}).
+where $c$ and $d$ are constants found during calibration and $position$ is the position of the sterile adapter (it will be discussed in the Section \ref{sec:DisExp}).
 
 Z-device readings does not depend on the position of the sterile adapter. Hence, $a$ has a constant value for Z-device.
  
@@ -442,22 +441,23 @@ Z-device readings does not depend on the position of the sterile adapter. Hence,
 	
 \section{Calibration}
 \label{section:Calibration}
+The calibration system and calibration process of the created devices are described in this section. The described system can be used to calibrate other similar force sensors.
 
-	\subsection{Calibration Setup}
+	\subsection{Calibration System}
 	\label{sec:CalSetup}
-	In order to find parameters of the calibration equation (\ref{eq:calib_eq}), the calibration system was developed (Figure \ref{fig:Calib_setup_BD}). The load cell and Polaris optical tracking system are used to find "actual" force applied to the tool end. The load cell is used to find the magnitude of the applied force and the optical markers (4-5) to find the direction of the force.
+	In order to find parameters of the calibration equation (\ref{eq:calib_eq}), the calibration system was developed (Figures \ref{fig:Calib_setup_photo} - \ref{fig:Calib_setup_BD}). As shown in the figure \ref{fig:Calib_setup_photo} the load cell and Polaris optical tracking system are used to find "actual" force applied to the tool end. The load cell is used to find the magnitude of the applied force and the optical markers (4-5) to find the direction of the force.
 	
-	The calibration of the device starts with calibration of the load cell. The daVinci tool is inserted in the sterile adapter.  The force readings depend on the position of the sterile adapter, meaning that the force/sensor readings curve should be found for different positions of the adapter. Finding the curve for only two positions would be enough, because the correlation between the curve and position is linear, as the equation (\ref{eq:ster_adap_pos}) shows. 
+	The calibration of the device starts with calibration of the load cell. The daVinci tool is inserted in the sterile adapter. The force readings depend on the position of the sterile adapter, meaning that the force/sensor readings curve should be found for different positions of the adapter. Finding the curve for only two positions would be enough, because the correlation between the curve and position is linear, as the equation (\ref{eq:ster_adap_pos}) shows. 
 
 
 \begin{figure}[h]
 	\begin{center}
-	\includegraphics[width=70mm]{fig/methods/calib_set.png}
+	\includegraphics[width=60mm]{fig/methods/calib_set.png}
 	\end{center}
 	\vspace{-4mm}
 	\caption[Photo of the Calibration Setup]
 	{Photo of the Calibration Setup (from the prospective of the Polaris)}
-	\label{fig:Calib_setup_BD}
+	\label{fig:Calib_setup_photo}
 	\vspace{-2mm}
 \end{figure}
 	
@@ -552,11 +552,12 @@ F_{m} = adc_{lc}*a_{lc} + b_{lc}
 
 \section{Results}
 \label{sec:res}
+This section provides the calibration results for the created sensors. And also the results from the study relating the sterile adapter position to the coefficients of the calibration curves.
 
 \subsection{Calibration Results}
 \label{ssec:Cal_Res}
 
-The calibration results are shown on Figures \ref{fig:XY_calib_res} - \ref{fig:Z_calib_res}, where blue dots are sensor readings and the calibration function shown as a red line. The results for the Z device are presented on Figure \ref{fig:Z_calib_sen}. As an alternative method to evaluate forces exerted in a Z-direction we used joint effort readings (Figure \ref{fig:Z_joint_effort}). This method is simple to implement by subscribing to the joint efforts of the daVinci controller and can be used for comparison with created Z-device.
+The calibration results are shown in Figures \ref{fig:XY_calib_res} - \ref{fig:Z_calib_res}, where blue dots are sensor readings and the calibration function shown as a red line. The results for the Z device are presented in Figure \ref{fig:Z_calib_sen}. As an alternative method to evaluate forces exerted in a Z-direction we used joint effort readings (Figure \ref{fig:Z_joint_effort}). This method is simple to implement by subscribing to the joint efforts of the daVinci controller and can be used for comparison with created Z-device.
 
 The performance of the created devices was evaluated using standard sensor characteristics, such as absolute error, signal to noise ratio, root mean square error, sensitivity, hysteresis, and measurement range.
 
@@ -598,7 +599,7 @@ RMSE values of all systems are high, meaning low accuracy of the developed syste
 The error is the difference between the actual value of the force and the value produced by the system (Equation \ref{eq:error}). Errors are related to accuracy and can be caused by different sources. In our case all errors were higher than 0.05 N, meaning that system does not meet accuracy requirements.
 
 \begin{equation}\label{eq:error}
-error = \hat{y_i} - y_i
+error = |\hat{y_i} - y_i|
 \end{equation}
 
 One of the measurements of signal quality is signal-to-noise ratio (SNR). A higher value of SNR means the clear acquisitions with low signal distortions and artifacts caused by unwanted noise. It is defined as:
@@ -661,7 +662,7 @@ Hysteresis, N & 0.99 & 2.4 & 2.8 & 1.2 \\
 \subsection{Calibration Curve Dependence from Sterile Adapter Position}
 	\label{sec:DisExp}
 	
-Movement of the sterile adapter joint, which is at the proximal end of the instrument, causes change of the moment arm length ($L_{gauge}$ on Figure \ref{fig:Free_Body_Diagram}).	 	
+Movement of the sterile adapter joint, which is at the proximal end of the instrument, causes change of the moment arm length ($L_{gauge}$ in Figure \ref{fig:Free_Body_Diagram}).	 	
 
 \begin{figure}[h]
 	\begin{center}
