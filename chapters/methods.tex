@@ -214,7 +214,7 @@ p=\frac{m}{V}
 
 where $m$ - mass, $V$ - volume.
 
-Weight was measured using mechanical scale. Volume of the shaft was found by following equation: $V =  \pi h(r_o^2-r_i^2) = 4.36 \cdot 10^{-5} m^3$. Volume of the cannula was found using water displacement method. Shaft material density is 473 kg/m\textsuperscript{3}, cannula material density is 55238 kg/m\textsuperscript{3}.
+Weight was measured using mechanical scale. Volume of the shaft was found by following equation: $V =  \pi h(r_o^2-r_i^2) = 4.36 \cdot 10^{-5} m^3$. Volume of the cannula was found using water displacement method. Shaft material density is 473 kg/m\textsuperscript{3}, cannula material density is 5523 kg/m\textsuperscript{3}.
 
 \subsubsection{Simulation Results}
 \label{sec:FEAres}
@@ -254,7 +254,7 @@ Component & Elastic Modulus, GPa & Density, kg/ m\textsuperscript{3} \\
 \hline
 Shaft & 44.31 & 473\\ 
 \hline
-Cannula & 63.92 & 55238 \\ 
+Cannula & 63.92 & 5523 \\ 
 \hline
 Sleeve & 68.9 & 2700  \\ 
 \hline
@@ -572,7 +572,8 @@ All the following information about sensor characteristics is from \cite{kalanta
 \subfigure[Y-direction]{%
 \label{fig:Y_calib_res}%
 \includegraphics[width=80mm]{fig/results/y_dir_all.png}}%
-\caption{Calibration Results of XY Device (n=3)}
+\caption[Calibration Results of XY Device]
+{Calibration Results of XY Device during Loading and Unloading (n=3)}
 \label{fig:XY_calib_res}%
 \end{figure}
 
@@ -585,7 +586,8 @@ All the following information about sensor characteristics is from \cite{kalanta
 \subfigure[Joint Effort]{%
 \label{fig:Z_joint_effort}%
 \includegraphics[width=80mm]{fig/results/joint_z.png}}%
-\caption{Calibration Results in Z-direction (n=3)}
+\caption[Calibration Results in Z-direction]
+{Calibration Results in Z-direction during Loading and Unloading (n=3)}
 \label{fig:Z_calib_res}%
 \end{figure}
 
@@ -620,7 +622,7 @@ Resolution is the smallest change of the applied force that gives a noticeable c
 
 The linearity of the system is the proximity of the calibration curve to the straight line. $R^2$ is used to evaluate linearity by measuring the closeness of the measured data to the fitted regression line. Generally, strain gauges have the linear response with deformation and all sensors showed high linearity with $R^2$ higher than 90\%.
 
-Hysteresis is the difference between sensor outputs when the sensor is loaded versus unloaded. All sensors have shown high hysteresis, up to 2.8 N. The Z-Device shows the highest hysteresis, the possible reason could be small thickness of the plate (where sensors are attached), that causes deformation during loading and unloading to follow different path. Another reason could be unevenness of the contact between the ball bearings and the rings. Hysteresis of the joint effort method can be explained by the complicated mechanical structure of the robot arm. Possible explanation of the X-Y Device hysteresis is uneven contact between the device and the instrument shaft. Meaning for all devices hysteresis can be caused by imperfections of mechanical structures.
+Hysteresis is the difference between sensor outputs when the sensor is loaded versus unloaded. All sensors have shown hysteresis, up to 2.8 N. The Z-Device shows the highest hysteresis, the possible reason could be small thickness of the plate (where sensors are attached), that causes deformation during loading and unloading to follow different path. Another reason could be unevenness of the contact between the ball bearings and the rings. Hysteresis of the joint effort method can be explained by the complicated mechanical structure of the robot arm. Possible explanation of the X-Y Device hysteresis is uneven contact between the device and the instrument shaft. Meaning for all devices hysteresis can be caused by imperfections of mechanical structures.
 
 The measurement range consists of the maximum and minimum values of the force that can be measured with created systems. For the created system, it corresponds to force values, when the output signal reaches saturation. However, for Z-directional measurements, when z-component of the applied force was higher than 12 N it caused sliding of the sterile adapter. Meaning physical limitation for Z-direction force measurements. All designed devices measure forces in slightly higher than $\pm 11 N$ range. When the applied force exceeds the specified range, the device readings can be used to trigger safety alert.
 
