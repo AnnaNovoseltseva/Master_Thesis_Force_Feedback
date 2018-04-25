@@ -47,41 +47,49 @@ The daVinci® surgical system is one of the most commonly used robotic surgical 
 \section{Importance of Haptic Feedback}
 \label{sec:hapticFeedbackImportance}
 
-Several studies \cite{lim_role_2015, alleblas_effects_2017, currie_role_2017} have shown that implementation of force feedback into teleoperated robotic systems can reduce root-mean-square (RMS) and peak values of contact forces, energy consumption, a time required for task completion and the surgical errors rate \cite{tavakoli_haptics_2008}. The current version of daVinci robot does not provide haptic feedback, an addition of one would be beneficial for both patients and surgeons.
+Haptic feedback is assumed to improve surgeons performance in robot-assisted surgeries. Several research groups tried to examine the effect of the haptic feedback on surgeons performance in the knot tying, blunt dissection tasks, laparoscopic cholecystectomy, and mitral valve annuloplasty repair. To assess the performance they used required time to complete surgical tasks, peak and mean forces applied on tissues, and suture breakage rates.
 
-The addition of visual (2.16 ± 1.67), direct (1.62 ± 0.86), or both visual and direct force
-feedback (2.15 ± 1.08) resulted in lower mean maximum force applied to mitral valve tissue while
-suturing compared with no force feedback (3.34 ± 1.93 N; P < 0.05).
-Conclusions To achieve better control of interaction forces on cardiac tissue during robotics assisted
-mitral valve annuloplasty suturing, force feedback may be required. \cite{currie_role_2017}
-
-The experimental results reveal reductions in force error (39.1% and
-40.9%) when using haptic feedback during 1N and 2N pulling tasks. Moreover,
-survey analyses showthe effectiveness of the haptic feedback during teleoperation.
-Conclusions The combined tactile and kinesthetic feedback of the master
-device in robotic surgery improves the surgeon’s ability to control the interaction
-force applied to the tissue. \cite{lim_role_2015}
-
-As reported by Cundy et al. [7], the experience of the each
-single surgeon may probably explain these results. In fact
-the personal expertise seems to overcome the lack of a
-feedback haptic sensor, thus making feedback sensors
-introduction desirable only if technologically and economically
-feasible.
-
-Mention 
-
+As reported in \cite{meijden_value_2009}, research groups \cite{delaney_comparison_2003, morino_randomized_2006, nakadi_evaluation_2006, kornprat_prospective_2006} compared robotically assisted (no haptic feedback) and traditionally performed laparoscopic (has some degree of haptic feedback) surgeries in terms of required operative time and post-operative injuries rate. Meijden et al. concluded that in different types of robot-assisted surgeries the absence of haptic feedback prolonged operative times and increased the risk of surgical errors. However, there are other factors, such as surgeon experience in use of traditional laparoscopic instruments, that could explained the change in operative times.
 
 \begin{figure}[h]
 	\begin{center}
-	\includegraphics[width=100mm]{fig/background/importance_haptics.png}
+	\includegraphics[width=70mm]{fig/background/reiley_haptics.png}
 	\end{center}
 	\vspace{-4mm}
-	\caption[The Senhance Surgical System]
-	{The Senhance Surgical System}
-	\label{fig:Senhance}
+	\caption[Effects of Visual Force Feedback on Robot-Assisted Surgical Task Performance]
+	{Effects of Visual Force Feedback on Robot-Assisted Surgical Task Performance \cite{reiley_effects_2008}}
+	\label{fig:hapt_imp}
 	\vspace{-2mm}
 \end{figure}
+
+In \cite{bethea_application_2004, reiley_effects_2008} studies knot tying tasks were performed by surgeons to assess the influence of the haptic feedback. Bethea et al. reported significantly more consistent tensions applied to suture materials, without breakage, during tying with visual haptic feedback compared to without the feedback \cite{bethea_application_2004}. Reiley et al. implemented real time visual force feedback in the daVinci robotic system and asked two groups of surgeons (with and without robotic experience) to tie 10 knots with and without force feedback \cite{reiley_effects_2008}
+.They used as a performance parameters suture breakage rate, securety of the knots, peak and standard deviation of applied forces, and completion times. They concluded that use of visual force feedback resulted in lower suture breakage rates, peak forces, and decreased force inconsistencies among surgeons without robotic experience (Figure \ref{fig:hapt_imp}). However, among experienced daVinci surgeons it did not show any changes in performance parameters. Authors suggested that visual force feedback benefits only inexperienced robot-assisted surgeons. One of the issues with the visual force feedback (used in both studies) that it does not give much information (only color changes) about forces applied by the instruments, which diminishes haptics benefits. The difference between results of these two studies could be because in \cite{bethea_application_2004} authors did not consider surgeon`s experience.
+
+
+\begin{figure}[h]%
+\centering
+\subfigure[Average peak force applied versus force feedback gain]{%
+\label{fig:peak_force}%
+\includegraphics[width=60mm]{fig/background/peak_force.png}}%
+\qquad
+\subfigure[Average RMS force applied versus force feedback gain]{%
+\label{fig:average_force}%
+\includegraphics[width=60mm]{fig/background/ave_force.png}}%
+\qquad
+\subfigure[Average number of errors versus force feedback gain]{%
+\label{fig:average_force}%
+\includegraphics[width=60mm]{fig/background/error.png}}%
+\caption[Examination of Blunt Dissection with/without Force Feedback]{Examination of Blunt Dissection with/without Force Feedback \cite{wagner_benefit_2007}}
+\label{fig:blant_dissect}%
+\end{figure}
+
+Wagner et al. examined the effect of force feedback during performance of the blunt dissection task (25-30\% of the time spent on most surgeries)  \cite{wagner_benefit_2007}.  The results of the study demonstrated that without force feedback the average force applied to the tissue increased by at least in 1.5 times, peak forces increased 2 times and number of errors that caused tissue damage increased by over a factor of 3 (Figure \ref{fig:blant_dissect}). And that these results are  independent of previous surgical knowledge. Also, study have shown that the rate and precision of dissection were not significantly improved with force feedback. In contrast to two previous studies, that used visual force feedback, authors used Phantom haptic interface device as the surgeon master controller, that could explained significant changes in the study results. 
+
+Yiasemidou et al. assessed the role of haptic feedback by evaluating performance of surgical trainees after simulation training \cite{yiasemidou_faster_2011}. They were divided in two groups and performed full procedure of laparoscopic cholecystectomy using virtual reality simulators with and without haptic feedback.  The results shown that use of simulators with haptic feedback significantly reduced the time required to complete the procedure.
+
+Currie et al. developed robotic-assisted surgical system that provides visual and direct force feedback during cardiac surgery \cite{currie_role_2017}. The system measured the amount of force applied to cardiac tissue during mitral valve annuloplasty repair. The study results have shown that the addition of both visual and direct force feedback ($2.15 \pm 1.08$) causes lower peak force applied to mitral valve tissue compared to no force feedback ($3.34 \pm 1.93 N; P < 0.05$). In this study, authors also compared applied peak forces with only visual force feedback ($2.16 \pm 1.67$) and with only direct force feedback ($1.62 \pm 0.86$). Also comparison between the performance of experts and students (with no experience in robotics-assisted surgery) have shown no statistically significant differences between the groups.  
+
+After improvement of the study methodology in haptic feedback role assessment in surgeries, when researchers started to use haptic devices to provide direct force feedback (not visual force feedback) and use of broader study groups with different surgical skills. The results of the studies \cite{wagner_benefit_2007, yiasemidou_faster_2011, currie_role_2017} have shown that implementation of force feedback into teleoperated robotic systems reduces root-mean-square (RMS) and peak values of contact forces, energy consumption, a time required for task completion and the surgical errors rate \cite{tavakoli_haptics_2008}. The current version of daVinci robot does not provide haptic feedback, and an addition of one would be beneficial for both patients and surgeons.
 
 \section{Current Approaches}
 \label{sec:CurAppr}
